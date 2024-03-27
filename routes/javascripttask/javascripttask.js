@@ -20,4 +20,9 @@ router.get('/task3_kukucube',(req,res)=>{
     return res.render('Task-3/Practice_Task-3');
 });
 
+//---------Task-4 Tic Tac Toe
+router.get('/task4_tictactoe',(req,res)=>{
+    return res.render('Task-4/Practice_Task-4');
+});
+
 module.exports = router;

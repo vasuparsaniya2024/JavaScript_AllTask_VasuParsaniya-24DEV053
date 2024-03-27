@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-4 JavaScript</title>
+    <script src="/js/Task-4/Practice_Task-4.js"></script>
+    <style>
+        table{
+            width: 50%;
+            margin: 0 auto;
+            height: 90vh;
+            cursor: pointer;
+        }
+        td{
+            width: 50px;
+            height: 50px;
+            background-color: antiquewhite;
+            text-align:center;
+        }
+
+        .splitleft{
+            width: 20%;
+            height: 100%;
+            position: fixed;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            background-color:aquamarine;
+        }
+
+        .splitright{
+            width: 80%;
+            height: 100%;
+            position: fixed;
+            z-index: 1;
+            top:0;
+            right:0;
+            background-color:blueviolet;
+        }
+
+        div p{
+            font-size: 30px;
+        }
+        span{
+            font-size: 60px;
+
+        }
+        input{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body onload="TicTacToe()">
+         <div class="splitleft">
+            <h2>24DEV053_Vasu Parsaniya</h2>
+            <h2>Date: 05-02-2024</h2>         
+            <h2>TIC TAC TOE</h2>
+            <p>Winner:</p><span id="winner"></span>
+            <p>Turn Of:</p><span id="turn"></span>
+            <br><br>
+            <!-- <input type="button" id="restart" onclick="Restart()" value="Restart"> -->
+        </div>
+
+        <table class="splitright" id="mytable">
+            <tr>
+                <td id="0"><span id="sign0"></span></td>
+                <td id="1"><span id="sign1"></span></td>
+                <td id="2"><span id="sign2"></span></td>
+            </tr>
+
+            <tr>
+                <td id="3"><span id="sign3"></span></td>
+                <td id="4"><span id="sign4"></span></td>
+                <td id="5"><span id="sign5"></span></td>
+            </tr>
+
+            <tr>
+                <td id="6"><span id="sign6"></span></td>
+                <td id="7"><span id="sign7"></span></td>
+                <td id="8"><span id="sign8"></span></td>
+            </tr>
+        </table>
+</body>
+</html>
