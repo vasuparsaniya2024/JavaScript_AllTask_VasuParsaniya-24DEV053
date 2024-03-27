@@ -14,4 +14,10 @@ router.get('/task2_dynamictable',(req,res)=>{
     return res.render('Task-2/Query Selector/TableQuerySelector');
 });
 
+
+//--------Task-3 Kuku Cude
+router.get('/task3_kukucube',(req,res)=>{
+    return res.render('Task-3/Practice_Task-3');
+});
+
 module.exports = router;
