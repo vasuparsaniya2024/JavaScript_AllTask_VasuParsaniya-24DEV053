@@ -1,0 +1,711 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.colorwhite{
+    background-color: #F3F7FE;
+}
+
+.colorlight{
+    background-color: #F9FBFF;
+}
+
+.colordark{
+    background-color: #0A2259;
+}
+
+.colorblue{
+    background-color:#6A88B6;
+}
+
+.colorlightblue{
+    background-color: #F0F6FF;
+}
+
+.colororange{
+    background-color: #F2A33A
+}
+
+.colorgray{
+    background-color: #AAAAAA;
+}
+
+/* --------------------section background color */
+#header,#sectionhosting,#sectionplan,#sectiontrial{
+    background-color: #F3F7FE;
+
+}
+
+#sectionexperienced{
+    background-color: #F9FBFF;
+}
+
+/* #sectionboostspeed,#sectionlanguage,#sectioncustomer{
+
+} */
+
+#footer{
+    background-color: #0C2259;
+}
+/* ----------------------------------------navigation bar css */
+
+a{
+    text-decoration: none;
+}
+
+.containerheader{
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.headerrow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.headercol1{
+    width: 30%;
+}
+.headercol2{
+    width: 70%;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    /* gap:20px; */
+    padding-left: 200px;
+}
+
+ul li{
+    margin-right: 40px;
+}
+
+.navigation{
+    color: #0A2259;
+    font-size: 20px;
+}
+
+.button{
+    border: 1px solid #0A2259;
+    padding: 10px 20px;
+}
+
+hr{
+    margin: 0 auto;
+    max-width: 1450px;
+}
+/* --------------hosting */
+.containerhosting{
+    max-width: 1450px;
+    margin: 0 auto;
+    padding-top:80px;
+    padding: 30px;
+    /* height: 82dvh; */
+}
+
+.rowforhosting{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.colforhosting1{
+    width: 58%;
+    padding: 0 15px;
+}
+
+.colforhosting2{
+    width:42%;
+    padding: 0 15px;
+}
+
+/* .textforhosting1{
+    width: 400px;
+    height: auto;
+} */
+
+.hostingimage{
+    width: 100%;
+    height: auto;
+}
+
+.textforhosting h2{
+    font-size:60px;
+    width: 70%;
+    margin-top: 0;
+    color:#0A2259;
+    margin-bottom: 60px;
+}
+
+.textforhosting p{
+    font-size:20px;
+    width: 80%;
+    color: #0C2259;
+    margin-bottom: 60px;
+}
+
+.getstarted{
+    background-color: #F2A33A;
+    color: white;
+    padding: 10px 20px;
+}
+
+.getmigration{
+    border: 1px solid #0A2259;
+    color: #0A2259;
+    padding:10px 20px;
+}
+
+.downarrow{
+    margin-top: 16%;
+}
+
+
+/* ---------------------------experienced------------------ */
+
+.containerexprienced{
+    max-width: 1450px;
+    margin: 0 auto;
+    /* padding: 20px 0; */
+    padding: 30px;
+
+}
+
+.experiencedrow{
+    display: flex;
+}
+
+.experiencedcol1{
+    width: 40%;
+    font-size: 20px;
+}
+
+.experiencedcol1contain{
+    width:50%;
+}
+
+.experiencedcol2{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    gap:12%;
+}
+
+.experiencedcol2 img{
+    width: 120px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+
+/* ------------------------boost speed */
+.containerboostspeed{
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.rowforboostspeed{
+    display: flex;
+    margin: 0 -15px;
+    padding: 100px 0 100px 0;
+}
+
+.colforboostspeed{
+    width: 50%;
+    padding: 0 15px;
+}
+
+.colforboostspeed img{
+    object-fit: cover;
+}
+
+.colforboostspeed h2{
+    color:#0C2259;
+    font-size: 50px;
+}
+
+.rowforboostspeed1{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.rowforboostspeed1 h3{
+    color: #6784B1;
+    font-size: 22px;
+}
+
+.rowforboostspeed1 p{
+    color:#D0D0D0;
+    font-size: 16px;
+    margin:0;
+}
+
+.colforboostspeedcontain{
+    width:50%;
+    padding: 0 15px;
+}
+
+
+/* -----------------------plans */
+
+.containerplan{
+    max-width: 1450px;
+    margin: 0 auto;
+    /* padding:60px 0; */
+    padding: 60px 30px;
+
+}
+
+.rowforplans{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.colforplan{
+    width:25%;
+    padding: 0 15px;
+    margin-top: 10px;
+}
+
+.containerplan h2{
+    text-align: center;
+    font-size: 55px;
+}
+
+.textplan{
+    width: 70%;
+    margin: 0 auto;
+}
+.planname{
+    display: flex;
+    gap: 15px;
+}
+
+.planname img{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    padding: 5px;
+}
+
+.planname h3{
+    margin-top: 0;
+    color: #6886B4;
+}
+
+.moredetails{
+    background-color: #FEFEFE;
+    color: #475983;
+    border: 1px solid #475983;
+    text-align: center;
+    padding:20px 80px 20px 80px;
+}
+.moredetailsdiv{
+    margin-top: 26px;
+}
+
+.boxcardparent{
+    background-color: #FEFEFE;
+    padding: 15px;
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+}
+.boxcardchild{
+    background-color: #EFF5FF;
+    padding: 12px;
+    height: 250px;
+
+}
+
+.boxcardchild p{
+    color:#94A2BD;
+    text-align: left;
+}
+
+.price{
+    color: #0C2259;
+    text-align: center;
+    font-size: 25px;
+    /* margin-bottom: 20px; */
+}
+
+.price sub{
+    font-size: 15px;
+}
+
+.boxcardparent:hover{
+    background-color: #0C2259;
+}
+
+.boxcardparent:hover .price{
+    color:#F8FBFE;
+}
+
+.boxcardparent:hover .moredetails{
+    background-color: #F2A33A;
+    color:#F8FBFE;
+}
+
+.boxcardparent:hover .boxcardchild{
+    background-color: #6987B5;
+}
+
+.boxcardparent:hover h3,.boxcardparent:hover .boxcardchild p{
+    color: #F8FBFE;
+}
+
+
+/* -----------------------language */
+.containerlanguage{
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 50px 30px 50px 30px;
+}
+
+.rowlanguage{
+    display: flex;
+    margin: 0 -15px;
+}
+
+.collanguage1{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 0 15px;
+    gap:15px;
+}
+
+.collanguage2{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 0 15px;
+    gap:25px;
+}
+
+.languagename{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap:20px;
+    background-color: #FBFCFE;
+    padding: 20px;
+}
+.defaultstylelanguage{
+    background-color: #F0F6FF;
+}
+
+.image{
+    width: 30%;
+    padding-left: 50px;
+}
+
+.imagename{
+    width: 70%;
+    font-size: 25px;
+}
+
+.imagename h3{
+    margin: 0;  
+    cursor: pointer;
+}
+
+.languagetitle{
+    width: 80%;
+    font-size: 25px;
+    color: #0C2259;
+}
+.languagetitle h2{
+    margin: 0 0 30px 0;
+}
+
+.languagesubtitle{
+    color: #B3B3B3;
+    width: 80%;
+    font-size: 18px;
+}
+
+.languagesubtitle p{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.languagefeature{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+    width: 70%;
+}
+
+.languagefeature1{
+    display: flex;
+    align-items: center;
+}
+.languagefeature1 span{
+    color: #666666;
+    font-size: 18px;
+}
+
+.languagefeature1 img{
+    padding-right: 20px;
+}
+
+
+.moredetailslanguage{
+    color: white;
+    background-color: orange;
+    padding: 20px 60px 20px 60px;
+    cursor: pointer;
+
+}
+
+.topbutton{
+    margin-top: 30px;
+    padding: 20px 60px 20px 0;
+}
+#magento,#laravel,#php{
+    display:none;
+}
+#wordpress{
+    display: block;
+}
+
+
+/* -------------------customer */
+.containercustomer{
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 70px 30px 70px 30px;
+    height: auto;
+}
+
+.rowforcustomer1{
+    display: flex;
+    margin: 0 -15px;
+}
+
+.rowforcustomer2{
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 -15px;
+    overflow-x: hidden;
+}
+
+.colforcustomer1{
+    width: 55%;
+    padding: 0 15px;
+}
+
+.colforcustomer1 h2{
+    margin-bottom: 40px;
+    font-size: 50px;
+    color: #0C2259;
+}
+.colforcustomer2{
+    width: 45%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 15px;
+}
+
+.colforcustomer2 img{
+    border-radius: 50%;
+    background-color: #F5F8FD;
+    padding: 10px;
+    cursor: pointer;
+}
+.colforcustomer{
+    min-width: 33%;
+    padding: 0 15px;
+}
+
+.boxcardforcustomer{
+    background-color: #F5F8FD;
+    padding: 20px;
+    height: 400px;
+}
+
+.childboxcardforcustomer{
+    background-color: #FFFFFF;
+    padding: 20px;
+}
+
+.imagecustomer{
+    display: flex;
+    justify-content: center;
+}
+.ratings{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.customerreview{
+    padding: 20px;
+}
+
+.customerreview p{
+    color: #A9B2C6;
+    margin: 0;
+    text-align: center;
+}
+
+.customername{
+    padding: 20px;
+}
+
+.customername h3,p{
+    margin: 0;
+    text-align: center;
+}
+
+.customername h3{
+    color: #0C2259;
+}
+
+.customername p{
+    color: #A9B2C6;
+}
+
+
+/* ------------------trials */
+.containertrial{
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 50px 30px 50px 30px;
+}
+
+.rowfortrial{
+    display: flex;
+    margin: 0 -15px;
+}
+
+.colfortrial1{
+    width:50%;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+
+.colfortrial2{
+    width: 50%;
+    padding: 0 15px;
+    display: flex;
+    justify-content: end;
+}
+
+.colfortrial1 h2{
+    color: #0C2259;
+    font-size: 50px;
+    margin: 50px 0 0 0;
+}
+
+.colfortrial1 p{
+    color: #445783;
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.colfortrial2 img{
+    width: 80%;
+    height: 100%;
+}
+
+
+
+.button1{
+    color: white;
+    padding: 15px 60px 15px 60px;
+    background-color: orange;
+}
+
+.button2{
+    color: #0C2259;
+    padding: 15px 60px 15px 60px;
+    border: 1px solid #0C2259;
+    margin-top: 20px;
+}
+
+/* ----------------------------------footer */
+
+.containerfooter{
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 60px 30px 60px 30px;
+}
+
+.rowforfooter{
+    display: flex;
+    flex-wrap:wrap;
+    margin: 0 -15px;
+}
+
+.colforfooter1{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 0 15px;
+}
+
+.colforfooter1 p{
+    width: 80%;
+    font-size: 18px;
+    color: white;
+    text-align: left;
+}
+
+.socialmedia{
+    display: flex;
+    gap: 10px;
+    color: white;
+    font-size: 22px;
+}
+
+.colforfooter2{
+    width: 60%;
+    color: white;
+    padding: 0 15px;
+}
+
+.childrow{
+    display: flex;
+    gap: 20px;
+    padding-left: 80px;
+    justify-content: flex-end;
+}
+
+.childcol{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.childcol h3{
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.childcol p{
+    font-size: 18px;
+}
+
+.childcolformargin{
+    margin-left: 150px;
+}

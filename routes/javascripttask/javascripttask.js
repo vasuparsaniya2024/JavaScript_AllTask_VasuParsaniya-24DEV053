@@ -36,4 +36,10 @@ router.get('/task6_ehya',(req,res)=>{
     return res.render('Task-6/ehya');
 });
 
+//-------Task-7 Awan Hoster(HTML,CSS,JavaScript)
+router.get('/task7_awanhoster',(req,res)=>{
+    return res.render('Task-7/Awan_Hoster');
+});
+
+
 module.exports = router;
