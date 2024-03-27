@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login/login.css">
+    <script src="/js/login/loginfrontend.js"></script>
+    <script src="/js/login/validateloginfrontend.js"></script>    
+</head>
+<body>
+    <section class="section">
+        <h1>Vasu Parsaniya_24DEV053</h1>
+        <div class="container">
+            <div id="messagepopupdiv" class="messagepopupdiv">
+            </div>
+            <div id="loginbox" class="loginbox">
+                <p class="title">Login</p>
+                <div class="row">
+                    <div class="col">
+                    <input type="text" id="username" class="inputstyle" name="username" placeholder="Enter your username or email">
+                    </div>
+                    <div class="col">
+                        <input type="text" id="password" class="inputstyle" name="password" placeholder="Enter your password">
+                        </div>
+            </div>
+    
+                <div class="loginbuttondiv">
+                    <p class="loginbutton" onclick="userlogin()">Login</p>
+                    <p>Forgot password? <a class="forgotpasswordbutton" href="/forgotpassword">Forgot Password</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

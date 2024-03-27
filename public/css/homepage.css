@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+
+.section{
+    max-width: 1400px;
+    background-color: bisque;
+}
+
+.container{
+    background-color: aqua;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.row{
+    padding: 20px;
+}
+
+.registrationbutton{
+    background-color:chocolate;
+    width: 20%;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+h1,h2{
+    font-size: 30px;
+    text-align: center;
+}

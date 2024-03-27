@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/css/registration/linkactivation.css">
+    <script src="/js/registration/registrationfrontend.js"></script>
+    <script src="/js/registration/validationfrontend.js"></script>
+</head>
+
+<body>
+    <section class="section">
+
+        <div class="container">
+            <div id="messagepopupdiv" class="messagepopupdiv">
+            </div>
+
+            <div id="thankyoubox" class="thankyoubox">
+                <p>Thank You For Registration</p>
+                <p id="setpasswordbutton" class="setpasswordbutton" onclick="showpasswordbox()">Set Password</p>
+            </div>
+            <!-- password section -->
+            <div id="passwordbox" class="passwordbox">
+                <div class="passwordwithimage">
+                    <div class="picol">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" id="password" class="inputstyle" name="password"
+                                    placeholder="Enter Password">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" id="confirmpassword" class="inputstyle" name="confirmpassword"
+                                    placeholder="Enter Confirm Password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="picol">
+                        <img class="passimage" src="/image/password.jpeg">
+                    </div>
+                </div>
+
+                <div class="passwordbuttondiv">
+                    <p class="passwordbutton" onclick="userpasswordset()">Submit</p>
+                    <div id="pageexpirediv" class="pageexpirediv">
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

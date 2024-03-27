@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/css/registration/registration.css">
+    <script src="/js/registration/registrationfrontend.js"></script>
+    <script src="/js/registration/validationfrontend.js"></script>    
+</head>
+<body>
+    <section class="section">
+        <h1>Vasu Parsaniya_24DEV053</h1>
+        <div class="container">
+            <div id="messagepopupdiv" class="messagepopupdiv">
+            </div>
+            <div id="registrationbox" class="registrationbox">
+                <p class="title">Registration</p>
+                <div class="row">
+                    <div class="col">
+                    <input type="text" id="fname" class="inputstyle" name="fname" placeholder="First Name">
+                    </div>
+                    <div class="col">
+                    <input type="text" id="lname" class="inputstyle" name="lname" placeholder="Last Name">
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col">
+                    <input type="text" id="email" class="inputstyle" name="email" placeholder="Enter Email">
+                    </div>
+                    <div class="col">
+                    <input type="text" id="phonenumber" class="inputstyle" name="phonenumber" placeholder="Enter Phonenumber">
+                    </div>
+                </div>
+                <div id="acticationlinkbox" class="acticationlinkbox">
+                    <p><a id="activationlink" class="activationlink"></a></p>
+                </div>
+                <div class="registerbuttondiv">
+                    <p class="registerbutton" onclick="userregistration()">Register</p>
+                    <p>Already have an account? <a class="loginbutton" href="/userlogin">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
