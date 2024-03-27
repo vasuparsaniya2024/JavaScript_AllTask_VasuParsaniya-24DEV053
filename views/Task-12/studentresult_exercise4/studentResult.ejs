@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/css/Task-12/studentresult_exercise4_css/studentresult.css">
+</head>
+
+<body>
+    <section class="tableSection">
+        <h1>Vasu Parsaniya_24DEV053</h1>
+        <h2>Exercise:Student Result</h2>
+        <div class="container">
+            <table>
+                <thead class="tablehead">
+                    <tr>
+                        <th class="tablehead1">Student ID</th>
+                        <th class="tablehead2">StudentName</th>
+                        <th class="tablehead1" colspan="2">Terminal</th>
+                        <th class="tablehead2" colspan="2">Prelim</th>
+                        <th class="tablehead1" colspan="2">Final</th>
+                        <th class="tablehead2">Total(1200)</th>
+                        <th class="tablehead1">View</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2"></th>
+                        <th class="tablehead1">Theory Mark(180)</th>
+                        <th class="tablehead2">Practical Mark(120)</th>
+                        <th class="tablehead1">Theory Mark(240)</th>
+                        <th class="tablehead2">Practical Mark(60)</th>
+                        <th class="tablehead1">Theory Mark(420)</th>
+                        <th class="tablehead2">Practical Mark(180)</th>
+                    </tr>
+                </thead>
+
+                <% var StudentMark = JSON.parse(StudentMarkObject)%>
+                <% var studentTerminalMark = StudentMark.Terminal%>
+                <% var studentPrelimMark = StudentMark.Prelim%>
+                <% var studentFinalMark = StudentMark.Final%>
+                <%studentFinalMark[0].student_id%>
+    
+                <% for(let i=0;i<studentTerminalMark.length;i++){%>
+                        <tr>
+                            <td>
+                                <%= studentTerminalMark[i].student_id%>
+                                </td>
+                            <td>
+                                <%= studentTerminalMark[i].studentname%>
+                                </td>
+
+                            <td>
+                                <%= studentTerminalMark[i].theoryObtainMarkTerminal%>
+                                </td>
+                            <td>
+                                <%= studentTerminalMark[i].practicalObtainMarkTerminal%>
+                                </td>
+                            <td>
+                                <%= studentPrelimMark[i].theoryObtainMarkPrelim%>
+
+                                </td>
+                            <td>
+                                <%= studentPrelimMark[i].practicalObtainMarkPrelim%>
+                                </td>
+                            <td>
+                                <%= studentFinalMark[i].theoryObtainMarkFinal%>
+                                </td>
+                            <td>
+                                <%= studentFinalMark[i].practicalObtainMarkFinal%>
+                            </td>
+                            <td>
+                                <%= studentTerminalMark[i].theoryObtainMarkTerminal + studentTerminalMark[i].practicalObtainMarkTerminal + studentPrelimMark[i].theoryObtainMarkPrelim +
+                                studentPrelimMark[i].practicalObtainMarkPrelim + 
+                                studentFinalMark[i].theoryObtainMarkFinal + 
+                                studentFinalMark[i].practicalObtainMarkFinal%>
+                            </td>
+                            <td class="viewbutton">
+                            <a href="/task12_studentResult?student_id=<%= studentTerminalMark[i].student_id%>" target="_top">Result</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                
+            </table>
+        </div>
+        <%- include('pagginationforstudentresult')%>
+    </section>
+
+    <%- include('../../Components/HomeButtonComponent')%>
+</body>
+
+</html>
