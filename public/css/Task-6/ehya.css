@@ -1,0 +1,434 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* .header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+} */
+
+.headercontainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 20px; */
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.navigation{
+    color: #183B56;
+    font-size: 20px;
+}
+
+/* .logo{
+    margin: 0 0 0 140px;
+} */
+
+.button{
+    color: #1565D8;
+    border: 1px solid #1565D8;
+    border-radius: 5px;
+    padding: 18px;
+}
+ul li{
+    margin-right: 40px;
+}
+
+/* .consultation{
+    padding: 60px;
+} */
+
+.consultationcontainer{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.consultationrow{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.consultationcol1{
+    width: 60%;
+    padding: 0 15px;
+}
+
+.consultationcol2{
+    width: 40%;
+    padding: 0 15px;
+}
+
+.consultationimage{
+    margin: 50px 50px 0 50px;
+}
+
+.consultationtext{
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+.consultationtext h2{
+    font-size: 40px;
+    color: #183B56;
+    letter-spacing: 1px;
+}
+
+.consultationtext p{
+    font-size: 20px;
+    color: #183B56;
+    margin-top: -10px;
+}
+
+.getconsultation{
+    color: #FFFFFF;
+    background-color: #1565D8;
+    border: 1px solid #1565D8;
+    border-radius: 5px;
+    padding: 18px;
+    width: 200px;
+}
+
+
+.ourservices{
+    height: 850px;
+}
+
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #F3F7FE;
+    height: 750px;
+    padding: 60px;
+}
+
+.textgroup1{
+    text-align: center;
+}
+
+.greencolor{
+    color: #36B37E;
+}
+
+.graycolor{
+    color:#5A7184;
+}
+
+.darkcolor{
+    color:#183B56;
+}
+
+.textgroupgray{
+    color: #5A7185;
+}
+
+.textgroup1 h2{
+    color: #183B56;
+    font-size: 30px;
+}
+.textgroup2{
+    display: flex;
+    text-align: center;
+}
+.service1{
+    margin-right: 100px;
+}
+
+.service1 i{
+    color: #36B37E;
+    background-color: rgb(184, 233, 184);
+    border-radius: 48%;
+    font-size: 15px;
+    padding: 5px;
+
+}
+
+.row{
+    display:flex;
+    flex-wrap: wrap;
+    margin: 50px -15px;
+}
+
+.col{
+    width: 33.33%;
+    padding: 0 15px;
+}
+
+.row h3{
+    color:#183B56;
+}
+
+.row p{
+    color:#5A7184;
+}
+
+.learnmore{
+    color: #1565D8;
+    font-weight: 800;
+}
+.boxcard{
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    height: 350px;
+    padding: 50px;
+}
+
+.icon{
+    border: 1px solid rgb(175, 168, 168);
+    border-radius: 16px;
+    width: fit-content;
+    padding: 10px;
+}
+
+.containerintips{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px;
+    /* border: 1px solid blue; */
+}
+
+.textgroupintips{
+    text-align: center;
+    color:gray;
+    font-size: 20px;
+}
+
+.textgroupintips h2{
+    font-size: 40px;
+    margin-top: -10px;
+}
+
+/* .imagetip{
+    display:flex;
+    flex-wrap: wrap;
+    margin: 50px -15px;
+} */
+
+.imagetiprow{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.imagetipcol{
+    width: 50%;
+    padding: 0 15px;
+}
+
+.imagetipboxcard1{
+    background-image: url(/image/Task-6/Desktop/Image.png);
+    height: 600px;
+    background-repeat:no-repeat;
+    width: 100%;
+}
+
+.imagetipboxcard2{
+    background-image: url(/image/Task-6/Desktop/Image2.png);
+    height: 600px;
+    background-repeat:no-repeat;
+}
+
+/* .imagecol{
+    width: 50%;
+    padding: 0 15px;
+    border: 1px solid black;
+} */
+/* 
+.boxcardimage1{
+    width: 50%;
+    background-image: url("./Desktop/Image.png");
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    height: 600px;
+    padding: 15px;
+}
+
+.boxcardimage2{
+    width: 50%;
+    background-image: url("./Desktop/Image2.png");
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    height: 600px;
+    padding: 15px;
+} */
+
+.imagecontain1{
+    width: 540px;
+    color: white;
+    padding: 0 30px 30px 30px;
+    font-size: 25px;
+}
+
+.imagecontain2{
+    width: 500px;
+    color: white;
+    padding: 0 30px 30px 30px;
+    font-size: 25px;
+}
+
+.containeryourbenefits{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.colforbenefits h2{
+    color: #183B56;
+    font-size: 30px;
+}
+
+.rowforbenefits h3{
+    color: #183B56;
+    font-weight: 150;
+}
+
+.title p{
+    color: #5A7184;
+    font-size: 18px;
+}
+
+.rowforbenefits{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+
+}
+
+.colforbenefits{
+    width: 33.33%;
+    padding: 0 15px;
+    /* border: 1px solid black; */
+    margin-bottom: 25px;
+
+}
+
+.line{
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.containerreview{
+    max-width: 1000px;
+    margin:0 auto;
+}
+
+.rowforreview{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px -15px;
+}
+
+.colforreview{
+    width:33.33%;    
+    padding: 0 15px;
+    /* border: 1px solid black; */
+}
+
+.customersupport{
+    text-align: center;
+    margin-top: 40px;
+}
+.trustpilot{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+
+.texttrustpilot{
+    color: rgb(0,0,0);
+    font-size: 25px;
+}
+.likeinreview{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.likeinreview img{
+    width: 50px;
+}
+
+/* .footer{
+} */
+
+.footercontainer{
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 350px;
+    background-color: #0D2436;
+    padding: 40px;
+}
+
+.footerrow{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.socilamedia{
+    width: 30%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.socilamedia p,.socilamedialink{
+    color: #5A7184;
+    font-size: 16px;
+}
+.socilamedialink{
+    display: flex;
+    gap:18px;
+}
+
+.connect{
+    width: 70%;
+    margin-top: 40px;
+}
+
+.connect h3{
+    color: white;
+    font-size: 30px;
+}
+
+.email{
+    width: 300px;
+    padding: 18px 18px 18px 18px;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.submit{
+    width: 150px;
+    padding: 18px 18px 18px 18px;
+    border-radius:10px;
+    background-color: #3065D8;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}
+
+.copyright{
+    text-align: center;
+    color: #5A7184;
+    margin-top: 50px;
+    font-size: 16px;
+}

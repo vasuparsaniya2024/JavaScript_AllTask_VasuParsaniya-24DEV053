@@ -30,4 +30,10 @@ router.get('/task5_sorting',(req,res)=>{
     return res.render('Task-5/Practice_Task-5');
 });
 
+
+//--------Task-6 ehya(HTML,CSS,JavaScript)
+router.get('/task6_ehya',(req,res)=>{
+    return res.render('Task-6/ehya');
+});
+
 module.exports = router;

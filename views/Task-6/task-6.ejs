@@ -1,0 +1,71 @@
+<!-- In this design we need to implement div side by side -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Session Task-1</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container{
+            max-width: 1170px;
+            margin: 0 auto;
+            /* border: 1px solid black; */
+            padding: 150px 0;
+            background-color: #f5f5f5;
+        }
+        .contain{
+            text-align: center;
+        }
+        #flexDiv {
+            display: flex;
+            flex-wrap: wrap;
+            
+            /* border: 1px solid red; */
+        }
+        #flexDiv div {
+            border: 1px solid black;
+            width: 33%;
+            /* padding: 0 15px; */
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="contain">
+                <h2>Vasu Parsaniya_24DEV053</h2>
+                <p>Date:09-02-2024</p>
+            </div>
+            <div id="flexDiv">
+                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam repellendus deserunt nulla perferendis numquam maxime id asperiores alias eius minus voluptates assumenda sint, impedit inventore natus fugit reprehenderit iste vero!</div>
+                <div>div2</div>
+                <div>div3</div>
+                <div>div4</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Observation
+    1) If we give height in % then we must give height to it's parent element
+       if we does not give height to it;s parent element then is not work 
+    also parent element height not give in %-->
+
+<!-- those elements we want to give flex it's parent set to display:flex -->
+<!-- section element only contain one <h2></h2> -->
+<!-- web page only contain only one <h1></h1> -->
