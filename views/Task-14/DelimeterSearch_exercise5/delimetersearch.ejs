@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Grid</title>
+    <link rel="stylesheet" href="/css/Task-14/DelimeterSearch/delimetersearch.css">
+</head>
+
+<body>
+    <section class="dynamicgridsection">
+        <h1>Vasu Parsaniya_24DEV053</h1>
+        <h2>Exercise-5:Delimeter Search</h2>
+        <div class="container">
+            <div class="row inputrow">
+                <form action="/task14_delimetersearch" method="POST" class="col" id="formquery">
+                    <input type="text" name="inputquery" id="inputquery" value="<%= ObjectData.querybeforesplit%>">
+                    <input type="submit" value="submit" class="gobutton">
+                </form>
+            </div>
+
+            <table class="delimetertable">
+                <thead>
+                    <tr>
+                        <th>studentname</th>
+                        <td>_</td>
+                    </tr>
+                    <tr>
+                        <th>email</th>
+                        <td>^</td>
+                    </tr>
+                    <tr>
+                        <th>phonenumber</th>
+                        <td>$</td>
+                    </tr>
+                    <tr>
+                        <th>city</th>
+                        <td>{</td>
+                    </tr>
+                    <tr>
+                        <th>state</th>
+                        <td>}</td>
+                    </tr>
+                    <tr>
+                        <th>zipcode</th>
+                        <td>;</td>
+                    </tr>
+                </thead>
+            </table>
+
+                            <table>
+                                <thead class="tablehead">
+                                    <tr>
+                                        <% for(let key in ObjectData.data[0]){%>
+                                            <th class="tableheaddata">
+                                                <%= key%>
+                                            </th>
+                                        <%}%>
+                                    </tr>
+                                </thead>
+                                    
+                        <% for(let element of ObjectData.data){%>
+                            <tr>
+                                <% for(let key in element){%>
+                                    <td><%= element[key]%></td>
+                                    <%}%>
+                                </tr>
+                                <%}%>
+                            </table>
+        </div>
+    </section>
+         
+     
+    <script>
+        // var errorTag = document.getElementsByClassName('error');
+        // setTimeout(function(){
+        //     for(let i=0;i<errorTag.length;i++){
+        //         errorTag[i].className = errorTag[i].replace("error","hideerror");
+        //     }
+        // },4000);
+
+        function setAction(action){
+            const query = document.getElementById("inputquery").value;
+
+            // if(query.length === 0){
+            //     document.getElementById("formquery").action = "/delimetersearch";
+            // }else{
+            //     document.getElementById("formquery").action = "/delimetersearch?page=1&querystring="+query;
+            // }
+                            document.getElementById("formquery").action = "/task14_delimetersearch";
+        }
+    </script>
+</body>
+
+</html>

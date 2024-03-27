@@ -21,7 +21,7 @@ const studentResult = require('./routes/Task-12/studentresult_exercise4_routes/s
 // const insertStudentDetails = require('./routes/insertRecords.js');
 
 const dynamicgridusingselectquery = require('./routes/Task-13/DynamicGrid/dynamicGrid.js');
-
+const delimetersearch = require('./routes/Task-14/DelimeterSearch_exercise5/delimetersearch.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -44,6 +44,7 @@ app.use(studentResult);
 
 
 app.use(dynamicgridusingselectquery);
+app.use(delimetersearch);
 // app.use(insertStudentDetails);
 // app.use(user);
 // app.use(pagginationcomponent);

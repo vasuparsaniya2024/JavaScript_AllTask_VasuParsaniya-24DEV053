@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.paggination {
+    background-color: antiquewhite;
+}
+
+.pagginationcontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* .row {
+    display: flex;
+    margin: 0 -15px;
+} */
+
+.col1,
+.col3 {
+    width: 10%;
+    border: 1px solid black;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.col2 {
+    width: 20%;
+    border: 1px solid blue;
+    padding: 0 15px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.arrow {
+    display: flex;
+    gap: 5px;
+}
+
+.arrow li {
+    padding: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: aqua;
+    border-radius: 50%;
+}
+
+.pagenumber {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pagenumber li {
+    background-color: azure;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.disabled{
+    pointer-events: none;
+    cursor: none;
+    opacity: 0.5;
+}
+
+#pagginationForm{
+    display: flex;
+    margin: 0 -15px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
