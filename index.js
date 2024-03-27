@@ -20,7 +20,7 @@ const studentResult = require('./routes/Task-12/studentresult_exercise4_routes/s
 // const pagginationcomponent = require('./routes/pagginationcomponent.js');
 // const insertStudentDetails = require('./routes/insertRecords.js');
 
-
+const dynamicgridusingselectquery = require('./routes/Task-13/DynamicGrid/dynamicGrid.js');
 
 
 app.use(bodyParser.json());
@@ -42,6 +42,8 @@ app.use(pagginationwithcomponent);
 app.use(studentAttandance);
 app.use(studentResult);
 
+
+app.use(dynamicgridusingselectquery);
 // app.use(insertStudentDetails);
 // app.use(user);
 // app.use(pagginationcomponent);
