@@ -10,6 +10,7 @@ const login = require('./routes/login/login.js');
 const forgotpassword = require('./routes/forgotpassword/forgotpassword.js');
 
 const home = require('./routes/HomePage/Home.js');
+const javascripttask = require('./routes/javascripttask/javascripttask.js');
 // const user = require('./routes/studentdataingrid_exercise1_routes/user.js');
 // const pagginationcomponent = require('./routes/pagginationcomponent.js');
 // const pagginationwithcomponent = require('./routes/studentdataingridwithpaggination_exercise2_routes/pagginationwithcomponent.js');
@@ -29,6 +30,9 @@ app.use(login);
 app.use(forgotpassword);
 
 app.use(home);
+
+app.use(javascripttask);
+
 // app.use(insertStudentDetails);
 // app.use(user);
 // app.use(pagginationcomponent);

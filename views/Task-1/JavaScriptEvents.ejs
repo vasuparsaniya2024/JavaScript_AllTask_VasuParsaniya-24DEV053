@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptEvents</title>
+    <Script src="/js/Task-1/JavaScriptEvents.js"></Script>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        
+    </style>
+</head>
+<body onafterprint="OnAfterPrint()" onhashchange="OnHashChange()" onload="OnLoad()" onpageshow="OnPageShow()" onresize="OnResize()">
+    <h1>24DEV053_Vasu Parsaniya</h1>
+    <h1>Date: 31-01-2024</h1>
+    <table id="mouseevents" cellpadding="10" border="1">
+            <tr>
+                <th colspan="8">Mouse Events</th>
+            </tr>
+            <tr>
+                <!-- onclick() -->
+                <td><input onclick="OnClick()" placeholder="onclick()"></td>
+                <td><input onmouseover="OnMouseOver()" placeholder="onmouseover()"></td>
+                <td><input onmouseout="OnMouseOut()" placeholder="omouseout()"></td>
+                <td><p onmousedown="OnMouseDown()">onmousedown()</p></td>
+                <td><p onmouseup="OnMouseUp()">onmouseup()</p></td>
+                <td><p onmousemove="OnMouseMove()">onmousemove()</p></td>
+                <td><p onmouseenter="OnMouseEnter()">onmouseenter()</p></td>
+                <td><p onmousewheel="OnMouseWheel()">onmousewheel()</p></td>
+            </tr>
+    </table>
+
+    <br>
+    <table id="keyboardevents" cellpadding="10" border="1">
+        <tr>
+            <th colspan="3">keyboard Events</th>
+        </tr>
+        <tr>
+            <!-- onclick() -->
+            <td><input onkeydown="OnKeyDown()" placeholder="onkeydown()"></td>
+            <td><input onkeyup="OnKeyUp()" placeholder="onkeyup()"></td>
+            <td><input onkeypress="OnKeyPress()" placeholder="onkeypress()"></td>
+        </tr>
+</table>
+<br>
+<table id="formevents" cellpadding="10" border="1">
+    <tr>
+        <th colspan="6">Form Events</th>
+    </tr>
+    <tr>
+        <td><input onfocus="OnFocus()" placeholder="onfocus()"></td>
+        <td><input onblur="OnBlur()" placeholder="onblur()"></td>
+        <td><input onchange="OnChange()" placeholder="onchange()"></td>
+        <td><p oncontextmenu="OnContextMenu()">Right Click to show Context Menu oncontextmenu()</p></td>
+        <td><input oninput="OnInput()" placeholder="oninput()"></td>
+        <td><input onselect="OnSelect()" value="Select Me!"></td>
+    </tr>
+</table>
+<br>
+<table id="clipboard" cellpadding="10" border="1"> 
+    <tr>
+        <th colspan="6">Clip Board</th>
+    </tr>
+    <tr>
+        <td><input oncopy="OnCopy()" placeholder="oncopy()" value="Copy"></td>
+        <td><input oncut="OnCut()" placeholder="oncut()" value="Cut"></td>
+        <td><input onpaste="OnPaste()" placeholder="onpaste()" value="Paste"></td>
+    </tr>
+</table>
+<br>
+<table id="dragsevents" cellpadding="10" border="1">
+    <tr>
+        <th colspan="9">Drag Events</th>
+    </tr>
+
+    <tr>
+        <td><p draggable="true" ondrag="OnDrag()">ondrag()</p></td>
+        <td><p draggable="true" ondragend="OnDragEnd()">ondragend()</p></td>
+        <td><p draggable="true" ondragenter="OnDragEnter()">ondragenter()</p></td>
+        <td><p draggable="true" ondragleave="   OnDragLeave()">ondragleave()</p></td>
+        <td><p draggable="true" ondragover="OnDragOver()">ondragover()</p></td>
+        <td><p draggable="true" ondragstart="OnDragStart()">ondragstart()</p></td>
+        <td><div ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p draggable="true" id="dragtarget" ondragstart="dragStart(event)">Drag Me!</p></div></td>
+        <td><div ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 80px;"></div></td>
+        <td><p onscroll="OnScroll()" style="border:1px solid red; width:100px; height:50px; overflow: scroll;overflow-x: hidden;">Vasu Parsaniya Vasu Parsaniya Vasu Parsaniya 
+            Vasu Parsaniya Vasu Parsaniya Vasu Parsaniya Vasu Parsaniya</p></td>
+    </tr>
+</table>
+<br>
+<table id="windowevents" cellpadding="10" border=1>
+    <tr>
+        <th colspan="7">Window Events</th>
+    </tr>
+
+    <tr>
+        <td><img src="img.jpg" onerror="OnError()">onerror()</td>
+        <td><input type="button" onclick="changepart()" value="Click Me"></td>
+        <td><p>onhashchange()</p></td>
+        <td><p>onresize()</p></td>
+        <td><p>onafterprint()</p></td>
+        <td><p>onpageshow()</p></td>
+        <td><p>onload()</p></td>
+    </tr>   
+</table>
+</body>
+</html>

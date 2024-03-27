@@ -4,11 +4,11 @@ const connection = require('../../connection.js');
 
 router.get('/listtask',(req,res)=>{
     let exerciseJsonObject = {
-        "exerciseno":[0,1,2,3,4],
+        "exerciseno":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
         "date":["25-02-2024","26-02-2024","27-02-2024","28-02-2024","29-02-2024"],
-        "exercisename":["Dynamic Grid","Student Data In Grid","Student Data Grid With Paggination",
+        "exercisename":["JavaScriptEvents","Dynamic Grid","Student Data In Grid","Student Data Grid With Paggination",
                        "Student Attadence","Student Result"],
-        "viewexerciseroute":["","/studentDetails","/studentDetailswithpaggination","/studentAttandance","/studentResult"]
+        "viewexerciseroute":["/task1_javascriptevents","","/studentDetails","/studentDetailswithpaggination","/studentAttandance","/studentResult"]
     }
     res.render('HomePage/Home',{
         exerciseJsonObject:exerciseJsonObject
