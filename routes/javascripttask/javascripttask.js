@@ -41,5 +41,9 @@ router.get('/task7_awanhoster',(req,res)=>{
     return res.render('Task-7/Awan_Hoster');
 });
 
+//-------Task-8 Hire.X (HTML,CSS,JavaScript)
+router.get('/task8_hirex',(req,res)=>{
+    return res.render('Task-8/HireX');
+});
 
 module.exports = router;
