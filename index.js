@@ -11,9 +11,10 @@ const forgotpassword = require('./routes/forgotpassword/forgotpassword.js');
 
 const home = require('./routes/HomePage/Home.js');
 const javascripttask = require('./routes/javascripttask/javascripttask.js');
-// const user = require('./routes/studentdataingrid_exercise1_routes/user.js');
+
+const studentlist = require('./routes/Task-9/studentdataingrid_exercise1_routes/user.js');
+const pagginationwithcomponent = require('./routes/Task-10/studentdataingridwithpaggination_exercise2_routes/pagginationwithcomponent.js');
 // const pagginationcomponent = require('./routes/pagginationcomponent.js');
-// const pagginationwithcomponent = require('./routes/studentdataingridwithpaggination_exercise2_routes/pagginationwithcomponent.js');
 // const insertStudentDetails = require('./routes/insertRecords.js');
 // const studentAttandance = require('./routes/studentattendance_exercise3_routes/studentAttandance.js');
 // const studentResult = require('./routes/studentresult_exercise4_routes/studentResult.js');
@@ -32,6 +33,9 @@ app.use(forgotpassword);
 app.use(home);
 
 app.use(javascripttask);
+
+app.use(studentlist);
+app.use(pagginationwithcomponent);
 
 // app.use(insertStudentDetails);
 // app.use(user);

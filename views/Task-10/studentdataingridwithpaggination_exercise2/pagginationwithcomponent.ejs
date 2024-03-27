@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paggination With Component</title>
+    <link rel="stylesheet" href="/css/Task-10/studentdataingridwithpaggination_exercise2_css/studentdatagridwithpaggination.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+    <section class="tableSection">
+        <h1>Vasu Parsaniya_24DEV053</h1>
+    <h2>Exercise:Student Attendance Report</h2>
+        <div class="container">
+            <table>
+                <thead class="tablehead">
+                    <tr class="rowtable">
+                        <th class="tableth tablehead1">Student Id
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=student_id&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=student_id&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                        <th class=" tableth tablehead2">StudentName
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=studentname&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=studentname&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                        <th class="tableth tablehead1">Email
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=email&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=email&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                        <th class="tableth tablehead2">PhoneNumber
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=phonenumber&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=phonenumber&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                        <th class="tableth tablehead1">Gender
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=gender&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=gender&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                        <th class="tableth tablehead2">Address1
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=address1&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=address1&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                        <th class="tableth tablehead1">Address2
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=address2&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=address2&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                        <th class="tableth tablehead2">City
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=city&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=city&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                        <th class="tableth tablehead1">State
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=state&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=state&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                        <th class="tableth tablehead2">ZipCode
+                            <ul>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=zipcode&orderbytype=ASC"><i class="fa-solid fa-arrow-up"></i></a></li>
+                                <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=zipcode&orderbytype=DESC"><i class="fa-solid fa-arrow-down"></i></a></li>
+                            </ul>
+                        </th>
+                    </tr>
+                </thead>
+
+                <% arrayUser.forEach(function(entry){%>
+                        <tr>
+                            <td>
+                                <%=entry.student_id%>
+                            </td>
+                            <td>
+                                <%=entry.studentname%>
+                            </td>
+
+                            <td>
+                                <%=entry.email%>
+
+                            </td>
+                            <td>
+                                <%=entry.phonenumber%>
+
+                            </td>
+                            <td>
+                                <%=entry.gender%>
+                            </td>
+                            <td>
+                                <%=entry.address1%>
+                            </td>
+                            <td>
+                                <%=entry.address2%>
+                            </td>
+                            <td>
+                                <%=entry.city%>
+                            </td>
+                            <td>
+                                <%=entry.state%>
+                            </td>
+                            <td>
+                                <%=entry.zipcode%>
+                            </td>
+                        </tr>
+                    <%});%>
+            </table>
+        </div>
+    </section>
+
+    <section class="paggination">
+        <div class="pagginationcontainer">
+            <div class="row">
+                <% var currPage=currentPage%>
+                    <% var countPage=pageCount%>
+                        <div class="col1">
+                            <% if(currentPage <=1 && typeof sortingColumn === "undefined"){%>
+                                <ul class="arrow">
+                                    <li><a href="/task10_studentDetailswithpaggination/?page=1" id="doubleleft" class="disabled" ><i class="fa-solid fa-angles-left"></i></a></li>
+                                    <li><a href="/task10_studentDetailswithpaggination/?page=<%= currentPage%>" id="singleleft" class="disabled"><i class="fa-solid fa-angle-left"></i></a></li>
+                                </ul>
+                                    <%}else if(typeof sortingColumn !== "undefined" && currentPage <=1){%>
+                                        <ul class="arrow">
+                                            <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=<%= sortingColumn%>&orderbytype=<%= orderbytype%>" id="doubleleft" class="disabled" ><i class="fa-solid fa-angles-left"></i></a></li>
+                                            <li><a href="/task10_studentDetailswithpaggination/?page=<%= currentPage%>&orderby=<%= sortingColumn%>&orderbytype=<%= orderbytype%>" id="singleleft" class="disabled"><i class="fa-solid fa-angle-left"></i></a></li>
+                                        </ul>
+                                        <% }else if(currentPage>1 && typeof sortingColumn === "undefined"){%>
+                                            <ul class="arrow">
+                                                <li><a href="/task10_studentDetailswithpaggination/?page=1" id="doubleleft"><i
+                                                            class="fa-solid fa-angles-left"></i></a></li>
+                                                <li><a href="/task10_studentDetailswithpaggination/?page=<%= currentPage-1%>" id="singleleft"><i
+                                                            class="fa-solid fa-angle-left"></i></a></li>
+                                            </ul>
+                                            <%}else if(typeof sortingColumn !== "undefined" && currentPage >1){%>
+                                                <ul class="arrow">
+                                                    <li><a href="/task10_studentDetailswithpaggination/?page=1&orderby=<%= sortingColumn%>&orderbytype=<%= orderbytype%>" id="doubleleft"><i class="fa-solid fa-angles-left"></i></a></li>
+                                                    <li><a href="/task10_studentDetailswithpaggination/?page=<%= currentPage-1%>&orderby=<%= sortingColumn%>&orderbytype=<%= orderbytype%>" id="singleleft"><i class="fa-solid fa-angle-left"></i></a></li>
+                                                </ul>
+                                                <%}%>
+                        </div>
+                        <div class="col2">
+                            <ul class="pagenumber">
+                                <!-- <% for(let i=1;i<=pageCount;i++){%>
+                                    <li><a href="/task10_studentDetailswithpaggination/?page=<%= i%>">
+                                            <%= i %>
+                                        </a>
+                                    </li>
+                                    <%}%> -->
+                                    <li>Page: <%= currentPage%></li>
+                            </ul>
+                        </div>
+
+                        <div class="col3">
+                            <% if(currentPage==pageCount && typeof sortingColumn === "undefined"){%>
+                                <ul class="arrow">
+                                    <li><a href="/task10_studentDetailswithpaggination/?page=<%= currentPage%>" id="singleright" class="disabled"><i class="fa-solid fa-angle-right"></i></a></li>
+                                    <li><a href="/task10_studentDetailswithpaggination/?page=<%= pageCount%>" id="doubleright" class="disabled"><i class="fa-solid fa-angles-right"></i></a></li>
+                                </ul>
+                                <%}else if(currentPage==pageCount && typeof sortingColumn !== "undefined"){%>
+                                    <ul class="arrow">
+                                        <li><a href="/task10_studentDetailswithpaggination/?page=<%= currentPage%>&orderby=<%= sortingColumn%>&orderbytype=<%= orderbytype%>"
+                                                id="singleright" class="disabled"><i class="fa-solid fa-angle-right"></i></a></li>
+                                        <li><a href="/task10_studentDetailswithpaggination/?page=<%= pageCount%>&orderby=<%= sortingColumn%>&orderbytype=<%= orderbytype%>" id="doubleright" class="disabled"><i
+                                                    class="fa-solid fa-angles-right"></i></a></li>
+                                    </ul>
+                                    <%}else if(pageCount > currentPage  && typeof sortingColumn !== "undefined"){%>
+                                        <ul class="arrow">
+                                            <li><a href="/task10_studentDetailswithpaggination/?page=<%= currentPage+1%>&orderby=<%= sortingColumn%>&orderbytype=<%= orderbytype%>"
+                                                    id="singleright"><i class="fa-solid fa-angle-right"></i></a></li>
+                                            <li><a href="/task10_studentDetailswithpaggination/?page=<%= pageCount%>&orderby=<%= sortingColumn%>&orderbytype=<%= orderbytype%>" id="doubleright"><i
+                                                        class="fa-solid fa-angles-right"></i></a></li>
+                                        </ul>
+                                        <%}else if(pageCount > currentPage  && typeof sortingColumn === "undefined"){%>
+                                            <ul class="arrow">
+                                                <li><a href="/task10_studentDetailswithpaggination/?page=<%= currentPage+1%>"
+                                                        id="singleright"><i class="fa-solid fa-angle-right"></i></a></li>
+                                                <li><a href="/task10_studentDetailswithpaggination/?page=<%= pageCount%>" id="doubleright"><i
+                                                            class="fa-solid fa-angles-right"></i></a></li>
+                                            </ul>
+                                            <%}%>
+                        </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('../../Components/HomeButtonComponent')%>
+</body>
+</html>
