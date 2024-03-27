@@ -9,6 +9,15 @@ const registration = require('./routes/registration/registration.js');
 const login = require('./routes/login/login.js');
 const forgotpassword = require('./routes/forgotpassword/forgotpassword.js');
 
+const home = require('./routes/HomePage/Home.js');
+// const user = require('./routes/studentdataingrid_exercise1_routes/user.js');
+// const pagginationcomponent = require('./routes/pagginationcomponent.js');
+// const pagginationwithcomponent = require('./routes/studentdataingridwithpaggination_exercise2_routes/pagginationwithcomponent.js');
+// const insertStudentDetails = require('./routes/insertRecords.js');
+// const studentAttandance = require('./routes/studentattendance_exercise3_routes/studentAttandance.js');
+// const studentResult = require('./routes/studentresult_exercise4_routes/studentResult.js');
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended:true
@@ -19,6 +28,13 @@ app.use(registration);
 app.use(login);
 app.use(forgotpassword);
 
+app.use(home);
+// app.use(insertStudentDetails);
+// app.use(user);
+// app.use(pagginationcomponent);
+// app.use(pagginationwithcomponent);
+// app.use(studentAttandance);
+// app.use(studentResult);
 
 portfinder.getPort(function(err,port){
         try{

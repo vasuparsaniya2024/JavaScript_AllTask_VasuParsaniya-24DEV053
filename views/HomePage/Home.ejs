@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/css/homepage_css/homepage.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <section class="tableSection">
+        <h1>Vasu Parsaniya_24DEV053</h1>
+        <h2>Exercise:Student Result</h2>
+        <div class="container">
+            <table>
+                <thead class="tablehead">
+                    <tr>
+                        <th class="tablehead1">Exercise No.</th>
+                        <th class="tablehead2">Date</th>
+                        <th class="tablehead1">Exercise Name</th>
+                        <th class="tablehead2">View Exercise</th>
+                    </tr>
+                </thead>
+                <% var exerciseno = exerciseJsonObject.exerciseno%>
+                <% var date = exerciseJsonObject.date%>
+                <% var exercisename = exerciseJsonObject.exercisename%>
+                <% var viewexerciseroute = exerciseJsonObject.viewexerciseroute%>
+
+
+                <%for(let i=0;i<exerciseno.length;i++){%>
+                        <tr>
+                            <td>
+                                <%= exerciseno[i]%>
+                                </td>
+                            <td>
+                                <%= date[i]%>
+                            </td>
+                            <td>
+                                <%= exercisename[i]%>
+                            </td>
+                            
+                            <td class="viewbutton">
+                            <a href="<%= viewexerciseroute[i]%>" target="_blank">Exercise</a>
+                            </td>
+                        </tr>
+                        <%}%>
+            </table>
+        </div>
+    </section>
+
+</body>
+
+</html>
