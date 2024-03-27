@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attandance</title>
+    <link rel="stylesheet" href="/css/Task-11/studentattendance_exercise3_css/studentattendance.css">
+</head>
+<body>
+    <h1>Vasu Parsaniya_24DEV053</h1>
+    <h2>Exercise:Student Attendance Report</h2>
+    <section class="selectionsection">
+        <div class="container monthselect">
+            <% var selectedDecember = "";
+               var selectedJanuary = "";
+               var selectedFebruary = "";
+            if(month === 1){
+                selectedDecember = "selected";
+            }else if(month === 2){
+                selectedJanuary = "selected";
+            }else if(month === 3){
+                selectedFebruary = "selected";
+            }%>
+            <form>
+                <select class="monthselect" name="month" onchange="clickOnFilter(this)">
+                    <option value="1" <%= selectedDecember%>>December 2023</option>
+                    <option value="2" <%= selectedJanuary%>>January 2024</option>
+                    <option value="3" <%= selectedFebruary%>>February 2024</option>
+                </select>
+            </form>
+        </div>
+    </section>
+    <section class="tableSection">
+        <div class="container">
+            
+            <table>
+                <thead class="tablehead">
+                    <tr class="rowtable">
+                        <th class="tableth tablehead1">
+                            <div class="tablethflex">
+                                <a href="/task11_studentAttandance?page=1&month=<%= month%>&orderby=student_id&orderbytype=<%= nextorderbytype%>">Student Id</a>
+                            <% if(nextorderbytype === "DESC" && orderby === "student_id"){%>
+                                <i class="fa-solid fa-arrow-up disableicon"></i>
+                                <%}else if(nextorderbytype === "ASC" && orderby === "student_id"){%>
+                                    <i class="fa-solid fa-arrow-down disableicon"></i>
+                                    <%}%>
+                            </div>
+                            
+                        </th>
+                        <th class=" tableth tablehead2">
+                            <div class="tablethflex">
+                                <a href="/task11_studentAttandance?page=1&month=<%= month%>&orderby=studentname&orderbytype=<%= nextorderbytype%>">StudentName</a>
+                            <!-- <ul> -->
+                                <% if(nextorderbytype === "DESC" && orderby === "studentname"){%>
+                                    <i class="fa-solid fa-arrow-up disableicon"></i>
+                                    <%}else if(nextorderbytype === "ASC" && orderby === "studentname"){%>
+                                        <i class="fa-solid fa-arrow-down disableicon"></i>
+                                        <%}%>
+                            </div>
+                        </th>
+                        <th class="tableth tablehead1">
+                            <div class="tablethflex">
+                                <a href="/task11_studentAttandance?page=1&month=<%= month%>&orderby=numberofattandance&orderbytype=<%= nextorderbytype%>">Number Of Attandance</a>
+                            
+                                <% if(nextorderbytype === "DESC" && orderby === "numberofattandance"){%> 
+                                    <i class="fa-solid fa-arrow-up disableicon"></i>
+                                    <%}else if(nextorderbytype === "ASC" && orderby === "numberofattandance"){%>
+                                        <i class="fa-solid fa-arrow-down disableicon"></i>
+                                        <%}%>
+                            </ul>
+                            </div>
+                            
+                        </th>
+                        <th class="tableth tablehead2">
+                            <div class="tablethflex">
+                                <a href="/task11_studentAttandance?page=1&month=<%= month%>&orderby=percentage&orderbytype=<%= nextorderbytype%>">Percentage</a>
+                            
+                                <% if(nextorderbytype === "DESC" && orderby === "percentage"){%>
+                                    <i class="fa-solid fa-arrow-up disableicon"></i>
+                                    <%}else if(nextorderbytype === "ASC" && orderby === "percentage"){%>
+                                        <i class="fa-solid fa-arrow-down disableicon"></i>
+                                        <%}%>
+                            </div>
+                            
+                        </th>
+                    </tr>
+                </thead>
+
+                <% studentAttandance.forEach(function(entry){%>
+                        <tr>
+                            <td>
+                                <%=entry.student_id%>
+                            </td>
+                            <td>
+                                <%=entry.studentname%>
+                            </td>
+
+                            <td>
+                                <%=entry.numberofattandance%>
+
+                            </td>
+                            <td>
+                                <%=entry.percentage%>
+
+                            </td>
+                        </tr>
+                    <%});%>
+            </table>
+        </div>
+    </section>
+
+    <%- include('../../Components/pagginationcomponent')%>
+    <%- include('../../Components/HomeButtonComponent')%>    <script>
+        function clickOnFilter(MonthIdentity){
+            window.location= "/task11_studentAttandance?page=1&month="+Number(MonthIdentity.value);
+        }
+    </script>
+</body>
+</html>

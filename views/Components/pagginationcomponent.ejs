@@ -96,16 +96,17 @@
                 <% var currPage=currentPage%>
                     <% var countPage=pageCount%>
                         <div class="col1">
+                            
                             <% if(currentPage <=1){%>
                                 <ul class="arrow">
-                                    <li><a href="/studentAttandance?page=1&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="doubleleft" class="disabled" ><i class="fa-solid fa-angles-left"></i></a></li>
-                                    <li><a href="/studentAttandance?page=<%= currentPage%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="singleleft" class="disabled"><i class="fa-solid fa-angle-left"></i></a></li>
+                                    <li><a href="/task11_studentAttandance?page=1&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="doubleleft" class="disabled" ><i class="fa-solid fa-angles-left"></i></a></li>
+                                    <li><a href="/task11_studentAttandance?page=<%= currentPage%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="singleleft" class="disabled"><i class="fa-solid fa-angle-left"></i></a></li>
                                 </ul>
                                 <% }else{%>
                                     <ul class="arrow">
-                                        <li><a href="/studentAttandance?page=1&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="doubleleft"><i
+                                        <li><a href="/task11_studentAttandance?page=1&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="doubleleft"><i
                                                     class="fa-solid fa-angles-left"></i></a></li>
-                                        <li><a href="/studentAttandance?page=<%= currentPage-1%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="singleleft"><i
+                                        <li><a href="/task11_studentAttandance?page=<%= currentPage-1%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="singleleft"><i
                                                     class="fa-solid fa-angle-left"></i></a></li>
                                     </ul>
                                     <%}%>
@@ -125,14 +126,14 @@
                         <div class="col3">
                             <% if(currentPage==pageCount){%>
                                 <ul class="arrow">
-                                    <li><a href="/studentAttandance?page=<%= currentPage+1%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="singleright" class="disabled"><i class="fa-solid fa-angle-right"></i></a></li>
-                                    <li><a href="/studentAttandance?page=<%= pageCount%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="doubleright" class="disabled"><i class="fa-solid fa-angles-right"></i></a></li>
+                                    <li><a href="/task11_studentAttandance?page=<%= currentPage+1%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="singleright" class="disabled"><i class="fa-solid fa-angle-right"></i></a></li>
+                                    <li><a href="/task11_studentAttandance?page=<%= pageCount%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="doubleright" class="disabled"><i class="fa-solid fa-angles-right"></i></a></li>
                                 </ul>
                                 <%}else{%>
                                     <ul class="arrow">
-                                        <li><a href="/studentAttandance?page=<%= currentPage+1%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>"
+                                        <li><a href="/task11_studentAttandance?page=<%= currentPage+1%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>"
                                                 id="singleright"><i class="fa-solid fa-angle-right"></i></a></li>
-                                        <li><a href="/studentAttandance?page=<%= pageCount%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="doubleright"><i
+                                        <li><a href="/task11_studentAttandance?page=<%= pageCount%>&month=<%= month%>&orderby=<%= orderby%>&orderbytype=<%= orderbytype%>" id="doubleright"><i
                                                     class="fa-solid fa-angles-right"></i></a></li>
                                     </ul>
                                     <%}%>
