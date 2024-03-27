@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Grid</title>
+    <link rel="stylesheet" href="/css/Task-15/DynamicCombo/dynamiccombo.css">
+</head>
+
+<body>
+    <section class="dynamicgridsection">
+        <h1>Vasu Parsaniya_24DEV053</h1>
+        <h2>Exercise-6:Dynamic Combo Generate</h2>
+        <div class="container">
+            <div class="row inputrow">
+                
+            </div>
+            <% if(ObjectData.selecttype === "radio"){%>
+                <% let radioid = 1; %>
+                <label><%= ObjectData.selectname%>:</label>
+                <% for(let element of ObjectData.data){%>
+                    <!-- for(let key in element){ -->
+                        <label for="radio<%= radioid%>"><%= element.optionname%></label>
+                        <input type="radio" name="gender" id="radio<%= radioid%>" value="<%= element.optionname%>" class="<%= element.cssclass%>">
+                    <!-- } -->
+                    <% radioid++;%>
+                <%}%>
+                <%}%>
+
+                <% if(ObjectData.selecttype === "checkbox"){%>
+                    <% let checkid=1;%>
+                    <label><%= ObjectData.selectname%></label>
+                    <% for(let element of ObjectData.data){%>
+                        <label for="checkbox<%= checkid%>"><%= element.optionname%></label>
+                        <input type="checkbox" name="<%= element.optionname%>" id="checkbox<%= checkid%>" value="<%= element.optionname%>" class="<%= element.cssclass%>">
+                        <% checkid++;%>
+                        <%}%>
+                <%}%>      
+
+                <% var multiple = ""%>
+                <% if(ObjectData.data[0].multipleselectallow === "yes"){%>
+                    <% multiple = "multiple";%>
+                    <%}%>
+                <% if(ObjectData.selecttype === "dropdown"){%>
+                    <% let dropdownid = 1%>
+                    <label for="<%ObjectData.selectname%>"><%= ObjectData.selectname%></label>
+                    <select id="<%ObjectData.selectname%>" class="<%= ObjectData.data[0].cssclass%>" <%= multiple%>>
+                        <% for(let element of ObjectData.data){%>
+                            <option value="<%= element.optionname%>" class="<%= element.cssclass%><%= dropdownid%>"><%= element.optionname%></option>
+                            <%}%>
+                    </select>
+                    <%}%>
+        </div>
+    </section>
+</body>
+
+</html>
