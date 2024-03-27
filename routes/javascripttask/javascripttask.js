@@ -9,4 +9,9 @@ router.get('/task1_javascriptevents',(req,res)=>{
 });
 
 
+//---------Task-2 Dynamic table create
+router.get('/task2_dynamictable',(req,res)=>{
+    return res.render('Task-2/Query Selector/TableQuerySelector');
+});
+
 module.exports = router;
