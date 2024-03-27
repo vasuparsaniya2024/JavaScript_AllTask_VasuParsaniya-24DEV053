@@ -25,4 +25,9 @@ router.get('/task4_tictactoe',(req,res)=>{
     return res.render('Task-4/Practice_Task-4');
 });
 
+//--------Task-5 Sorting
+router.get('/task5_sorting',(req,res)=>{
+    return res.render('Task-5/Practice_Task-5');
+});
+
 module.exports = router;
