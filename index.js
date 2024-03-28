@@ -29,6 +29,7 @@ const jobapplicationformupdate = require('./routes/Task-16/JobApplicationForm_ex
 
 const jobapplicationformajax = require('./routes/Task-17/JobApplicationForm_exercise1_route/jobapplicationformexercise1.js');
 const jobapplicationformupdateajax = require('./routes/Task-17/JobApplicationForm_exercise1_route/jobapplicationformexercise1update.js');
+const jasonplaceholder = require('./routes/Task-18/Exercise1/jsonplaceholdertable.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -60,6 +61,7 @@ app.use(jobapplicationformupdate);
 
 app.use(jobapplicationformajax);
 app.use(jobapplicationformupdateajax);
+app.use(jasonplaceholder);
 
 // app.use(insertStudentDetails);
 // app.use(user);

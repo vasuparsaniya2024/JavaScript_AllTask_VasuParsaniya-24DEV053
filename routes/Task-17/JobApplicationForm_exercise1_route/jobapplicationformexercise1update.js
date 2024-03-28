@@ -100,7 +100,7 @@ var technologytemp = optionmaster(4, "technologyid", "technology").then((data) =
     });
 });
 
-router.get('/jobformajax',(req,res)=>{
+router.get('/task17_jobformajax',(req,res)=>{
     return res.render('Task-17/JobApplicationForm_exercise1_view/studentlist');
 });
 
