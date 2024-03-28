@@ -104,15 +104,15 @@ a{
 
 
 /* search style */
-.searchcol{
+
+#searchinput{
     position: absolute;
     top: 10px;
     right: 60px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
     padding: 20px;
-    font-size: 30px;
-    height: 200px;
+    outline: none;
 }
 
-.searchinput{
-    padding: 500px;
-}
