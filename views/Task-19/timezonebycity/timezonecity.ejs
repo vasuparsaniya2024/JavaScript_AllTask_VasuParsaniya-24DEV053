@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Zone By City</title>
+    <link rel="stylesheet" href="/css/Task-19/timezonebycity/timezonecity.css">
+    <script src="/js/Task-19/timezonebycity/timezonecityfrontend.js"></script>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1>Vasu Parsaniya_24DEV053</h1>
+            <h2>Timezone Calculator</h2>
+            <div class="row">
+                <div class="col selectdiv">
+                    <select id="city" name="city" onchange="selectcity()">
+                        <option class="cityoption" value="">Select City</option>
+                        <% for(let city of cityarray){%>
+                        <option class="cityoption" value="<%= city.cityname%>"><%= city.cityname%></option>
+                        <%}%>
+                    </select>
+                </div>
+                <div id="timezone" class="col">
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

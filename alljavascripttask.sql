@@ -175,6 +175,13 @@ where ExamResult.student_id = 1 and ExamResult.exam_id = 1;
 select * from ExamResult where student_id=191 and exam_id=1;
 
 
+-- -------------------------------Time Zone
+
+CREATE TABLE alljavascripttask.country
+select * from timezone.country;
+
+CREATE TABLE alljavascripttask.timezones
+select * from timezone.timezones;
 
 -- -------------------------------------------JOB APPLICATION FORM
 

@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section{
+    background-color: aquamarine;
+    height: 100dvh;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: bisque;
+}
+
+h1,h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+.row{
+    padding: 40px 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.col{
+    width: 50%;
+    border-radius: 20px;
+    background-color:cadetblue;
+    
+    padding: 20px;
+}
+
+#city{
+    padding: 10px 20px;
+    font-size: 25px;
+}
+
+.selectdiv{
+    overflow: hidden;
+}
+
+.cityoption{
+    margin-top: 10px;
+}
+

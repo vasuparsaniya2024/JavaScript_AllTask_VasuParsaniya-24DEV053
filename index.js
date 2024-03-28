@@ -31,6 +31,8 @@ const jobapplicationformajax = require('./routes/Task-17/JobApplicationForm_exer
 const jobapplicationformupdateajax = require('./routes/Task-17/JobApplicationForm_exercise1_route/jobapplicationformexercise1update.js');
 const jasonplaceholder = require('./routes/Task-18/Exercise1/jsonplaceholdertable.js');
 
+const timezoneconverter = require('./routes/Task-19/timezonebycity/timezonecity.js');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended:true
@@ -63,6 +65,7 @@ app.use(jobapplicationformajax);
 app.use(jobapplicationformupdateajax);
 app.use(jasonplaceholder);
 
+app.use(timezoneconverter);
 // app.use(insertStudentDetails);
 // app.use(user);
 // app.use(pagginationcomponent);
