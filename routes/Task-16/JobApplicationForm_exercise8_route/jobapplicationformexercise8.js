@@ -5,6 +5,8 @@ const router = express.Router();
 const connection = require('../../../connection.js');
 const jobapplicationformdatabackend = require('../../../controller/Task-16/JobApplicationForm_exercise8_controller/jobapplicationformdatabackend.js');
 
+const authenticateToken = require('../../../services/Authentication.js');
+
 
 var jobapplicationformaction = {
     formsubmit: "",
@@ -99,11 +101,11 @@ var technologytemp = optionmaster(4, "technologyid", "technology").then((data) =
 });
 
 
-router.get('/task16_jobform', (req, res) => {
+router.get('/task16_jobform',authenticateToken.authenticateToken,(req, res) => {
     res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformhomepage');
 });
 
-router.get('/jobapplicationform', async (req, res) => {
+router.get('/jobapplicationform',authenticateToken.authenticateToken,async (req, res) => {
 
     const path = req.originalUrl;
     const pathname = path.split('?')[0];
@@ -130,7 +132,7 @@ router.get('/jobapplicationform', async (req, res) => {
 });
 
 
-router.post('/jobapplicationformsubmit', jobapplicationformdatabackend.jobapplicationformdatabackend, async (req, res) => {
+router.post('/jobapplicationformsubmit',jobapplicationformdatabackend.jobapplicationformdatabackend, async (req, res) => {
 
     const path = req.originalUrl;
     const pathname = path.split('?')[0];

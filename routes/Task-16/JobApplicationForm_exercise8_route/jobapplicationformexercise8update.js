@@ -6,6 +6,8 @@ const connection = require('../../../connection.js');
 const jobapplicationformdatabackend = require('../../../controller/Task-16/JobApplicationForm_exercise8_controller/jobapplicationformdatabackend.js');
 const { resolve } = require('path');
 
+const authenticateToken = require('../../../services/Authentication.js');
+
 var jobapplicationformaction = {
     formsubmit: "",
     formupdate: ""
@@ -102,7 +104,7 @@ var technologytemp = optionmaster(4, "technologyid", "technology").then((data) =
 
 //----------------------------------------------------update-------------------------------
 
-router.get('/jobapplicationformupdate', async (req, res) => {
+router.get('/jobapplicationformupdate',authenticateToken.authenticateToken,async (req, res) => {
     datafrompostrquest = {};
     errorobject = {};
     student_id = req.query.student_id;

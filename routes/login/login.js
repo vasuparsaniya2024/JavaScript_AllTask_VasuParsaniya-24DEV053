@@ -48,8 +48,8 @@ router.post('/userlogin',logindetailsbackend.logindetailsbackend,(req,res)=>{
                 }else{
                 // console.log("login success");
                 const response = {username:loginData.username};
-                const accessToken = jwt.sign(response,process.env.ACCESS_TOKEN,{expiresIn: '8h'});
-                    return res.status(200).json({message:"Login Successfully",token:accessToken});
+                const accessToken = jwt.sign(response,process.env.ACCESS_TOKEN,{expiresIn: '8h'})
+                    return res.cookie("accesstoken",accessToken,{httpOnly:true}).status(200).json({message:"Login Successfully",token:accessToken});
                 }
             }else{
                 // console.log("user exist but password not set");

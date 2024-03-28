@@ -3,8 +3,10 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../../../connection.js');
 
+const authenticateToken = require('../../../services/Authentication.js');
 
-router.get('/task11_studentAttandance',async (req,res)=>{ 
+
+router.get('/task11_studentAttandance',authenticateToken.authenticateToken,async (req,res)=>{ 
     const month = Number(req.query.month) || 1;
     var currentPage = req.query.page || 1;
     const offset = process.env.RECORS_IN_SINGLEPAGE * (currentPage - 1);

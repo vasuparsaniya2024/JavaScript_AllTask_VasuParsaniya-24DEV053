@@ -4,6 +4,8 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../../../connection');
 
+const authenticateToken = require('../../../services/Authentication.js');
+
 
 // router.get('/studentResult',(req,res)=>{
 //     function generateRandom(min,max){
@@ -141,7 +143,7 @@ router.get('/studentResultInsert', async (req, res) => {
 
 var StudentMarkObject = {};
 
-router.get('/task12_studentResult',async (req,res)=>{
+router.get('/task12_studentResult',authenticateToken.authenticateToken,async (req,res)=>{
     const studentId = req.query.student_id;
     const currentPage = req.query.page || 1;
     const offset = process.env.RECORS_IN_SINGLEPAGE * (currentPage - 1);

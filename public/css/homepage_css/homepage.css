@@ -64,3 +64,14 @@ a{
     color:rgb(102, 105, 107);
     cursor: pointer;
 }
+
+.messagepopupdiv{
+    position: absolute;
+    right:0;
+    top: 0%;
+    background-color: yellowgreen;
+    border-radius: 20px;
+    padding: 14px;
+    display: none;
+    z-index: 1;
+}

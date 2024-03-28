@@ -13,6 +13,8 @@ async function calltaskroute(route){
             throw new Error("Error From Authentication");
         }else{
             window.open(`${window.location.protocol}//${window.location.hostname}:${window.location.port}${route}`, '_blank');
+            // let url = window.URL.createObjectURL(response.blob());
+            // window.open(url,"_blank").focus();
         }
         
 
@@ -25,6 +27,10 @@ async function calltaskroute(route){
             if(responseerror.message){
                 console.log(responseerror.message);
                 messagepopup(responseerror.message);
+
+                let redirecttohomepage = setTimeout(()=>{
+                    window.open(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/`, '_self');
+                },2000);
             }
         }
     }

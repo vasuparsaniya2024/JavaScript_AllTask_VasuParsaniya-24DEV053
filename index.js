@@ -4,6 +4,7 @@ const path = require('path');
 const portfinder = require('portfinder');
 const app = express();
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const registration = require('./routes/registration/registration.js');
 const login = require('./routes/login/login.js');
@@ -37,6 +38,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended:true
 }));
+
+app.use(cookieParser());
 
 //routes
 app.use(registration);

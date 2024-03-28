@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../../../connection.js');
 
+const authenticateToken = require('../../../services/Authentication.js');
 
 var ObjectData = {
     errorInEnterInput : "",
@@ -22,7 +23,7 @@ var ObjectData = {
 // });
 
 
-router.post('/task14_delimetersearch',(req,res)=>{
+router.post('/task14_delimetersearch',authenticateToken.authenticateToken,(req,res)=>{
     let queryInput = req.body.inputquery;
     const urlPath = req.path;
     const currentPage = req.query.page || 1;
@@ -288,7 +289,7 @@ router.post('/task14_delimetersearch',(req,res)=>{
 });
 
 // --------------------get request--------------------
-router.get('/task14_delimetersearch',(req,res)=>{
+router.get('/task14_delimetersearch',authenticateToken.authenticateToken,(req,res)=>{
     // let queryInput = req.query.querystring;
     // console.log(queryInput);
 
@@ -355,7 +356,7 @@ router.get('/task14_delimetersearch',(req,res)=>{
 });
 
 
-router.get('/task14_paggination',(req,res)=>{
+router.get('/task14_paggination',authenticateToken.authenticateToken,(req,res)=>{
     const currentPage = req.query.page || 1;
     const urlPath = req.path;
     ObjectData.urlPath = urlPath;

@@ -4,9 +4,11 @@ const router = express.Router();
 const path = require('path');
 const connection = require('../../../connection.js');
 
+const authenticateToken = require('../../../services/Authentication.js');
+
 var totalRecords = 0;
 
-router.get('/task10_studentDetailswithpaggination',(req,res,next)=>{
+router.get('/task10_studentDetailswithpaggination',authenticateToken.authenticateToken,(req,res,next)=>{
 
     // let totalRow = "SELECT count(*) FROM StudentMaster";
 

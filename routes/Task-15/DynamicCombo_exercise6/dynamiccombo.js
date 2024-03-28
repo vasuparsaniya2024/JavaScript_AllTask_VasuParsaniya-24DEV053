@@ -3,6 +3,8 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../../../connection.js');
 
+const authenticateToken = require('../../../services/Authentication.js');
+
 
 var ObjectData = {
     selectname : "",
@@ -15,7 +17,7 @@ var ObjectForSelectCombo = {
     selecttype:[]
 }
 
-router.get('/task15_selectcombo',(req,res)=>{
+router.get('/task15_selectcombo',authenticateToken.authenticateToken,(req,res)=>{
     const queryforselectname = `SELECT DISTINCT (select_name) as selectname FROM selectmaster`;
 
     const queryforselecttype = `SELECT DISTINCT (select_type) as selecttype FROM selectmaster`;
@@ -38,7 +40,7 @@ router.get('/task15_selectcombo',(req,res)=>{
 });
 
 // --------------------get request--------------------
-router.get('/task15_dynamiccombo',(req,res)=>{
+router.get('/task15_dynamiccombo',authenticateToken.authenticateToken,(req,res)=>{
     const selectname = req.query.selectname;
     const selecttype = req.query.selecttype;
     

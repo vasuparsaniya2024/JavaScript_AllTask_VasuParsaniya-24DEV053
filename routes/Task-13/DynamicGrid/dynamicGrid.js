@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../../../connection.js');
 
+const authenticateToken = require('../../../services/Authentication.js');
 
 var ObjectData = {
     errorInEnterInput : "",
@@ -10,7 +11,7 @@ var ObjectData = {
     data: []
 }
 
-router.get('/task13_form',(req,res)=>{
+router.get('/task13_form',authenticateToken.authenticateToken,(req,res)=>{
     ObjectData.errorInEnterInput = "";
     ObjectData.erroInDataFound = ""; 
     ObjectData.query = "";

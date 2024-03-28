@@ -5,6 +5,8 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const jwt = require('jsonwebtoken');
 
+
+
 function authenticateToken(req,res,next){
     // const jwtOptions = {
     //     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -21,11 +23,13 @@ function authenticateToken(req,res,next){
     //     }
     // }));
 
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(" ")[1];
+  
 
-    console.log(token);
+    const token = req.cookies.accesstoken;
     
+    // console.log(authHeader.split(" ")[0]);
+    console.log(token);
+
     if(token === null){
         console.log("Unauthorized Access");
         return res.status(401).json({message:"You Unauthorized Person"});

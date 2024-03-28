@@ -27,11 +27,17 @@ ul{
     padding: 20px;
 }
 
-.registrationbutton{
+.row ul{
+    display: flex;
+    gap: 20px;
+}
+
+.registrationbutton,.loginbutton{
     background-color:chocolate;
     width: 20%;
     padding: 20px;
     border-radius: 20px;
+
 }
 
 h1,h2{
