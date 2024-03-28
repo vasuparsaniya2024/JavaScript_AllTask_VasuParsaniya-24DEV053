@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="/css/homepage_css/homepage.css">
+    <script src="/js/HomePage/homepagefrontend.js"></script>
 </head>
 
 <body>
@@ -13,6 +14,8 @@
         <h1>Vasu Parsaniya_24DEV053</h1>
         <h2>All JavaScript Tasks</h2>
         <div class="container">
+            <div id="messagepopupdiv" class="messagepopupdiv">
+            </div>
             <table>
                 <thead class="tablehead">
                     <tr>
@@ -39,9 +42,11 @@
                             <td>
                                 <%= exercisename[i]%>
                             </td>
-                            
+                            <% let route = viewexerciseroute[i]%>
                             <td class="viewbutton">
-                            <a href="<%= viewexerciseroute[i]%>" target="_blank">Exercise</a>
+                                <p onclick="calltaskroute('<%= viewexerciseroute[i]%>')">Exercise</p>
+                                <% route = ""%>
+                            <!-- <a href="<%= viewexerciseroute[i]%>" target="_blank">Exercise</a> -->
                             </td>
                         </tr>
                         <%}%>

@@ -47,6 +47,9 @@ async function userlogin(){
                 if(loginresponse.token){
                     localStorage.setItem("token",loginresponse.token); //token store in localStorage
                 }
+
+                window.open(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/listtask`, '_self');
+
                 
                 // var temp = await fetch('/temp',{
                 //     method:'POST',
@@ -60,9 +63,7 @@ async function userlogin(){
                 // if(temp.status === 403){
                 //     const res = await temp.json();
                 //     messagepopup(res.message);
-                // }
-
-                
+                // }           
             }
             
         }catch(error){

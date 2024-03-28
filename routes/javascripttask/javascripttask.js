@@ -2,9 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 
+const authenticateToken = require('../../services/Authentication.js');
 
 //----------Task-1 Javascript Events List
-router.get('/task1_javascriptevents',(req,res)=>{
+router.get('/task1_javascriptevents',authenticateToken.authenticateToken,(req,res)=>{
     return res.render('Task-1/JavaScriptEvents');
 });
 

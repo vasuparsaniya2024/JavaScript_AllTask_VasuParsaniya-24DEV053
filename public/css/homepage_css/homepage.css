@@ -60,6 +60,7 @@ a{
     padding: 2px;
     text-align: center;
 }
-.viewbutton a{
+.viewbutton p{
     color:rgb(102, 105, 107);
+    cursor: pointer;
 }
