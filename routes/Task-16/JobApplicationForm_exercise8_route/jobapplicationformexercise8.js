@@ -195,11 +195,13 @@ router.post('/jobapplicationformsubmit',jobapplicationformdatabackend.jobapplica
                 let gender_id = "";
                 let relation_id = "";
 
-                if (state === "Gujarat") {
-                    state_id = 10;
-                } else if (state === "Panjab") {
-                    state_id = 24;
+                for(let s of statearray){
+                        if(s.state === state){
+                            state_id = s.state_id; 
+                            console.log(s.state);
+                        }
                 }
+
 
                 if (gender === "Male") {
                     gender_id = "G1";

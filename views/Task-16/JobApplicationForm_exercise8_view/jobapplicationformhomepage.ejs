@@ -9,20 +9,6 @@
 
 </head>
 <body onload="liststudentdata()">
-    <section>
-    <div class="row">
-        <div class="col">
-            <a href="/jobapplicationform">Register</a>
-            <input type="text" id="updateidinputfield">
-            <p id="updatebutton" onclick="updateroutechange()">Update</p>
-        </div>
-
-    </div>
-
-    <table>
-
-    </table>
-    </section>
 
     <section id="studentsection">
         <div class="intro">
@@ -40,12 +26,5 @@
             </table>
         </div>
     </section>
-    <script>
-        function updateroutechange(){
-            let updateidinput = document.getElementById("updateidinputfield");
-            window.location.href = `${window.location.protocol}/jobapplicationformupdate?student_id=${updateidinput.value}`;
-        }
-
-    </script>
 </body>
 </html>
