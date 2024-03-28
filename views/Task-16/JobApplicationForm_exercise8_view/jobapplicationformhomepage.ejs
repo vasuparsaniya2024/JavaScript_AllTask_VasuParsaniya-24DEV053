@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOB APPLICATION FORM HOME PAGE</title>
+    <style>
+        #updatebutton{
+            background-color: aqua;
+            width: 100px;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section>
+    <div class="row">
+        <div class="col">
+            <a href="/jobapplicationform">Register</a>
+            <input type="text" id="updateidinputfield">
+            <p id="updatebutton" onclick="updateroutechange()">Update</p>
+        </div>
+
+    </div>
+
+    </section>
+
+    <script>
+        function updateroutechange(){
+            let updateidinput = document.getElementById("updateidinputfield");
+            window.location.href = `${window.location.protocol}/jobapplicationformupdate?student_id=${updateidinput.value}`;
+        }
+
+    </script>
+</body>
+</html>
