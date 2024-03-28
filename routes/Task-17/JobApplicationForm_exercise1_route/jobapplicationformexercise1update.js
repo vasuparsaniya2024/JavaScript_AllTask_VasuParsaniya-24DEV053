@@ -5,6 +5,7 @@ const router = express.Router();
 const connection = require('../../../connection.js');
 const jobapplicationformdatabackend = require('../../../controller/Task-17/JobApplicationForm_exercise1_controller/jobapplicationformdatabackend.js');
 const { resolve } = require('path');
+const authenticateToken = require('../../../services/Authentication.js');
 
 var jobapplicationformaction = {
     formsubmit: "",
@@ -100,12 +101,12 @@ var technologytemp = optionmaster(4, "technologyid", "technology").then((data) =
     });
 });
 
-router.get('/task17_jobformajax',(req,res)=>{
+router.get('/task17_jobformajax',authenticateToken.authenticateToken,(req,res)=>{
     return res.render('Task-17/JobApplicationForm_exercise1_view/studentlist');
 });
 
 //get all student data
-router.get('/studentlistajax', (req, res) => {
+router.get('/studentlistajax', authenticateToken.authenticateToken,(req, res) => {
     const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
     FROM basicdetails`;
     connection.query(studentdataretrive,(err,result)=>{
@@ -116,7 +117,7 @@ router.get('/studentlistajax', (req, res) => {
 
 //----------------------------------------------------update-------------------------------
 
-router.get('/jobapplicationformupdateajax', async (req, res) => {
+router.get('/jobapplicationformupdateajax', authenticateToken.authenticateToken,async (req, res) => {
     datafrompostrquest = {};
     errorobject = {};
     student_id = req.query.student_id;

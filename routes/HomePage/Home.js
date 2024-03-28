@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../../connection.js');
 
-router.get('/listtask',(req,res)=>{
+const authenticateToken = require('../../services/Authentication.js');
+
+router.get('/listtask',authenticateToken.authenticateToken,(req,res)=>{
     let exerciseJsonObject = {
         "exerciseno":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
         "date":["25-02-2024","26-02-2024","27-02-2024","28-02-2024","29-02-2024"],

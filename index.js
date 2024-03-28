@@ -39,6 +39,14 @@ app.use(bodyParser.urlencoded({
     extended:true
 }));
 
+//middleware 
+app.use(express.static(path.join(__dirname,'public')));
+
+//ejs file render we need to set path of located files
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine','ejs');
+
+
 app.use(cookieParser());
 
 //routes
@@ -69,6 +77,7 @@ app.use(jobapplicationformupdateajax);
 app.use(jasonplaceholder);
 
 app.use(timezoneconverter);
+
 // app.use(insertStudentDetails);
 // app.use(user);
 // app.use(pagginationcomponent);
@@ -87,10 +96,9 @@ portfinder.getPort(function(err,port){
         }
 });
 
-//middleware 
-app.use(express.static(path.join(__dirname,'public')));
 
-//ejs file render we need to set path of located files
-app.set('views',path.join(__dirname,'views'));
-app.set('view engine','ejs');
 
+//put this at last because any route not found then execute this
+app.use((req,res)=>{
+    res.send("Not Found");
+});

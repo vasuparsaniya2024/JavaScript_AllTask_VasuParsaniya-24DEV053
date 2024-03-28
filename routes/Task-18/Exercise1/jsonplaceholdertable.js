@@ -3,7 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 
-router.get('/task18_jsonplaceholdertable',(req,res)=>{
+const authenticateToken = require('../../../services/Authentication.js');
+
+router.get('/task18_jsonplaceholdertable',authenticateToken.authenticateToken,(req,res)=>{
     res.render('Task-18/Exercise1/jsonplaceholdertable');
 });
 

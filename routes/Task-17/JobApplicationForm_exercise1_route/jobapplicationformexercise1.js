@@ -5,6 +5,8 @@ const router = express.Router();
 const connection = require('../../../connection.js');
 const jobapplicationformdatabackend = require('../../../controller/Task-17/JobApplicationForm_exercise1_controller/jobapplicationformdatabackend.js');
 
+const authenticateToken = require('../../../services/Authentication.js');
+
 
 var jobapplicationformaction = {
     formsubmit: "", 
@@ -101,7 +103,7 @@ var technologytemp = optionmaster(4, "technologyid", "technology").then((data) =
 
 
 
-router.get('/jobapplicationformajax', async (req, res) => {
+router.get('/jobapplicationformajax',authenticateToken.authenticateToken, async (req, res) => {
 
     const path = req.originalUrl;
     const pathname = path.split('?')[0];
@@ -128,6 +130,7 @@ router.get('/jobapplicationformajax', async (req, res) => {
         jobapplicationformaction: jobapplicationformaction
     });
 });
+
 
 router.post('/jobapplicationformajax',(req,res)=>{
     const state = req.body;

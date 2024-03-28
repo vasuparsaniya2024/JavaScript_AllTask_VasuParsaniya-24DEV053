@@ -44,3 +44,17 @@ h1,h2{
     font-size: 30px;
     text-align: center;
 }
+
+.errormessagediv{
+    /* background-color:yellowgreen; */
+    padding: 20px;
+}
+
+.errormessage{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: red;
+    font-size: 30px;
+    
+}

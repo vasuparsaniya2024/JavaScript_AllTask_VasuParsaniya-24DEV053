@@ -3,6 +3,8 @@ const connection = require('../../../connection.js');
 const { resolve } = require('path');
 const router = express.Router();
 
+const authenticateToken = require('../../../services/Authentication.js');
+
 var cityarray = [];
 
 function getcity(){
@@ -23,7 +25,7 @@ var getcitytemp = getcity().then((data)=>{
     cityarray.push(data);
 });
 
-router.get('/task19_timezone',(req,res)=>{
+router.get('/task19_timezone',authenticateToken.authenticateToken,(req,res)=>{
     const city = `SELECT zone_name as cityname from timezones`;
         connection.query(city,(err,result)=>{
             try{

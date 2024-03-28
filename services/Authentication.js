@@ -30,9 +30,10 @@ function authenticateToken(req,res,next){
     // console.log(authHeader.split(" ")[0]);
     console.log(token);
 
-    if(token === null){
+    if(!token){
         console.log("Unauthorized Access");
-        return res.status(401).json({message:"You Unauthorized Person"});
+        // return res.status(401).json({message:"You Unauthorized Person"});
+        return res.render('homepage',{message:"You are Unauthorized Person"});
     }
 
    
