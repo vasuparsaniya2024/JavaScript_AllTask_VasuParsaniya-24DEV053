@@ -302,7 +302,7 @@ async function usernewpasswordset() {
 
                     messagepopup(passwordinsertresponse.message);
                 }
-
+                 window.open(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/userlogin`,'_self');
                 // // console.log(message);
                 // const activationlink = document.getElementById("activationlink");
                 // activationlink.setAttribute("href",`${window.location.protocol}//${window.location.hostname}:${window.location.port}/checkactivationlink?id=${userregistrationresponse.userid}&activationcode=${userregistrationresponse.activationcode}`);
