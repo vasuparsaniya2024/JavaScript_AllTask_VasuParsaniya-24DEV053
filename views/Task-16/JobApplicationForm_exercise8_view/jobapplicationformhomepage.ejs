@@ -4,18 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOB APPLICATION FORM HOME PAGE</title>
-    <style>
-        #updatebutton{
-            background-color: aqua;
-            width: 100px;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-            cursor: pointer;
-        }
-    </style>
+    <script src="/js/Task-16/JobApplicationForm_exercise8_javascript/allstudent.js"></script>
+    <link rel="stylesheet" href="/css/Task-16/JobApplicationForm_exercise8_css/allstudent.css"></link>
+
 </head>
-<body>
+<body onload="liststudentdata()">
     <section>
     <div class="row">
         <div class="col">
@@ -26,8 +19,27 @@
 
     </div>
 
+    <table>
+
+    </table>
     </section>
 
+    <section id="studentsection">
+        <div class="intro">
+            <h1>Vasu Parsaniya_24DEV053</h1>
+            <h2>Job Application Form</h2>
+        </div>
+        <div class="studenttablecontainer">
+            <div class="registerupdatebutton">
+                <p onclick="hidetable()">Register New Student</p>
+                <p onclick="showtable()">Update Student</p>
+            </div>
+
+            <table id="studenttable" class="hidetable">
+                
+            </table>
+        </div>
+    </section>
     <script>
         function updateroutechange(){
             let updateidinput = document.getElementById("updateidinputfield");

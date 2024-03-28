@@ -105,6 +105,17 @@ router.get('/task16_jobform',authenticateToken.authenticateToken,(req, res) => {
     res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformhomepage');
 });
 
+//get all student data
+router.get('/allstudentlist', authenticateToken.authenticateToken,(req, res) => {
+    const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
+    FROM basicdetails`;
+    connection.query(studentdataretrive,(err,result)=>{
+        console.log(result);
+        return res.json(result);
+    });
+});
+
+
 router.get('/jobapplicationform',authenticateToken.authenticateToken,async (req, res) => {
 
     const path = req.originalUrl;

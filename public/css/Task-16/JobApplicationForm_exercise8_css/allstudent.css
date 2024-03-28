@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#studentsection{
+    max-width: 1400px;
+    height: 100dvh;
+}
+
+ 
+.intro{
+    margin: 0 auto;
+    text-align: center;
+    background-color: bisque;
+    padding: 20px;
+    font-size: 20px;
+}
+.studenttablecontainer{
+    background-color: bisque;
+    height: 100%;
+}
+
+.hidetable{
+    display: none;
+}
+.showtable{
+    margin: 0 auto;
+}
+
+th:nth-child(odd){
+    background-color: aquamarine;
+}
+
+th:nth-child(even){
+    background-color:cornflowerblue;
+}
+
+th{
+    padding: 20px;
+    border-radius: 20px;
+}
+
+thead{
+    position: sticky;
+    top: 0;
+}
+
+.studentdatatd{
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.updatebutton{
+    background-color:tomato;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.registerupdatebutton{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.registerupdatebutton p{
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(181, 161, 199);
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 30px;
+}
