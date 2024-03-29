@@ -100,5 +100,5 @@ portfinder.getPort(function(err,port){
 
 //put this at last because any route not found then execute this
 app.use((req,res)=>{
-    res.send("Not Found");
+    res.render('homepage',{message:"Not Found"});
 });
