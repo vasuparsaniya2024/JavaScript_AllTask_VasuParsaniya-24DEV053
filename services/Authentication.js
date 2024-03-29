@@ -33,14 +33,14 @@ function authenticateToken(req,res,next){
     if(!token){
         console.log("Unauthorized Access");
         // return res.status(401).json({message:"You Unauthorized Person"});
-        return res.render('homepage',{message:"You are Unauthorized Person"});
+        return res.render('homepage',{message:"Unauthorized Access...."});
     }
 
    
     jwt.verify(token,process.env.ACCESS_TOKEN,(err,response)=>{
         if(err){
             console.log("Forbiden Access");
-            return res.status(403).json({message:"Forbiden Access"});
+            return res.render('homepage',{message:"Forbiden Access...."});
         }else{
             console.log("Access Route");
             res.locals = response;
