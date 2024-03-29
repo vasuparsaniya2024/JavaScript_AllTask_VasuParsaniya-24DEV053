@@ -12,8 +12,10 @@ ul{
 }
 
 .section{
-    max-width: 1400px;
+    max-width: 1800px;
     background-color: bisque;
+    padding: 40px;
+    height: 100dvh;
 }
 
 .container{
@@ -21,6 +23,7 @@ ul{
     padding: 20px;
     border-radius: 20px;
     margin: 0 auto;
+    width: 50%;
 }
 
 .row{
@@ -32,12 +35,18 @@ ul{
     gap: 20px;
 }
 
-.registrationbutton,.loginbutton,.exploretaskbutton{
+.navbutton{
     background-color:chocolate;
     width: 20%;
     padding: 20px;
     border-radius: 20px;
+}
 
+.logoutbutton{
+    background-color:chocolate;
+    width: 100px;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 h1,h2{
