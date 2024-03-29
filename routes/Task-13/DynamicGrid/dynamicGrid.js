@@ -53,7 +53,7 @@ router.post('/task13_dynamicgrid',(req,res)=>{
     if(queryInputSplit[0].length === 0){
         ObjectData.errorInEnterInput = "Please Enter Query.."
         ObjectData.erroInDataFound = "";  
-        res.render('dynamicGrid',{
+        res.render('Task-13/dynamicGrid',{
             ObjectData : ObjectData,
             pageCount: totalPage,
                 pageSize: +process.env.RECORS_IN_SINGLEPAGE,
@@ -80,7 +80,7 @@ router.post('/task13_dynamicgrid',(req,res)=>{
                     ObjectData.erroInDataFound = "Data Not Found..";  
                     ObjectData.errorInEnterInput = "";
                     ObjectData.data = result;     
-                    res.render('dynamicGrid',{
+                    res.render('Task-13/dynamicGrid',{
                         ObjectData:ObjectData
                     });     
                 }

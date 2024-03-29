@@ -20,6 +20,24 @@
                 </form>
             </div>
 
+            <div class="samplequerydiv">
+                <p>Sample Query</p>
+                <select id="samplequery" onclick="samplequery()">
+                    <option value="select * from ExamResult;">select * from ExamResult;</option>
+                    <option value="SELECT ExamResult.student_id,StudentDetails.studentname,SUM(ExamResult.theoryObtainMark) as theoryObtainMarkTerminal,SUM(ExamResult.practicalObtainMark) as practicalObtainMarkTerminal FROM ExamResult LEFT JOIN StudentDetails ON ExamResult.student_id = StudentDetails.student_id WHERE exam_id = 2 GROUP BY student_id,studentname;">SELECT ExamResult.student_id,StudentDetails.studentname,SUM(ExamResult.theoryObtainMark) as theoryObtainMarkTerminal,SUM(ExamResult.practicalObtainMark) as practicalObtainMarkTerminal FROM ExamResult LEFT JOIN StudentDetails ON ExamResult.student_id = StudentDetails.student_id WHERE exam_id = 2 GROUP BY student_id,studentname;</option>
+                    <option value="select * from StudentDetails;">select * from StudentDetails;</option>
+                    <option value="select StudentDetails.studentname,SubjectMaster.subjectname, ExamResult.theoryObtainMark, ExamResult.practicalObtainMark
+                    from ExamResult
+                    Left join SubjectMaster on ExamResult.subject_id = SubjectMaster.subject_id
+                    Left join StudentDetails on ExamResult.student_id = StudentDetails.student_id
+                    where ExamResult.student_id = 1 and ExamResult.exam_id = 1;">select StudentDetails.studentname,SubjectMaster.subjectname, ExamResult.theoryObtainMark, ExamResult.practicalObtainMark
+                    from ExamResult
+                    Left join SubjectMaster on ExamResult.subject_id = SubjectMaster.subject_id
+                    Left join StudentDetails on ExamResult.student_id = StudentDetails.student_id
+                    where ExamResult.student_id = 1 and ExamResult.exam_id = 1;</option>
+                </select>
+            </div>
+            
             <% var erroFreeInput = false%>
             <% var erroFreeDataFound = false%>
             <% if(ObjectData.hasOwnProperty('errorInEnterInput')){%>
@@ -104,6 +122,12 @@
             }else{
                 document.getElementById("formquery").action = "/task13_dynamicgrid?page=1&querystring="+query;
             }
+        }
+
+        function samplequery(){
+            const samplequery = document.getElementById("samplequery").value;
+            const inputquery = document.getElementById("inputquery");
+            inputquery.setAttribute("value",`${samplequery}`);
         }
     </script>
 </body>
