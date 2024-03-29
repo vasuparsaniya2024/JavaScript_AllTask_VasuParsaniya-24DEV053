@@ -11,17 +11,19 @@ h1{
 
 .tableSection {
     background-color: antiquewhite;
+    max-width: 1600px;
 }
 
 .container {
     background-color: aliceblue;
     padding: 20px;
-    width: 1360px;
+    max-width: 1360px;
+    overflow-x: auto;
 }
 
 table{
-    width: 700px;
-    overflow-x: auto;
+    max-width: 1000px;
+    /* overflow-x: auto; */
 }
 td,
 th {
