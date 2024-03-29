@@ -7,7 +7,7 @@ const authenticateToken = require('../../services/Authentication.js');
 router.get('/listtask',authenticateToken.authenticateToken,(req,res)=>{
     let exerciseJsonObject = {
         "exerciseno":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-        "date":["31-01-2024","01-02-2024","02-02-2024","05-02-2024","05-02-2024","09-02-2024","12-02-2024","13-02-2024","25-02-2024","26-02-2024","27-02-2024","28-02-2024","29-02-2024","01-03-2024"],
+        "date":["31-01-2024","01-02-2024","02-02-2024","05-02-2024","05-02-2024","09-02-2024","12-02-2024","13-02-2024","25-02-2024","26-02-2024","27-02-2024","28-02-2024","29-02-2024","01-03-2024","-","-","11-03-2024","-"],
         
         "exercisename":["JavaScriptEvents","Dynamic Table Create","Kuku Cube","Tic Tac Toe","Sorting Algorithm","ehya (HTML,CSS,JavaScript)","Awan Hoster(HTML,CSS,JavaScript)","Hire.X(HTML,CSS,JavaScript)",
         "Student List","Student List With Paggination","Student Attandance Report","Student Result Report","Dynamic Grid Generate When select query insert","Delimeter Search","Job Application Form CURD Operation","Job Application Form CURD Operation Using AJAX","Fetch API From JSON PLACE HOLDER ","Timezone Converter"],
