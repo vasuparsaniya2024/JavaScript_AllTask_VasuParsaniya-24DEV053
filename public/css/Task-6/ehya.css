@@ -237,38 +237,25 @@ ul li{
     background-image: url(/image/Task-6/Desktop/Image.png);
     height: 600px;
     background-repeat:no-repeat;
+    background-size: cover;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 20px;
 }
 
 .imagetipboxcard2{
     background-image: url(/image/Task-6/Desktop/Image2.png);
     height: 600px;
+    width: 100%;
     background-repeat:no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius:20px;
 }
-
-/* .imagecol{
-    width: 50%;
-    padding: 0 15px;
-    border: 1px solid black;
-} */
-/* 
-.boxcardimage1{
-    width: 50%;
-    background-image: url("./Desktop/Image.png");
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    height: 600px;
-    padding: 15px;
-}
-
-.boxcardimage2{
-    width: 50%;
-    background-image: url("./Desktop/Image2.png");
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    height: 600px;
-    padding: 15px;
-} */
 
 .imagecontain1{
     width: 540px;
