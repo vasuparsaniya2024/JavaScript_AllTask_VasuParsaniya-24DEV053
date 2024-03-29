@@ -110,7 +110,7 @@ router.get('/allstudentlist', authenticateToken.authenticateToken,(req, res) => 
     const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
     FROM basicdetails WHERE candidate_id > 159`;
     connection.query(studentdataretrive,(err,result)=>{
-        console.log(result);
+        // console.log(result);
         return res.json(result);
     });
 });
@@ -198,7 +198,7 @@ router.post('/jobapplicationformsubmit',jobapplicationformdatabackend.jobapplica
                 for(let s of statearray){
                         if(s.state === state){
                             state_id = s.state_id; 
-                            console.log(s.state);
+                            // console.log(s.state);
                         }
                 }
 
@@ -397,7 +397,7 @@ router.post('/jobapplicationformsubmit',jobapplicationformdatabackend.jobapplica
                             technologyData.push(technologyObj);
                         });
 
-                        console.log(technologyData);
+                        // console.log(technologyData);
 
                         for (let tech of technologyData) {
                             for (let techinoptionmaster of technologyarray) {
@@ -491,7 +491,7 @@ router.post('/jobapplicationformsubmit',jobapplicationformdatabackend.jobapplica
                             };
                             languageData.push(languageObj);
                         });
-                        console.log(languageData);
+                        // console.log(languageData);
 
 
                         if (languagearray && languageData && languageData.length > 0) {

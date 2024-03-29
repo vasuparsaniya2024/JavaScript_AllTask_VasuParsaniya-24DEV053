@@ -74,11 +74,11 @@ async function fetchposts(startindex, endindex) {
         for(let element of data){
             allrecords.push(element);
         }
-        console.log(allrecords.length);
+        // console.log(allrecords.length);
     });
 
     const posts = allrecords.slice(startindex, endindex);
-    console.log(posts);
+    // console.log(posts);
 
 
     const jsonplaceholdertable = document.getElementById("jsonplaceholdertable");
@@ -128,14 +128,14 @@ async function singlepost() {
         for(let element of data){
             allrecords.push(element);
         }
-        console.log(allrecords.length);
+        // console.log(allrecords.length);
     });
 
     await comments().then((data)=>{
         for(let element of data){
             allcomments.push(element);
         }
-    console.log(allcomments.length);
+    // console.log(allcomments.length);
     });
 
     let href = window.location.href;
@@ -153,7 +153,7 @@ async function singlepost() {
                 if (post[key] == post_id) {
                     // console.log(post);
                     for (let keyofpost in post) {
-                        console.log(keyofpost);
+                        // console.log(keyofpost);
                         const createtr = document.createElement('tr');
                         const createth = document.createElement('th');
                         const createtd = document.createElement('td');
@@ -286,7 +286,7 @@ function singlerightbutton() {
 
 function search() {
     const searchinputbox = document.getElementById("searchinput");
-    console.log(searchinputbox.value);
+    // console.log(searchinputbox.value);
     // console.log(filterarray[0]);
     let searcharray = [];
 

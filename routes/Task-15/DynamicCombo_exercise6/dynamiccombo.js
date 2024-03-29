@@ -25,7 +25,7 @@ router.get('/task15_selectcombo',authenticateToken.authenticateToken,(req,res)=>
     connection.query(`${queryforselectname};${queryforselecttype}`,(err,result)=>{
         try{ 
             if(err) throw err
-            console.log(result[0]);
+            // console.log(result[0]);
             // console.log(result[1]);
             ObjectData.selectname = result[0];
             ObjectData.selecttype = result[1];
@@ -52,12 +52,12 @@ router.get('/task15_dynamiccombo',authenticateToken.authenticateToken,(req,res)=
 
         const query = `SELECT optionmaster.option_name as optionname, selectmaster.multiselecteallow as multiselecteallow, selectmaster.cssclass as cssclass FROM selectmaster LEFT JOIN optionmaster ON selectmaster.select_id = optionmaster.select_id WHERE selectmaster.select_name='${selectname}';`
         
-        console.log(query);
+        // console.log(query);
 
         connection.query(query,(err,result)=>{
             try{
                 if(err) throw err
-                console.log(result);
+                // console.log(result);
                 ObjectData.data = result;
                 res.render('Task-15/DynamicCombo_exercise6/dynamiccombo.ejs',{
                     ObjectData:ObjectData

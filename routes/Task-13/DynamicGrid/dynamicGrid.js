@@ -154,12 +154,12 @@ router.get('/task13_dynamicgrid',(req,res)=>{
     }
 });
 
-
+//not in use
 router.get('/task13_paggination',(req,res)=>{
     const currentPage = req.query.page || 1;
     const urlPath = req.path;
     ObjectData.urlPath = urlPath;
-    console.log(ObjectData.urlPath);
+    // console.log(ObjectData.urlPath);
     res.render('Task-13/pagginationComponent',{
         ObjectData:ObjectData,
         pageCount: +process.env.TOTAL_PAGE,

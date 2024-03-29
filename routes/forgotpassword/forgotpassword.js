@@ -84,7 +84,7 @@ router.get('/forgotpasswordlink', (req, res) => {
 
 router.post('/updatepassword', (req, res) => {
     const requestData = req.body;
-    console.log(requestData);
+    // console.log(requestData);
 
     /**In this update password process (means forgot password) 
      * from the requestData particuler user id exist or not with user_status 1

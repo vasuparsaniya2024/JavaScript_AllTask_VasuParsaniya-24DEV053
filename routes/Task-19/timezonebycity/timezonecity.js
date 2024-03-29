@@ -52,8 +52,8 @@ router.post('/citytimezone',async (req,res)=>{
     let date = new Date(); //current date
     let selectcitytime = date.toLocaleString("en-US", {timeZone: city});
 
-    console.log(date);
-    console.log(selectcitytime);
+    // console.log(date);
+    // console.log(selectcitytime);
 
     return res.json({currenttime:`${date}`,selectcitytime:`${selectcitytime}`});
 

@@ -167,7 +167,7 @@ router.post('/jobapplicationformsubmitajax',jobapplicationformdatabackend.jobapp
 
 
     // console.log("Route call");
-    console.log(req.body);
+    // console.log(req.body);
     //basic details
     const { fname, lname, designation, address1, address2, email, phonenumber, city, gender, state, relationship, zipcode, dob } = req.body;
 
@@ -412,7 +412,7 @@ router.post('/jobapplicationformsubmitajax',jobapplicationformdatabackend.jobapp
                             technologyData.push(technologyObj);
                         });
 
-                        console.log(technologyData);
+                        // console.log(technologyData);
 
                         for (let tech of technologyData) {
                             for (let techinoptionmaster of technologyarray) {
@@ -506,7 +506,7 @@ router.post('/jobapplicationformsubmitajax',jobapplicationformdatabackend.jobapp
                             };
                             languageData.push(languageObj);
                         });
-                        console.log(languageData);
+                        // console.log(languageData);
 
 
                         if (languagearray && languageData && languageData.length > 0) {

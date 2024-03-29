@@ -10,7 +10,7 @@ async function formdata(button) {
 
     const jobapplicationformdata = {};
 
-    console.log(formData);
+    // console.log(formData);
 
     for (let [key, value] of formData.entries()) {
         jobapplicationformdata[key] = value;
@@ -179,7 +179,7 @@ async function formdata(button) {
     }
 
 
-    console.log(jobapplicationformdata);
+    // console.log(jobapplicationformdata);
 
     // alert(window.location.pathname);
     if (window.location.pathname === "/jobapplicationformajax") {
@@ -225,7 +225,7 @@ async function formdata(button) {
 
         const formsubmitmessage = document.getElementById("formsubmitmessage");
         const responsemessage = await responseupdate.json();
-        console.log(responsemessage.message);
+        // console.log(responsemessage.message);
         formsubmitmessage.classList.add("formsubmitmessagestyle");
        
         formsubmitmessage.innerHTML = responsemessage.message;

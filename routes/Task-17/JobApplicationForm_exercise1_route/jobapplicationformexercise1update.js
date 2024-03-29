@@ -228,7 +228,7 @@ router.get('/jobapplicationformupdateajax', authenticateToken.authenticateToken,
         // console.log(preferedlocationarray);
 
         // console.log(statearray);
-        console.log(studentdata);
+        // console.log(studentdata);
 
         //here we send city array to ejs according to state_id
         let cityarraytosend = [];

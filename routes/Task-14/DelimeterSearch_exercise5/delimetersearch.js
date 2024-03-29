@@ -27,7 +27,7 @@ router.post('/task14_delimetersearch',authenticateToken.authenticateToken,(req,r
     let queryInput = req.body.inputquery;
     const urlPath = req.path;
     const currentPage = req.query.page || 1;
-    console.log(queryInput);
+    // console.log(queryInput);
 
     ObjectData.querybeforesplit = queryInput;
 
@@ -49,7 +49,7 @@ router.post('/task14_delimetersearch',authenticateToken.authenticateToken,(req,r
         ";":"zipcode"
     }
 
-    console.log(objectmapdelimeter.hasOwnProperty('_'));
+    // console.log(objectmapdelimeter.hasOwnProperty('_'));
     const fieldvalue = {
         "studentname":[],
         "email":[],
@@ -93,7 +93,7 @@ router.post('/task14_delimetersearch',authenticateToken.authenticateToken,(req,r
     //-------------------split----------------------------------------
     for(let element of delimeterarray){
         let queryInputSplit = queryInput.split(element);
-        console.log(queryInputSplit);
+        // console.log(queryInputSplit);
         
         if(queryInputSplit.length <= 2){
             //if all field use
@@ -121,7 +121,7 @@ router.post('/task14_delimetersearch',authenticateToken.authenticateToken,(req,r
                 statuForNotFound = false;
                 let valueofdelimeter = objectmapdelimeter[element];
             fieldvalue[valueofdelimeter].push(queryInputSplit[1]);
-            console.log(objectmapdelimeter[element]);
+            // console.log(objectmapdelimeter[element]);
             }
     
             if(statusForFound){
@@ -153,7 +153,7 @@ router.post('/task14_delimetersearch',authenticateToken.authenticateToken,(req,r
                 statuForNotFound = false;
                 let valueofdelimeter = objectmapdelimeter[element];
             fieldvalue[valueofdelimeter].push(queryInputSplit[1]);
-            console.log(objectmapdelimeter[element]);
+            // console.log(objectmapdelimeter[element]);
             }
 
             if(statusForFound){
@@ -161,7 +161,7 @@ router.post('/task14_delimetersearch',authenticateToken.authenticateToken,(req,r
     
                 let valueofdelimeter = objectmapdelimeter[element];
                 fieldvalue[valueofdelimeter].push(substring);
-                console.log(objectmapdelimeter[element]);
+                // console.log(objectmapdelimeter[element]);
             }
         } 
         }else{
@@ -196,7 +196,7 @@ router.post('/task14_delimetersearch',authenticateToken.authenticateToken,(req,r
         }
     }
 
-        console.log(JSON.stringify(fieldvalue));
+        // console.log(JSON.stringify(fieldvalue));
 
 //         _vasu^v@gmail.com$9586606859{junagadh}gujarat;362640
 // _Shyam^it.ah2tmb@gmail.com$7186630228{Panchkula}Mizoram;660399
@@ -221,7 +221,7 @@ router.post('/task14_delimetersearch',authenticateToken.authenticateToken,(req,r
     
     // const query = "SELECT studentname,email,phonenumber,city,state,zipcode FROM StudentDetails WHERE studentname='"+fieldvalue.studentname[0]+"'"+" "+"AND email='"+fieldvalue.email[0]+"'"+" "+"AND phonenumber='"+fieldvalue.phonenumber[0]+"'"+" "+"AND city='"+fieldvalue.city+"'"+" "+"AND state='"+fieldvalue.state[0]+"'"+" "+"AND zipcode='"+fieldvalue.zipcode+"';";
 
-    console.log(query);
+    // console.log(query);
 
     connection.query(query,(err,result)=>{
         try{

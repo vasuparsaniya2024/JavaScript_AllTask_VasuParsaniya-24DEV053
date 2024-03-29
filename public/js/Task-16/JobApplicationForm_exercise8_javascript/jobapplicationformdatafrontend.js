@@ -100,17 +100,17 @@ function jobapplicationformdatafrontend() {
     let validatelanguageknownstatus = validatelanguageknown();
    
 
-    console.log(errorvalidaterequirefields);
-    console.log(errorradiogender);
-    console.log(errorstatedropdown);
-    console.log(errorrelationshipdropdown);
-    console.log(validatelanguageknownstatus);
-    console.log(validatetechnologyknownstatus);
-    console.log(validatepreferancestatus);
-    console.log(validatereferencedetailsstatus);
-    console.log(validateexperiencedetailsstatus);
-    console.log(validateeducationdetailsstatus);
-    console.log(validatebasicdetailsstatus);
+    // console.log(errorvalidaterequirefields);
+    // console.log(errorradiogender);
+    // console.log(errorstatedropdown);
+    // console.log(errorrelationshipdropdown);
+    // console.log(validatelanguageknownstatus);
+    // console.log(validatetechnologyknownstatus);
+    // console.log(validatepreferancestatus);
+    // console.log(validatereferencedetailsstatus);
+    // console.log(validateexperiencedetailsstatus);
+    // console.log(validateeducationdetailsstatus);
+    // console.log(validatebasicdetailsstatus);
 
     if(errorvalidaterequirefields || errorradiogender || errorstatedropdown || errorrelationshipdropdown|| validatelanguageknownstatus || validatetechnologyknownstatus || validatepreferancestatus || validatereferencedetailsstatus || validateexperiencedetailsstatus || validateeducationdetailsstatus || validatebasicdetailsstatus){
         console.log("error in form");
@@ -135,7 +135,7 @@ function validatebasicdetails() {
     const regxdateofbirth = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/;
 
     for (let i = 0; i < arrayofbasicdetailsfields.length; i++) {
-        console.log("for loop");
+        // console.log("for loop");
 
         switch (arrayofbasicdetailsfields[i]) {
             case "Firstname":
@@ -143,7 +143,7 @@ function validatebasicdetails() {
                 if (firstname.value.trim().length === 0 && firstname.value !== "") {
                     document.getElementById("errorfname").innerHTML = "* Please Enter Valid Firstname";
                     errorfoundbasicdetails = true;
-                    console.log("fname");
+                    // console.log("fname");
                 }
                 break;
 
@@ -152,7 +152,7 @@ function validatebasicdetails() {
                 if (lastname.value.trim().length === 0 && lastname.value !== "") {
                     document.getElementById("errorlname").innerHTML = "* Please Enter Valid Lastname";
                     errorfoundbasicdetails = true;
-                    console.log("lname");
+                    // console.log("lname");
                 }
                 break;
 
@@ -161,7 +161,7 @@ function validatebasicdetails() {
                 if (designation.value.trim().length === 0 && designation.value !== "") {
                     document.getElementById("errordesignation").innerHTML = "* Please Enter Valid Designation";
                     errorfoundbasicdetails = true;
-                    console.log("designation");
+                    // console.log("designation");
                 }
                 break;
 
@@ -170,7 +170,7 @@ function validatebasicdetails() {
                 if (address1.value.trim().length === 0 && address1.value !== "") {
                     document.getElementById("erroraddress1").innerHTML = "* Please Enter Valid Address1";
                     errorfoundbasicdetails = true;
-                    console.log("address1");
+                    // console.log("address1");
                 }
                 break;
 
@@ -179,7 +179,7 @@ function validatebasicdetails() {
                 if (address2.value.trim().length === 0 && address2.value !== "") {
                     document.getElementById("erroraddress2").innerHTML = "* Please Enter Valid Address2";
                     errorfoundbasicdetails = true;
-                    console.log("address2");
+                    // console.log("address2");
                 }
                 break;
 
@@ -188,7 +188,7 @@ function validatebasicdetails() {
                 if (!regexemail.test(email.value) && email.value !== "") {
                     document.getElementById("erroremail").innerHTML = "* Please Enter Valid Email";
                     errorfoundbasicdetails = true;
-                    console.log("email");
+                    // console.log("email");
                 }
                 break;
 
@@ -196,7 +196,7 @@ function validatebasicdetails() {
                 const phonenumber = document.getElementById("phonenumber");
                 if ((isNaN(phonenumber.value) || phonenumber.value.length !== 10 || phonenumber.value.trim().length === 0 || phonenumber.value.charAt(0) === "0") && phonenumber.value !== "") {
                     document.getElementById("errorphonenumber").innerHTML = "* Please Enter Valid phonenumber";
-                    console.log("phonenumber");
+                    // console.log("phonenumber");
                     errorfoundbasicdetails = true;
                 }
                 break;
@@ -206,7 +206,7 @@ function validatebasicdetails() {
                 if (city.value.trim().length === 0 && city.value !== "") {
                     document.getElementById("errorcity").innerHTML = "* Please Enter Valid City";
                     errorfoundbasicdetails = true;
-                    console.log("city");
+                    // console.log("city");
                 }
                 break;
 
@@ -215,7 +215,7 @@ function validatebasicdetails() {
                 if (isNaN(zipcode.value) || zipcode.value.trim().length === 0) {
                     document.getElementById("errorzipcode").innerHTML = "* Please Enter Valid Zipcode";
                     errorfoundbasicdetails = true;
-                    console.log("zipcode");
+                    // console.log("zipcode");
                 }
                 break;
 
@@ -224,18 +224,17 @@ function validatebasicdetails() {
                 if (!regxdateofbirth.test(dateofbirth.value) && dateofbirth.value !== "") {
                     document.getElementById("errordateofbirth").innerHTML = "* Please Enter Valid Date(YYYY-MM-DD)";
                     errorfoundbasicdetails = true;
-                    console.log("dob");
+                    // console.log("dob");
                 }
                 break;
         }
     }
 
-    console.log("basic details  "+errorfoundbasicdetails);
+    // console.log("basic details  "+errorfoundbasicdetails);
     if (errorfoundbasicdetails) {
         errorfoundbasicdetails = false;
         return true;
     } else {
-        console.log("hii");
         return false;
     }
 }
@@ -765,7 +764,7 @@ function validatetechnologyknown(){
 
 //-----------Language Known
 function validatelanguageknown(){
-    console.log("in function language");
+    // console.log("in function language");
 
     let errorfoundlanguageknown = false;
     const reqlanguageproficiency = document.querySelectorAll('.reqlanguageproficiency');
@@ -777,22 +776,22 @@ function validatelanguageknown(){
 
     for(let i=0;i<reqlanguageproficiency.length;i++){
         if(reqlanguageproficiency[i].checked){
-            console.log("checked");
+            // console.log("checked");
             let languageproficiencycheckebox = document.querySelectorAll(languageproficiency[i]);
 
             for(let j=0;j<languageproficiencycheckebox.length;j++){
                 if(!languageproficiencycheckebox[j].checked){
-                    console.log("not check proficiency");
+                    // console.log("not check proficiency");
                     statusforlanguageproficiencychecked = false;
                 }else{
                     statusforlanguageproficiencychecked = true;
-                    console.log("check proficiency");
+                    // console.log("check proficiency");
                     break;
                 }
             }
 
             if(!statusforlanguageproficiencychecked){
-                console.log("Error language");
+                // console.log("Error language");
                 reqlanguageproficiencystyle[i].innerHTML = "* Please Select language proficiency";     
                 errorfoundlanguageknown = true;
                 }else{

@@ -120,7 +120,7 @@ router.get('/jobapplicationformupdate',authenticateToken.authenticateToken,async
 
     await preferedlocationtemp;
 
-    console.log(preferedlocationarray.length);
+    // console.log(preferedlocationarray.length);
     await departmenttemp;
 
     try {
@@ -460,7 +460,7 @@ router.post('/jobapplicationformupdatesuccessfully', jobapplicationformdatabacke
         try {
             await new Promise((resolve, reject) => {
 
-                console.log(datafrompostrquest);
+                // console.log(datafrompostrquest);
 
                 const updatebasicdetails = `UPDATE basicdetails SET firstname = '${datafrompostrquest.fname}',lastname = '${datafrompostrquest.lname}',designation = '${datafrompostrquest.designation}',email = '${datafrompostrquest.email}',address1 = '${datafrompostrquest.address1}',address2 = '${datafrompostrquest.address2}',phonenumber = '${datafrompostrquest.phonenumber}',city = '${datafrompostrquest.city}',state = ${state_id},gender = '${gender_id}',zipcode = '${datafrompostrquest.zipcode}'
                 WHERE candidate_id=${student_id}`;
@@ -657,10 +657,10 @@ router.post('/jobapplicationformupdatesuccessfully', jobapplicationformdatabacke
                         
                         await previoustechnologytemp;
 
-                        console.log("=================");
-                        console.log(technologyData);
-                        console.log(previoustechnologyknownarray);
-                        console.log(technologyarray);
+                        
+                        // console.log(technologyData);
+                        // console.log(previoustechnologyknownarray);
+                        // console.log(technologyarray);
 
                         let statusfortechnologyfoundinprevious = false;
                         let knowntechnologyid = '';
@@ -678,14 +678,12 @@ router.post('/jobapplicationformupdatesuccessfully', jobapplicationformdatabacke
                                     }
                                     if (statusfortechnologyfoundinprevious) {
                                         updatetechnologydetails(student_id, knowntechnologyid, tech.proficiency);
-                                        console.log("update");
                                         statusfortechnologyfoundinprevious = false;
                                     } else {
                                         //if newlanguage is not found in previous language then insert this language
                                         for (let techinoptionmaster of technologyarray) {
                                             if (tech.technology === techinoptionmaster.technology) {
                                                 inserttechnologydetails(student_id, techinoptionmaster.technologyid, tech.proficiency);
-                                                console.log("insert");
                                                 break;
                                             }
                                         }
@@ -695,7 +693,6 @@ router.post('/jobapplicationformupdatesuccessfully', jobapplicationformdatabacke
                                     for (let techinoptionmaster of technologyarray) {
                                         if (tech.technology === techinoptionmaster.technology) {
                                             inserttechnologydetails(student_id, techinoptionmaster.technologyid,tech.proficiency);
-                                            console.log("inserttttt");
                                         }
                                     }
                                 }
@@ -931,7 +928,7 @@ function getprevioustechnology(student_id){
                 reject(err);
             }else{
                 resolve(result);
-                console.log(result);
+                // console.log(result);
             }
         });
     });
