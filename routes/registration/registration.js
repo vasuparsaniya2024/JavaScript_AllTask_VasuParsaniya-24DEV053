@@ -128,7 +128,7 @@ router.get('/checkactivationlink', (req, res) => {
 router.post('/checkactivationlink', (req, res) => {
     const activationData = req.body;
 
-    const codeexpiretime = 60;   //in second this is small for testing we can increase
+    const codeexpiretime = 120;   //in second this is small for testing we can increase
     //check activation data exist
     const checkactivation = `SELECT activationcode_created as activationcodedate FROM linkactivationcodes
     WHERE user_id = ${activationData.userid} AND activationcode = '${activationData.activationcode}';`;
@@ -226,7 +226,7 @@ router.post('/passwordinsert', passwordbackendvalidation.passwordbackendvalidati
      */
 
     //now check link is activate or not
-    const codeexpiretime = 60;   //in second this is small for testing we can increase
+    const codeexpiretime = 120;   //in second this is small for testing we can increase
     //check activation data exist
     const checkactivation = `SELECT activationcode_created as activationcodedate FROM linkactivationcodes
     WHERE user_id = ${activationData.userid} AND activationcode = '${activationData.activationcode}';`;

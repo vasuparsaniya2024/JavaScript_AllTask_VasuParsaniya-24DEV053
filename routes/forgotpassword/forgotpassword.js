@@ -95,7 +95,7 @@ router.post('/updatepassword', (req, res) => {
     */
 
     //check link is activate or not 
-    const codeexpiretime = 60;   //in seconds
+    const codeexpiretime = 120;   //in seconds
     //check activation data exist
     const checkactivation = `SELECT activationcode_created as activationcodedate FROM linkactivationcodes
     WHERE user_id = ${requestData.userid} AND activationcode = '${requestData.activationcode}';`;

@@ -32,7 +32,7 @@ ul{
     gap: 20px;
 }
 
-.registrationbutton,.loginbutton{
+.registrationbutton,.loginbutton,.exploretaskbutton{
     background-color:chocolate;
     width: 20%;
     padding: 20px;

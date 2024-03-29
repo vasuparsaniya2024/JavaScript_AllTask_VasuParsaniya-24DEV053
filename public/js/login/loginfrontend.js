@@ -44,9 +44,11 @@ async function userlogin(){
                 messagepopup(loginresponse.message);
                 }
 
-                if(loginresponse.token){
-                    localStorage.setItem("token",loginresponse.token); //token store in localStorage
-                }
+                //we use cookie so this not need
+                
+                // if(loginresponse.token){
+                //     localStorage.setItem("token",loginresponse.token); //token store in localStorage
+                // }
 
                 window.open(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/listtask`, '_self');
 
