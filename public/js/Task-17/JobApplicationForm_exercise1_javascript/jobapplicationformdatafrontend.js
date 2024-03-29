@@ -246,17 +246,18 @@ function jobapplicationformdatafrontend() {
     let validatelanguageknownstatus = validatelanguageknown();
 
 
-    console.log(errorvalidaterequirefields);
-    console.log(errorradiogender);
-    console.log(errorstatedropdown);
-    console.log(errorrelationshipdropdown);
-    console.log(validatelanguageknownstatus);
-    console.log(validatetechnologyknownstatus);
-    console.log(validatepreferancestatus);
-    console.log(validatereferencedetailsstatus);
-    console.log(validateexperiencedetailsstatus);
-    console.log(validateeducationdetailsstatus);
-    console.log(validatebasicdetailsstatus);
+    // console.log(errorvalidaterequirefields);
+    // console.log(errorradiogender);
+    // console.log(errorstatedropdown);
+    // console.log(errorrelationshipdropdown);
+    // console.log(validatelanguageknownstatus);
+    // console.log(validatetechnologyknownstatus);
+    // console.log(validatepreferancestatus);
+    // console.log(validatereferencedetailsstatus);
+    // console.log(validateexperiencedetailsstatus);
+    // console.log(validateeducationdetailsstatus);
+    // console.log(validatebasicdetailsstatus);
+
     // Validation functions for specific sections
     const validationFunctions = [
         validatebasicdetails,
@@ -268,11 +269,20 @@ function jobapplicationformdatafrontend() {
         validatepreferance,
     ];
 
+
     // Only call the validation function related to the current section
     if (currenttab < validationFunctions.length) {
+        console.log("current tab"+currenttab);
         var validatefunction = validationFunctions[currenttab]();
         // alert(validatefunction);
     }
+
+    console.log(errorvalidaterequirefields);
+    console.log(errorradiogender);
+    console.log(errorstatedropdown);
+    console.log(errorrelationshipdropdown);
+    console.log(validatefunction);
+
     if (errorvalidaterequirefields || errorradiogender || errorstatedropdown || errorrelationshipdropdown || validatefunction) {
         console.log("error in form");
         return false;     // form has error
@@ -283,6 +293,7 @@ function jobapplicationformdatafrontend() {
         errorstatedropdown = false;
         errorrelationshipdropdown = false;
         validatebasicdetailsstatus = false;
+        // validatefunction = false;
         return true;
     }
 }
@@ -720,7 +731,7 @@ function addexperience() {
     let experiencecomponent_id = countexperience() + 1;
 
     experiencecomponent.innerHTML = `
-    <td>/home/vasu-parsaniya/Documents/Basic Tranning/NodeJs/ExpressJs/Express-AJAX/Exerc/home/vasu-parsaniya/Documents/Basic Tranning/NodeJs/ExpressJs/Express-AJAX/Exercise/controller/JobApplicationForm_exercise1_controllerise/controller/JobApplicationForm_exercise1_controller
+    <td>
         <label for="companyname${experiencecomponent_id}">Company Name</label>
         <input type="text" id="companyname${experiencecomponent_id}" name="companyname" class="reqerrorexperience companynameerror companyname">
         <span class="reqerrorexperiencestyle companynameerrorstyle"></span>

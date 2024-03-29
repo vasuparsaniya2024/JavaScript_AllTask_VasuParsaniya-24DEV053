@@ -17,6 +17,8 @@ var datafrompostrquest = {};
 //studentid store in global variable  that is used in student details update
 var student_id = 0;
 var statearray = [];
+var cityarray = [];
+
 var preferedlocationarray = [];
 var departmentarray = [];
 var languagearray = [];
@@ -54,6 +56,25 @@ var statetemp = getstates().then((state) => {
         statearray.push(element);
     });
 });
+
+function getcity(){
+    return new Promise((resolve,reject)=>{
+        const city = "SELECT * from citymaster;";
+        connection.query(city,(err,result)=>{
+            if(err){
+                reject(err);
+            }else{
+                resolve(result);
+            }
+        });
+    });
+}
+var citytemp = getcity().then((city)=>{
+    city.forEach((element)=>{
+        cityarray.push(element);
+    })
+});
+
 
 //-------option name get from optionmaster table using selectmaster id
 function optionmaster(select_id, column2, column3) {
@@ -108,9 +129,9 @@ router.get('/task17_jobformajax',authenticateToken.authenticateToken,(req,res)=>
 //get all student data
 router.get('/studentlistajax', authenticateToken.authenticateToken,(req, res) => {
     const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
-    FROM basicdetails`;
+    FROM basicdetails where candidate_id > 159`;
     connection.query(studentdataretrive,(err,result)=>{
-        console.log(result);
+        // console.log(result);
         return res.json(result);
     });
 });
@@ -122,8 +143,8 @@ router.get('/jobapplicationformupdateajax', authenticateToken.authenticateToken,
     errorobject = {};
     student_id = req.query.student_id;
 
-    console.log("route update");
-    console.log(student_id);
+    // console.log("route update");
+    // console.log(student_id);
     // const path = req.originalUrl;
     // const query = path.split('?')[1];
 
@@ -132,6 +153,8 @@ router.get('/jobapplicationformupdateajax', authenticateToken.authenticateToken,
 
     // console.log(student_id);
     await statetemp;
+
+    await citytemp;
 
     await preferedlocationtemp;
 
@@ -186,6 +209,7 @@ router.get('/jobapplicationformupdateajax', authenticateToken.authenticateToken,
         var technology = gettechnologyknown(student_id).then((data) => {
             studentdata.technologyknown = data;
         });
+
         await technology;
 
         //---------------referencecontact
@@ -204,12 +228,23 @@ router.get('/jobapplicationformupdateajax', authenticateToken.authenticateToken,
         // console.log(preferedlocationarray);
 
         // console.log(statearray);
-        // console.log(studentdata);
+        console.log(studentdata);
+
+        //here we send city array to ejs according to state_id
+        let cityarraytosend = [];
+
+        for(let city of cityarray){
+            if(city.state_id === studentdata.studentbasicdetails.state_id){
+                cityarraytosend.push(city);
+            }
+        }
+        // console.log(cityarraytosend);
 
         // errorobject.formupdatemessage = "Update Successfuly..";
         return res.render('Task-17/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
             errorobject: errorobject,
             statearray: statearray,
+            cityarraytosend:cityarraytosend,
             preferedlocationarray: preferedlocationarray,
             departmentarray: departmentarray,
             datafrompostrquest: {},
@@ -484,7 +519,7 @@ router.post('/jobapplicationformupdatesuccessfullyajax', jobapplicationformdatab
         try {
             await new Promise((resolve, reject) => {
 
-                console.log(datafrompostrquest);
+                // console.log(datafrompostrquest);
 
                 const updatebasicdetails = `UPDATE basicdetails SET firstname = '${datafrompostrquest.fname}',lastname = '${datafrompostrquest.lname}',designation = '${datafrompostrquest.designation}',email = '${datafrompostrquest.email}',address1 = '${datafrompostrquest.address1}',address2 = '${datafrompostrquest.address2}',phonenumber = '${datafrompostrquest.phonenumber}',city = '${datafrompostrquest.city}',state = ${state_id},gender = '${gender_id}',zipcode = '${datafrompostrquest.zipcode}'
                 WHERE candidate_id=${student_id}`;
@@ -681,10 +716,10 @@ router.post('/jobapplicationformupdatesuccessfullyajax', jobapplicationformdatab
                         
                         await previoustechnologytemp;
 
-                        console.log("=================");
-                        console.log(technologyData);
-                        console.log(previoustechnologyknownarray);
-                        console.log(technologyarray);
+                        // console.log("=================");
+                        // console.log(technologyData);
+                        // console.log(previoustechnologyknownarray);
+                        // console.log(technologyarray);
 
                         let statusfortechnologyfoundinprevious = false;
                         let knowntechnologyid = '';
@@ -702,14 +737,14 @@ router.post('/jobapplicationformupdatesuccessfullyajax', jobapplicationformdatab
                                     }
                                     if (statusfortechnologyfoundinprevious) {
                                         updatetechnologydetails(student_id, knowntechnologyid, tech.proficiency);
-                                        console.log("update");
+                                        // console.log("update");
                                         statusfortechnologyfoundinprevious = false;
                                     } else {
                                         //if newlanguage is not found in previous language then insert this language
                                         for (let techinoptionmaster of technologyarray) {
                                             if (tech.technology === techinoptionmaster.technology) {
                                                 inserttechnologydetails(student_id, techinoptionmaster.technologyid, tech.proficiency);
-                                                console.log("insert");
+                                                // console.log("insert");
                                                 break;
                                             }
                                         }
@@ -719,7 +754,7 @@ router.post('/jobapplicationformupdatesuccessfullyajax', jobapplicationformdatab
                                     for (let techinoptionmaster of technologyarray) {
                                         if (tech.technology === techinoptionmaster.technology) {
                                             inserttechnologydetails(student_id, techinoptionmaster.technologyid,tech.proficiency);
-                                            console.log("inserttttt");
+                                            // console.log("inserttttt");
                                         }
                                     }
                                 }
@@ -760,7 +795,7 @@ router.post('/jobapplicationformupdatesuccessfullyajax', jobapplicationformdatab
                         var previouspreferencetemp = getpreviouspreference(student_id).then((data) => {
                             data.forEach((element) => {
                                 previouspreferencearray.push(element);
-                                console.log(element);
+                                // console.log(element);
                             });
                         });
 
@@ -958,7 +993,6 @@ function getprevioustechnology(student_id){
                 reject(err);
             }else{
                 resolve(result);
-                console.log(result);
             }
         });
     });

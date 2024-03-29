@@ -108,7 +108,7 @@ router.get('/task16_jobform',authenticateToken.authenticateToken,(req, res) => {
 //get all student data
 router.get('/allstudentlist', authenticateToken.authenticateToken,(req, res) => {
     const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
-    FROM basicdetails`;
+    FROM basicdetails WHERE candidate_id > 159`;
     connection.query(studentdataretrive,(err,result)=>{
         console.log(result);
         return res.json(result);

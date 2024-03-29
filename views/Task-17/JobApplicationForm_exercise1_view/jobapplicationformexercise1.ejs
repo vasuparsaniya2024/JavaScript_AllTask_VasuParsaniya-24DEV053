@@ -183,7 +183,20 @@
                            <select id="city" name="city">
                               <option value="">Select City
                               </option>
-                                              
+
+                              <% if(typeof cityarraytosend !== "undefined"){%>
+                                 <% cityarraytosend.forEach((city,index)=>{%>
+                                    <% let selectcity = ""%>
+                                 <%if(studentdata && studentdata.studentbasicdetails && Object.keys(studentdata.studentbasicdetails).length !== 0 && studentdata.studentbasicdetails.city === city.city_name){%>
+                                    <% selectcity = "selected"%>
+                                    <%}else{%>
+                                    <% selectcity = ""%>
+                                    <%}%>
+                                    <option id="city<%= index+1%>" value="<%= city.city_name%>" <%= selectcity%>>
+                                       <%= city.city_name%>
+                                    </option>
+                                    <%})%>
+                                 <%}%>
                            </select>
 
                         <span id="errorcity" class="reqerrorstyle">
