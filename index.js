@@ -19,9 +19,6 @@ const javascripttask = require('./routes/javascripttask/javascripttask.js');
 
 // const dynamiccombo = require('./routes/Task-15/DynamicCombo_exercise6/dynamiccombo.js') // remainning
 
-
-const jobapplicationformajax = require('./routes/Task-17/JobApplicationForm_exercise1_route/jobapplicationformexercise1.js');
-const jobapplicationformupdateajax = require('./routes/Task-17/JobApplicationForm_exercise1_route/jobapplicationformexercise1update.js');
 const jasonplaceholder = require('./routes/Task-18/Exercise1/jsonplaceholdertable.js');
 
 const timezoneconverter = require('./routes/Task-19/timezonebycity/timezonecity.js');
@@ -52,9 +49,6 @@ app.use(javascripttask);
 
 // app.use(dynamiccombo);
 
-
-app.use(jobapplicationformajax);
-app.use(jobapplicationformupdateajax);
 app.use(jasonplaceholder);
 
 app.use(timezoneconverter);

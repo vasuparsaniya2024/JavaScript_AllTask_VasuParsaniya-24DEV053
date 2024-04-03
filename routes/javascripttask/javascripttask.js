@@ -25,6 +25,14 @@ const jobapplicationformupdatesubmitpost = require('../../controller/Task-15_job
 const jobapplicationformdatabackend = require('../../controller/Task-15_jobapplicationform/joapplicationformbackend/jobapplicationformdatabackend.js');
 
 
+//------ajax jobapplicationform
+const { jobapplicationformajax,jobapplicationformajaxstate } = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxinsert/jobapplicationformajax.js')
+
+const jobapplicationformajaxsubmit = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxinsert/jobapplicationformajaxsubmit.js');
+
+const jobapplicationformajaxupdate = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxupdate/jobapplicationformajaxupdate.js');
+
+const jobapplicationformajaxsubmitupdate = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxupdate/jobapplicationformajaxsubmitupdate.js');
 
 
 //----------Task-1 Javascript Events List
@@ -128,6 +136,33 @@ router.post('/jobapplicationformupdatesuccessfully', jobapplicationformdatabacke
 
 
 //-----Task-16 Job Application Form With AJAX
+
+router.get('/task17_jobformajax',authenticateToken.authenticateToken,(req,res)=>{
+    return res.render('Task-17/JobApplicationForm_exercise1_view/studentlist');
+});
+
+//get all student data
+router.get('/studentlistajax', authenticateToken.authenticateToken,(req, res) => {
+    const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
+    FROM basicdetails where candidate_id > 159`;
+    connection.query(studentdataretrive,(err,result)=>{
+        // console.log(result);
+        return res.json(result);
+    });
+});
+
+
+//----insert
+router.get('/jobapplicationformajax',authenticateToken.authenticateToken,jobapplicationformajax);
+
+router.post('/jobapplicationformajax',jobapplicationformajaxstate);
+
+router.post('/jobapplicationformsubmitajax',jobapplicationformdatabackend.jobapplicationformdatabackend,jobapplicationformajaxsubmit);
+
+//----update
+router.get('/jobapplicationformupdateajax', authenticateToken.authenticateToken,jobapplicationformajaxupdate);
+
+router.post('/jobapplicationformupdatesuccessfullyajax', jobapplicationformdatabackend.jobapplicationformdatabackend,jobapplicationformajaxsubmitupdate);
 
 
 module.exports = router;
