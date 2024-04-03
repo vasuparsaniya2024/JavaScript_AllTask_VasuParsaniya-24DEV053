@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const authenticateToken = require('../../services/Authentication.js');
-
+const connection = require('../../connection.js');
 const studentdetails = require('../../controller/Task-9_studentdetails/studentdetails.js');
 const studentdetailswithpaggination = require('../../controller/Task-10_studentdetailswithpaggination/studentdetailswithpaggination.js');
 const studentattandancereport = require('../../controller/Task-11_studentattadancereport/studentattandancereport.js');
@@ -12,6 +12,20 @@ const studentresultreport = require('../../controller/Task-12_studentresultrepor
 const { dynamicgridform,dynamicgridget,dynamicgridpost } = require('../../controller/Task-13_dynamicgrid/dynamicgrid.js');
 
 const { delimetersearchget,delimetersearchpost } = require('../../controller/Task-14_delimetersearch/delimetersearch.js');
+
+
+const jobapplicationformget = require('../../controller/Task-15_jobapplicationform/jobapplicationforminsert/jobapplicationform.js');
+const jobapplicationsubmit = require('../../controller/Task-15_jobapplicationform/jobapplicationforminsert/jobapplicationformsubmit.js');
+
+const jobapplicationformupdategetpost = require('../../controller/Task-15_jobapplicationform/jobapplicationformupdate/jobapplicationformupdate.js');
+
+const jobapplicationformupdatesubmitpost = require('../../controller/Task-15_jobapplicationform/jobapplicationformupdate/jobapplicationformsubmitupdate.js');
+
+
+const jobapplicationformdatabackend = require('../../controller/Task-15_jobapplicationform/joapplicationformbackend/jobapplicationformdatabackend.js');
+
+
+
 
 //----------Task-1 Javascript Events List
 router.get('/task1_javascriptevents',authenticateToken.authenticateToken,(req,res)=>{
@@ -84,6 +98,36 @@ router.get('/task14_delimetersearch',authenticateToken.authenticateToken,delimet
 
 router.post('/task14_delimetersearch',authenticateToken.authenticateToken,delimetersearchpost);
 
+
+//------Task-15 jobapplication form
+
+router.get('/task16_jobform',authenticateToken.authenticateToken,(req, res) => {
+    res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformhomepage');
+});
+
+//get all student data
+router.get('/allstudentlist', authenticateToken.authenticateToken,(req, res) => {
+    const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
+    FROM basicdetails WHERE candidate_id > 159`;
+    connection.query(studentdataretrive,(err,result)=>{
+        // console.log(result);
+        return res.json(result);
+    });
+});
+
+
+//----insert
+router.get('/jobapplicationform',authenticateToken.authenticateToken,jobapplicationformget);
+
+router.post('/jobapplicationformsubmit',jobapplicationformdatabackend.jobapplicationformdatabackend,jobapplicationsubmit);
+
+//----update
+router.get('/jobapplicationformupdate',authenticateToken.authenticateToken,jobapplicationformupdategetpost);
+
+router.post('/jobapplicationformupdatesuccessfully', jobapplicationformdatabackend.jobapplicationformdatabackend,jobapplicationformupdatesubmitpost);
+
+
+//-----Task-16 Job Application Form With AJAX
 
 
 module.exports = router;

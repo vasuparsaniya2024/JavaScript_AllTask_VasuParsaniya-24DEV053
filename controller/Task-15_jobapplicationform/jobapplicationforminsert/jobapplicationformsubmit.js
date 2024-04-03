@@ -1,155 +1,81 @@
-require('dotenv').config();
-const express = require('express');
-const router = express.Router();
-
 const connection = require('../../../connection.js');
-const jobapplicationformdatabackend = require('../../../controller/Task-16/JobApplicationForm_exercise8_controller/jobapplicationformdatabackend.js');
 
-const authenticateToken = require('../../../services/Authentication.js');
+const { insertEducationDetail, insertExperienceDetail, insertReferenceDetail, inserttechnologyknown, insertlanguageknown } = require('./insertrecordfunction.js');
 
-
-var jobapplicationformaction = {
-    formsubmit: "",
-    formupdate: ""
-};
-var errorobject = {};  //define for firsttime when form load with get request
-var datafrompostrquest = {};
-var lastRecordInsertid = 0;
-var statearray = [];
-var preferedlocationarray = [];
-var departmentarray = [];
-var languagearray = [];
-var technologyarray = [];
-
-//--------update 
-var studentdata = {
-    studentbasicdetails: {},
-    educationdetails: [],
-    experiencedetails: [],
-    languageknown: [],
-    technologyknown: [],
-    referencecontact: [],
-    preferencedetails: {}
-};
-
-//----------
-//return promise
-function getstates() {
-    return new Promise((resolve, reject) => {
-        const getstates = `SELECT state_id as state_id,state_name as state FROM statemaster;`;
-        connection.query(getstates, (err, result) => {
-            try {
-                if (err) throw err
-                resolve(result);
-            } catch (err) {
-                reject(err);
-            }
-        });
-    });
-}
-
-var statetemp = getstates().then((state) => {
-    state.forEach((element) => {
-        statearray.push(element);
-    });
-});
-
-//-------option name get from optionmaster table using selectmaster id
-function optionmaster(select_id, column2, column3) {
-    return new Promise((resolve, reject) => {
-        const optionmaster = `SELECT s.select_name as selectname,o.option_id as ${column2},o.option_name as ${column3}
-        FROM selectmaster as s
-        LEFT JOIN optionmaster as o ON s.select_id=o.select_id
-        WHERE o.select_id = ${select_id}`;
-
-        connection.query(optionmaster, (err, result) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(result);
-            }
-        });
-    });
-}
-
-// i give preferedlocation id in optionmaster table is 3
-//also pass parameter those name we want to require
-
-var preferedlocationtemp = optionmaster(3, "preferedlocationid", "preferedlocation").then((data) => {
-    data.forEach((element) => {
-        preferedlocationarray.push(element);
-    });
-});
+const { optionmaster, getstates } = require('./commonfunction.js');
 
 
-var departmenttemp = optionmaster(2, "departmentid", "department").then((data) => {
-    data.forEach((element) => {
-        departmentarray.push(element);
-    });
-});
+async function jobapplicationsubmit(req, res) {
 
-var languagetemp = optionmaster(1, "languageid", "languagename").then((data) => {
-    data.forEach((element) => {
-        languagearray.push(element);
-    });
-});
+    let jobapplicationformaction = {
+        formsubmit: "",
+        formupdate: ""
+    };
 
-var technologytemp = optionmaster(4, "technologyid", "technology").then((data) => {
-    data.forEach((element) => {
-        technologyarray.push(element);
-    });
-});
+    let lastRecordInsertid = 0;
+    let statearray = [];
+    let preferedlocationarray = [];
+    let departmentarray = [];
+    let languagearray = [];
+    let technologyarray = [];
 
+    //--------update 
+    let studentdata = {
+        studentbasicdetails: {},
+        educationdetails: [],
+        experiencedetails: [],
+        languageknown: [],
+        technologyknown: [],
+        referencecontact: [],
+        preferencedetails: {}
+    };
 
-router.get('/task16_jobform',authenticateToken.authenticateToken,(req, res) => {
-    res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformhomepage');
-});
-
-//get all student data
-router.get('/allstudentlist', authenticateToken.authenticateToken,(req, res) => {
-    const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
-    FROM basicdetails WHERE candidate_id > 159`;
-    connection.query(studentdataretrive,(err,result)=>{
-        // console.log(result);
-        return res.json(result);
-    });
-});
-
-
-router.get('/jobapplicationform',authenticateToken.authenticateToken,async (req, res) => {
 
     const path = req.originalUrl;
     const pathname = path.split('?')[0];
     jobapplicationformaction.formsubmit = "/jobapplicationformsubmit";
     jobapplicationformaction.formupdate = "";
+
+    // i give preferedlocation id in optionmaster table is 3
+    //also pass parameter those name we want to require
+
+    let statetemp = getstates().then((state) => {
+        state.forEach((element) => {
+            statearray.push(element);
+        });
+    });
+    
+    let preferedlocationtemp = optionmaster(3, "preferedlocationid", "preferedlocation").then((data) => {
+        data.forEach((element) => {
+            preferedlocationarray.push(element);
+        });
+    });
+
+
+    let departmenttemp = optionmaster(2, "departmentid", "department").then((data) => {
+        data.forEach((element) => {
+            departmentarray.push(element);
+        });
+    });
+
+    let languagetemp = optionmaster(1, "languageid", "languagename").then((data) => {
+        data.forEach((element) => {
+            languagearray.push(element);
+        });
+    });
+
+    let technologytemp = optionmaster(4, "technologyid", "technology").then((data) => {
+        data.forEach((element) => {
+            technologyarray.push(element);
+        });
+    });
+
 
     await statetemp;   //wait before the promise generate by then is resolve
 
     await preferedlocationtemp;
 
     await departmenttemp;
-
-    datafrompostrquest = {};
-
-    return res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
-        errorobject: errorobject,
-        statearray: statearray,
-        preferedlocationarray: preferedlocationarray,
-        departmentarray: departmentarray,
-        datafrompostrquest: datafrompostrquest,
-        studentdata: studentdata,
-        jobapplicationformaction: jobapplicationformaction
-    });
-});
-
-
-router.post('/jobapplicationformsubmit',jobapplicationformdatabackend.jobapplicationformdatabackend, async (req, res) => {
-
-    const path = req.originalUrl;
-    const pathname = path.split('?')[0];
-    jobapplicationformaction.formsubmit = "/jobapplicationformsubmit";
-    jobapplicationformaction.formupdate = "";
-
 
     //basic details
     const { fname, lname, designation, address1, address2, email, phonenumber, city, gender, state, relationship, zipcode, dob } = req.body;
@@ -195,11 +121,11 @@ router.post('/jobapplicationformsubmit',jobapplicationformdatabackend.jobapplica
                 let gender_id = "";
                 let relation_id = "";
 
-                for(let s of statearray){
-                        if(s.state === state){
-                            state_id = s.state_id; 
-                            // console.log(s.state);
-                        }
+                for (let s of statearray) {
+                    if (s.state === state) {
+                        state_id = s.state_id;
+                        // console.log(s.state);
+                    }
                 }
 
 
@@ -633,92 +559,7 @@ router.post('/jobapplicationformsubmit',jobapplicationformdatabackend.jobapplica
         }
     }
 
-    // Function to insert education detail
-    function insertEducationDetail(educationdetails) {
-        return new Promise((resolve, reject) => {
-            // const inserteducationdetails = `INSERT INTO educationdetails(candidate_id,option_id,nameOfCourse,nameOfBoard_Or_Univarsity,passingyear,percentage) VALUES(${lastRecordInsertid},"${optionId}","${courseName}","${nameOfBoard_Or_Univarsity}","${passingyear}","${percentage}")`;
-
-            const inserteducationdetails = "INSERT INTO educationdetails(candidate_id,option_id,nameOfCourse,nameOfBoard_Or_Univarsity,passingyear,percentage) VALUES ?";
-
-            connection.query(inserteducationdetails, [educationdetails], (err, result) => {
-                if (err) {
-                    console.log("Error in education detail insertion:", err);
-                    reject(err);
-                } else {
-                    resolve(result);
-                }
-            });
-        });
-    }
-
-    function insertExperienceDetail(experience) {
-        return new Promise((resolve, reject) => {
-            // const insertexperiencedetails = `INSERT INTO experience(candidate_id,companyName,designation,dateFrom,dateTo) VALUES(${lastRecordInsertid},"${companyname}","${companydesignation}","${datefrom}","${dateto}")`;
-
-            const insertexperiencedetails = "INSERT INTO experience(candidate_id,companyName,designation,dateFrom,dateTo) VALUES ?";
-            connection.query(insertexperiencedetails, [experience], (err, result) => {
-                if (err) {
-                    console.log("Error in experience details insertion:", err);
-                    reject(err);
-                } else {
-                    resolve(result);
-                }
-            });
-        });
-    }
+}
 
 
-
-    function insertReferenceDetail(reference) {
-        return new Promise((resolve, reject) => {
-            // const insertreferencedetails = `INSERT INTO referencecontact(candidate_id,referencePersonName,referencePersonnumber,relationWithReferencePerson) VALUES(${lastRecordInsertid},"${referencename}","${referencenumber}","${referencerelation}")`;
-
-            const insertreferencedetails = "INSERT INTO referencecontact(candidate_id,referencePersonName,referencePersonnumber,relationWithReferencePerson) VALUES ?";
-
-            connection.query(insertreferencedetails, [reference], (err, result) => {
-                if (err) {
-                    console.log("Error in reference details insertion:", err);
-                    reject(err);
-                } else {
-                    resolve(result);
-                }
-            });
-        });
-    }
-
-    function inserttechnologyknown(technologyknown) {
-        return new Promise((resolve, reject) => {
-            // const inserttechnology = `INSERT INTO knowntechnology(candidate_id,knowntechnology_id,technologyProficiency) VALUES(${lastRecordInsertid},"${knowntechnology_id}","${technologyProficiency}")`;
-
-            const inserttechnology = "INSERT INTO knowntechnology(candidate_id,knowntechnology_id,technologyProficiency) VALUES ?";
-
-            connection.query(inserttechnology, [technologyknown], (err, result) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(result);
-                }
-            })
-        });
-    }
-
-    function insertlanguageknown(languageknown) {
-        return new Promise((resolve, reject) => {
-            // const insertlanguage = `INSERT INTO knownlanguage(candidate_id,knownlanguage_id,language_read,language_write,language_speak) VALUES(${lastRecordInsertid},"${knownlanguage_id}",${language_read},${language_write},${language_speak})`;
-
-            const insertlanguage = "INSERT INTO knownlanguage(candidate_id,knownlanguage_id,language_read,language_write,language_speak) VALUES ?";
-
-            connection.query(insertlanguage, [languageknown], (err, result) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(result);
-                }
-            })
-        });
-    }
-
-    //------------------------------------------------------------------------------------
-});
-
-module.exports = router;
+module.exports = jobapplicationsubmit;

@@ -19,8 +19,6 @@ const javascripttask = require('./routes/javascripttask/javascripttask.js');
 
 // const dynamiccombo = require('./routes/Task-15/DynamicCombo_exercise6/dynamiccombo.js') // remainning
 
-const jobapplicationform = require('./routes/Task-16/JobApplicationForm_exercise8_route/jobapplicationformexercise8.js');
-const jobapplicationformupdate = require('./routes/Task-16/JobApplicationForm_exercise8_route/jobapplicationformexercise8update.js');
 
 const jobapplicationformajax = require('./routes/Task-17/JobApplicationForm_exercise1_route/jobapplicationformexercise1.js');
 const jobapplicationformupdateajax = require('./routes/Task-17/JobApplicationForm_exercise1_route/jobapplicationformexercise1update.js');
@@ -54,9 +52,6 @@ app.use(javascripttask);
 
 // app.use(dynamiccombo);
 
-
-app.use(jobapplicationform);
-app.use(jobapplicationformupdate);
 
 app.use(jobapplicationformajax);
 app.use(jobapplicationformupdateajax);
