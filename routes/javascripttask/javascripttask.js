@@ -4,6 +4,8 @@ const router = express.Router();
 
 const authenticateToken = require('../../services/Authentication.js');
 
+const studentdetails = require('../../controller/Task-9_studentdetails/studentdetails.js');
+
 //----------Task-1 Javascript Events List
 router.get('/task1_javascriptevents',authenticateToken.authenticateToken,(req,res)=>{
     return res.render('Task-1/JavaScriptEvents');
@@ -46,5 +48,16 @@ router.get('/task7_awanhoster',authenticateToken.authenticateToken,(req,res)=>{
 router.get('/task8_hirex',authenticateToken.authenticateToken,(req,res)=>{
     return res.render('Task-8/HireX');
 });
+
+//-------Task-9 student list
+router.get('/task9_studentDetails',authenticateToken.authenticateToken,studentdetails);
+
+//-------Task-10 studentlist with paggination
+var totalRecords = 0;
+
+router.get('/task10_studentDetailswithpaggination',authenticateToken.authenticateToken,(req,res,next)=>{
+    
+});
+
 
 module.exports = router;

@@ -1,16 +1,6 @@
-require('dotenv').config();
-const express = require('express');
-const router = express.Router();
-const path = require('path');
-const connection = require('../../../connection.js');
+const connection = require('../../connection.js');
 
-const authenticateToken = require('../../../services/Authentication.js');
-
-
-router.get('/task9_studentDetails',authenticateToken.authenticateToken,(req,res)=>{
-
-    // let totalRow = "SELECT count(*) FROM StudentMaster";
-
+function studentdetails(req,res){
     let query = "SELECT * FROM StudentMaster LIMIT 50000;";
     
     let arrayofHeader = ["Student ID","StudentName","Email","PhoneNumber","Gender","Address1","Address2","City","State","ZipCode"];
@@ -23,6 +13,6 @@ router.get('/task9_studentDetails',authenticateToken.authenticateToken,(req,res)
             console.log("Error In Get Student Details: "+err);
         }
     });
-});
+}
 
-module.exports = router;
+module.exports = studentdetails
