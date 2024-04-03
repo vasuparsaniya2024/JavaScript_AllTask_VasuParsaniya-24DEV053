@@ -5,6 +5,7 @@ const router = express.Router();
 const authenticateToken = require('../../services/Authentication.js');
 
 const studentdetails = require('../../controller/Task-9_studentdetails/studentdetails.js');
+const studentdetailswithpaggination = require('../../controller/Task-10_studentdetailswithpaggination/studentdetailswithpaggination.js');
 
 //----------Task-1 Javascript Events List
 router.get('/task1_javascriptevents',authenticateToken.authenticateToken,(req,res)=>{
@@ -55,9 +56,7 @@ router.get('/task9_studentDetails',authenticateToken.authenticateToken,studentde
 //-------Task-10 studentlist with paggination
 var totalRecords = 0;
 
-router.get('/task10_studentDetailswithpaggination',authenticateToken.authenticateToken,(req,res,next)=>{
-    
-});
+router.get('/task10_studentDetailswithpaggination',authenticateToken.authenticateToken,studentdetailswithpaggination);
 
 
 module.exports = router;
