@@ -17,7 +17,6 @@ const javascripttask = require('./routes/javascripttask/javascripttask.js');
 // const pagginationcomponent = require('./routes/pagginationcomponent.js');
 // const insertStudentDetails = require('./routes/insertRecords.js');
 
-const dynamicgridusingselectquery = require('./routes/Task-13/DynamicGrid/dynamicGrid.js');
 const delimetersearch = require('./routes/Task-14/DelimeterSearch_exercise5/delimetersearch.js');
 // const dynamiccombo = require('./routes/Task-15/DynamicCombo_exercise6/dynamiccombo.js') // remainning
 
@@ -55,7 +54,6 @@ app.use(home);
 app.use(javascripttask);
 
 
-app.use(dynamicgridusingselectquery);
 app.use(delimetersearch);
 // app.use(dynamiccombo);
 

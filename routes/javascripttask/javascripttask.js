@@ -9,6 +9,8 @@ const studentdetailswithpaggination = require('../../controller/Task-10_studentd
 const studentattandancereport = require('../../controller/Task-11_studentattadancereport/studentattandancereport.js');
 const studentresultreport = require('../../controller/Task-12_studentresultreport/studentresultreport.js');
 
+const { dynamicgridform,dynamicgridget,dynamicgridpost } = require('../../controller/Task-13_dynamicgrid/dynamicgrid.js');
+
 //----------Task-1 Javascript Events List
 router.get('/task1_javascriptevents',authenticateToken.authenticateToken,(req,res)=>{
     return res.render('Task-1/JavaScriptEvents');
@@ -65,6 +67,14 @@ router.get('/task11_studentAttandance',authenticateToken.authenticateToken,stude
 
 //-------Task-12 student result report
 router.get('/task12_studentResult',authenticateToken.authenticateToken,studentresultreport);
+
+//-------Task-13 dynamic grid
+
+router.get('/task13_form',authenticateToken.authenticateToken,dynamicgridform);
+
+router.get('/task13_dynamicgrid',dynamicgridget);
+
+router.post('/task13_dynamicgrid',dynamicgridpost);
 
 
 

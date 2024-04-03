@@ -67,3 +67,20 @@ router.get('/studentResultInsert', async (req, res) => {
     }
     res.send();
 });
+
+
+
+//-------Task-13   dynamic table using insert query
+//not in use
+router.get('/task13_paggination',(req,res)=>{
+    const currentPage = req.query.page || 1;
+    const urlPath = req.path;
+    ObjectData.urlPath = urlPath;
+    // console.log(ObjectData.urlPath);
+    res.render('Task-13/pagginationComponent',{
+        ObjectData:ObjectData,
+        pageCount: +process.env.TOTAL_PAGE,
+                pageSize: +process.env.RECORS_IN_SINGLEPAGE,
+                currentPage: +currentPage  
+    });
+});
