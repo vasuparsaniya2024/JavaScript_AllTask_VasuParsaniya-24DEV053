@@ -165,4 +165,17 @@ router.get('/jobapplicationformupdateajax', authenticateToken.authenticateToken,
 router.post('/jobapplicationformupdatesuccessfullyajax', jobapplicationformdatabackend.jobapplicationformdatabackend,jobapplicationformajaxsubmitupdate);
 
 
+//----Task-17 JSON PLACE HOLDER 
+router.get('/task18_jsonplaceholdertable',authenticateToken.authenticateToken,(req,res)=>{
+    res.render('Task-18/Exercise1/jsonplaceholdertable');
+});
+
+router.get('/post',(req,res)=>{
+    res.render('Task-18/Exercise1/post');
+});
+
+router.get('/comments',(req,res)=>{
+    res.render('Task-18/Exercise1/post');
+});
+
 module.exports = router;
