@@ -11,6 +11,8 @@ const studentresultreport = require('../../controller/Task-12_studentresultrepor
 
 const { dynamicgridform,dynamicgridget,dynamicgridpost } = require('../../controller/Task-13_dynamicgrid/dynamicgrid.js');
 
+const { delimetersearchget,delimetersearchpost } = require('../../controller/Task-14_delimetersearch/delimetersearch.js');
+
 //----------Task-1 Javascript Events List
 router.get('/task1_javascriptevents',authenticateToken.authenticateToken,(req,res)=>{
     return res.render('Task-1/JavaScriptEvents');
@@ -75,6 +77,12 @@ router.get('/task13_form',authenticateToken.authenticateToken,dynamicgridform);
 router.get('/task13_dynamicgrid',dynamicgridget);
 
 router.post('/task13_dynamicgrid',dynamicgridpost);
+
+//-------Task-14 Delimeter Search
+
+router.get('/task14_delimetersearch',authenticateToken.authenticateToken,delimetersearchget);
+
+router.post('/task14_delimetersearch',authenticateToken.authenticateToken,delimetersearchpost);
 
 
 
