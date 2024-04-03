@@ -18,8 +18,6 @@ function studentdetailswithpaggination(req,res){
          try{
              if(err) throw err
              totalRecords = result;
-            
-             // console.log(totalRecords);
          }catch(err){
              console.log("Error In Records Count: "+err);
          }
