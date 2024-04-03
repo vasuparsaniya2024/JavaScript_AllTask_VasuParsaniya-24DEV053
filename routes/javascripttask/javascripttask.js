@@ -6,6 +6,8 @@ const authenticateToken = require('../../services/Authentication.js');
 
 const studentdetails = require('../../controller/Task-9_studentdetails/studentdetails.js');
 const studentdetailswithpaggination = require('../../controller/Task-10_studentdetailswithpaggination/studentdetailswithpaggination.js');
+const studentattandancereport = require('../../controller/Task-11_studentattadancereport/studentattandancereport.js');
+const studentresultreport = require('../../controller/Task-12_studentresultreport/studentresultreport.js');
 
 //----------Task-1 Javascript Events List
 router.get('/task1_javascriptevents',authenticateToken.authenticateToken,(req,res)=>{
@@ -54,9 +56,16 @@ router.get('/task8_hirex',authenticateToken.authenticateToken,(req,res)=>{
 router.get('/task9_studentDetails',authenticateToken.authenticateToken,studentdetails);
 
 //-------Task-10 studentlist with paggination
-var totalRecords = 0;
 
 router.get('/task10_studentDetailswithpaggination',authenticateToken.authenticateToken,studentdetailswithpaggination);
+
+
+//-------Task-11 student attandance report
+router.get('/task11_studentAttandance',authenticateToken.authenticateToken,studentattandancereport);
+
+//-------Task-12 student result report
+router.get('/task12_studentResult',authenticateToken.authenticateToken,studentresultreport);
+
 
 
 module.exports = router;
