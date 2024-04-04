@@ -2,6 +2,7 @@
 const connection = require('../../connection.js');
 // const bcrypt = require('bcrypt');
 const md5 = require('md5');
+const logger = require('pino')();
 
 
 /**this not work when your server is not reload means that page is not reload
@@ -73,7 +74,8 @@ async function userregistration(req, res) {
 
                         return res.status(200).json({ message: "Data Save Please Activate Account", userid: `${user_id}`, activationcode: `${activationcode}` });
                     } catch (error) {
-                        console.log("User Registration Error: ", err);
+                        // console.log("User Registration Error: ", error);
+                        logger.info("User Registration: " + error);
                         return res.status(500).json({ message: "Something Went Wrong" });
                     }
                 });

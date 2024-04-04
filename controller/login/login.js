@@ -3,7 +3,7 @@ const connection = require('../../connection.js');
 const md5 = require('md5');
 const jwt = require('jsonwebtoken');
 
-function userlogin(req,res){
+function userlogin(req, res) {
     const loginData = req.body;
 
     // console.log(loginData);
@@ -17,13 +17,13 @@ function userlogin(req,res){
      */
     const checkuser = `SELECT pwd_salt,pwd_md FROM usersregistration WHERE email='${loginData.username}' AND user_status=1;`;
 
-    connection.query(checkuser,(err,result)=>{
-        try{
-            if(err) throw err
+    connection.query(checkuser, (err, result) => {
+        try {
+            if (err) throw err
 
             //in this 401 error return three place because if we saw particular error then our system half of security is broken then 
 
-            if(result.length > 0){
+            if (result.length > 0) {
                 //user exist with password and enter email
                 //now compare password with pwd_md
                 // console.log("user exist");
@@ -32,23 +32,23 @@ function userlogin(req,res){
                 // console.log(result[0].pwd_md);
                 // console.log(pwdmd5);
 
-                if(pwdmd5 !== result[0].pwd_md){
-                // console.log("wrong password");
-                    return res.status(401).json({message:"Invalid Credentials"});
-                }else{
-                // console.log("login success");
-                /**maxAge is the expire time of coolie */
-                const response = {username:loginData.username};
-                const accessToken = jwt.sign(response,process.env.ACCESS_TOKEN,{expiresIn: '8h'})
-                    return res.cookie("accesstoken",accessToken,{maxAge: 8 * 60 * 60 * 1000,httpOnly:true}).status(200).json({message:"Login Successfully",token:accessToken});
+                if (pwdmd5 !== result[0].pwd_md) {
+                    // console.log("wrong password");
+                    return res.status(401).json({ message: "Invalid Credentials" });
+                } else {
+                    // console.log("login success");
+                    /**maxAge is the expire time of coolie */
+                    const response = { username: loginData.username };
+                    const accessToken = jwt.sign(response, process.env.ACCESS_TOKEN, { expiresIn: '8h' })
+                    return res.cookie("accesstoken", accessToken, { maxAge: 8 * 60 * 60 * 1000, httpOnly: true }).status(200).json({ message: "Login Successfully", token: accessToken });
                 }
-            }else{
+            } else {
                 // console.log("user exist but password not set");
-                return res.status(401).json({message:"Invalid Credentials"});
+                return res.status(401).json({ message: "Invalid Credentials" });
             }
-        }catch(err){
+        } catch (err) {
             console.log("somthing error");
-            return res.status(401).json({message:"Invalid Credentials"});
+            return res.status(401).json({ message: "Invalid Credentials" });
         }
     });
 }
