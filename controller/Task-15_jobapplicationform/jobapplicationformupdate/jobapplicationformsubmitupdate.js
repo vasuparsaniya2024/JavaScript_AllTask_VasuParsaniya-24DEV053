@@ -311,7 +311,6 @@ async function jobapplicationformupdatesubmitpost(req, res) {
 
                         //-----------------update technology known--------------
 
-                        // console.log("==================");
                         // console.log(req.body.technology);
                         // console.log(req.body.technologyproficiency);
 

@@ -1,6 +1,6 @@
 const connection = require('../../connection.js');
 
-function forgotpassword(req,res){
+function forgotpassword(req, res) {
     const requestData = req.body;
 
     let activationcode;
@@ -65,7 +65,7 @@ function generaterandomstring(length) {
     });
 }
 
-function updatepassword(req,res){
+function updatepassword(req, res) {
     const requestData = req.body;
     // console.log(requestData);
 
@@ -101,18 +101,18 @@ function updatepassword(req,res){
                     console.log("link expire");
                     return res.status(401).json({ message: "Your Link Expire" });
                 } else {
-                    console.log("link not expire");
+                    // console.log("link not expire");
                     //link is not expire
                     //check user exist or not
-            
+
                     const checkuserexist = `SELECT pwd_salt FROM usersregistration WHERE user_id=${requestData.userid} AND user_status=1;`;
 
                     connection.query(checkuserexist, (err1, result1) => {
                         try {
                             if (err1) throw err1
 
-                            if(result1.length > 0){
-                            console.log("allow to update password");
+                            if (result1.length > 0) {
+                                console.log("allow to update password");
 
                                 const finalpassword = requestData.password + result1[0].pwd_salt;
                                 const finalpasswordmd5 = md5(finalpassword);
@@ -150,4 +150,4 @@ function updatepassword(req,res){
     });
 }
 
-module.exports = { forgotpassword,updatepassword }
+module.exports = { forgotpassword, updatepassword }

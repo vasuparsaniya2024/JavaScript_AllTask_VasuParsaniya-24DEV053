@@ -122,7 +122,7 @@ async function jobapplicationformajaxsubmit(req, res) {
 
                 const insertbasicdetails = `INSERT INTO basicdetails(firstname,lastname,designation,email,address1,address2,phonenumber,city,state,gender,zipcode,relationshipstatus,dob) VALUES("${fname}","${lname}","${designation}","${email}","${address1}","${address2}","${phonenumber}","${city}",${state_id},"${gender_id}","${zipcode}","${relation_id}","${dob}");`
 
-                console.log(insertbasicdetails);
+                // console.log(insertbasicdetails);
 
                 connection.query(insertbasicdetails, async (err, result) => {
 

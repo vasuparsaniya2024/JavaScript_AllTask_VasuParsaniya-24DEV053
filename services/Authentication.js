@@ -40,7 +40,7 @@ function authenticateToken(req, res, next) {
             console.log("Forbiden Access");
             return res.render('homepage', { message: "Forbiden Access...." });
         } else {
-            console.log("Access Route");
+            // console.log("Access Route");
             res.locals = response;
             next();
         }

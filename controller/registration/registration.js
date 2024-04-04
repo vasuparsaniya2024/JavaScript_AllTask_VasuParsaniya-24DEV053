@@ -5,7 +5,7 @@ const md5 = require('md5');
 
 
 /**this not work when your server is not reload means that page is not reload
- * so we need to implement in API*/  
+ * so we need to implement in API*/
 
 // var generateactivationcode = generaterandomstring(12).then((data) => {
 //     console.log("generate activation code function call");
@@ -27,7 +27,7 @@ function generaterandomstring(length) {
 }
 
 
-async function userregistration(req,res){
+async function userregistration(req, res) {
     const userregistrationdata = req.body;
     // console.log(userregistrationdata);
     let user_id;
@@ -102,7 +102,7 @@ function insertactivationcode(user_id, code) {
     });
 }
 
-function checkactivationlink(req,res){
+function checkactivationlink(req, res) {
     const activationData = req.body;
 
     const codeexpiretime = 120;   //in second this is small for testing we can increase
@@ -145,7 +145,7 @@ function checkactivationlink(req,res){
 }
 
 
-async function regenerateactivationcode(req,res){
+async function regenerateactivationcode(req, res) {
     const user = req.body; //object
     const userid = user.userid;
 
@@ -157,13 +157,13 @@ async function regenerateactivationcode(req,res){
     /** here we call this promise return function because because problem is that if i am  store this activationcode in global variable in file and use this thenproblem is that when page is not reload then this variable value is not change 
      * but in this case when this API call then we want new random generate activationcode
      * so that's why i implement this*/
-     
+
     await generaterandomstring(12).then((data) => {
         // console.log("generate activation code function call");
         activationcode = data;
     });
-    
-    
+
+
     // await generateactivationcode
     // console.log(userid);
     // console.log(activationcode);
@@ -178,7 +178,7 @@ async function regenerateactivationcode(req,res){
             if (err) throw err
             // console.log("Regenerate Activation Code");
 
-            console.log("activate code call");
+            // console.log("activate code call");
 
             res.status(200).json({ message: "Please Set Password", userid: `${userid}`, activationcode: `${activationcode}` });
         } catch (err) {
@@ -190,7 +190,7 @@ async function regenerateactivationcode(req,res){
 
 
 
-function passwordinsert(req,res){
+function passwordinsert(req, res) {
     const activationData = req.body;
 
     // console.log(activationData);
@@ -233,9 +233,9 @@ function passwordinsert(req,res){
                     const checkuser = `SELECT user_id,pwd_salt FROM usersregistration WHERE user_id = ${activationData.userid} AND user_status = 0;`;
 
                     connection.query(checkuser, (err1, result1) => {
-                        try{
-                            if(err1) throw err1
-                            if(result1.length > 0){
+                        try {
+                            if (err1) throw err1
+                            if (result1.length > 0) {
                                 const pwd_salt = result1[0].pwd_salt;
                                 // console.log(pwd_salt);
 
@@ -249,18 +249,18 @@ function passwordinsert(req,res){
                                 const updatepassword = `UPDATE usersregistration
                                                          SET pwd_md = '${md5password}',user_status = 1
                                                          WHERE user_id = ${activationData.userid};`;
-                                
-                                connection.query(updatepassword,(err2,result2)=>{
-                                    try{
-                                        if(err2) throw err2
+
+                                connection.query(updatepassword, (err2, result2) => {
+                                    try {
+                                        if (err2) throw err2
                                         console.group("Successfully Set Password");
-                                        return res.status(200).json({message:"Successfully Set Password"});
-                                    }catch(err2){
-                                        console.log("Error In set password",err2);
-                                        return res.status(400).json({message:"Unable to set password"});
+                                        return res.status(200).json({ message: "Successfully Set Password" });
+                                    } catch (err2) {
+                                        console.log("Error In set password", err2);
+                                        return res.status(400).json({ message: "Unable to set password" });
                                     }
                                 });
-                            
+
 
                                 // bcrypt.hash(activationData.password,pwd_salt,(err,hash)=>{
                                 //     try{
@@ -270,12 +270,12 @@ function passwordinsert(req,res){
                                 //         console.log("Error In MD5 Generate ",err);
                                 //     }
                                 // });
-                            }else{
+                            } else {
                                 //already exist resourse
-                                return res.status(409).json({message:"Already Set Password"});
+                                return res.status(409).json({ message: "Already Set Password" });
                             }
-                        }catch(err1){
-                            return res.status(500).json({message:"Internal Server Error"});
+                        } catch (err1) {
+                            return res.status(500).json({ message: "Internal Server Error" });
                         }
                     });
                     // return res.status(200).json({message:"Generate password"});
@@ -296,4 +296,4 @@ function passwordinsert(req,res){
 }
 
 
-module.exports = { userregistration,checkactivationlink,regenerateactivationcode,passwordinsert }
+module.exports = { userregistration, checkactivationlink, regenerateactivationcode, passwordinsert }
