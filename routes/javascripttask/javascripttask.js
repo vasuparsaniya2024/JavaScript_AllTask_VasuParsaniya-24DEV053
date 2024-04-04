@@ -4,6 +4,26 @@ const router = express.Router();
 
 const authenticateToken = require('../../services/Authentication.js');
 const connection = require('../../connection.js');
+
+//-------registration, login, forgotpassword
+const logindetailsbackend = require('../../controller/login/loginbackend.js');
+const userlogin = require('../../controller/login/login.js');
+
+const backendvalidation = require('../../controller/registration/registrationbackend.js');
+const passwordbackendvalidation = require('../../controller/registration/passwordbackend.js');
+
+//---registration
+const { userregistration,checkactivationlink,regenerateactivationcode,passwordinsert } = require('../../controller/registration/registration.js');
+
+
+//----forgotpassword
+const forgotpasswordbackendvalidation = require('../../controller/forgotpassword/forgotpasswordbackend.js');
+
+const { forgotpassword,updatepassword } = require('../../controller/forgotpassword/forgotpassword.js');
+//----listtask
+const listtask = require('../../controller/HomePage/Home.js');
+
+
 const studentdetails = require('../../controller/Task-9_studentdetails/studentdetails.js');
 const studentdetailswithpaggination = require('../../controller/Task-10_studentdetailswithpaggination/studentdetailswithpaggination.js');
 const studentattandancereport = require('../../controller/Task-11_studentattadancereport/studentattandancereport.js');
@@ -36,7 +56,60 @@ const jobapplicationformajaxsubmitupdate = require('../../controller/Task-16_job
 
 
 //----Task 18 Timezone Converter
-const { timezone,citytimezone} = require('../../controller/Task-18_timezoneconverter/timezoneconverter.js');
+const { timezone,citytimezone } = require('../../controller/Task-18_timezoneconverter/timezoneconverter.js');
+
+
+//-----Home Page
+router.get('/', (req, res) => {
+    res.render('homepage');
+});
+
+//-------Registration ,Login, Forgotpassword
+
+//------registration
+router.get('/userregistration', (req, res) => {
+    res.render('registration/registration');
+});
+
+router.post('/userregistration', backendvalidation.useregistrationbackendvalidation,userregistration);
+
+router.get('/checkactivationlink', (req, res) => {
+    res.render('registration/linkactivation');
+});
+
+router.post('/checkactivationlink',checkactivationlink);
+
+router.post('/regenerateactivationcode',regenerateactivationcode);
+
+router.post('/passwordinsert', passwordbackendvalidation.passwordbackendvalidation,passwordinsert);
+
+
+//---------login
+router.get('/userlogin',(req,res)=>{
+    return res.render("login/login");
+});
+
+router.post('/userlogin',logindetailsbackend.logindetailsbackend,userlogin);
+
+
+//-------forgotpassword
+router.get('/forgotpassword', (req, res) => {
+    res.render('forgotpassword/forgotpassword');
+});
+
+router.post('/forgotpassword', forgotpasswordbackendvalidation.forgotpasswordbackendvalidation,forgotpassword);
+
+
+//this is for render page of forgotpassword
+router.get('/forgotpasswordlink', (req, res) => {
+    res.render('forgotpassword/linkactivationforgotpassword');
+});
+
+
+router.post('/updatepassword',updatepassword);
+
+//-----list all task
+router.get('/listtask',authenticateToken.authenticateToken,listtask);
 
 
 //----------Task-1 Javascript Events List

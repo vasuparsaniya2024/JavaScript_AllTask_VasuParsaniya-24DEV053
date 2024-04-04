@@ -38,11 +38,11 @@ app.set('view engine','ejs');
 app.use(cookieParser());
 
 //routes
-app.use(registration);
-app.use(login);
-app.use(forgotpassword);
+// app.use(registration);
+// app.use(login);
+// app.use(forgotpassword);
 
-app.use(home);
+// app.use(home);
 
 app.use(javascripttask);
 
