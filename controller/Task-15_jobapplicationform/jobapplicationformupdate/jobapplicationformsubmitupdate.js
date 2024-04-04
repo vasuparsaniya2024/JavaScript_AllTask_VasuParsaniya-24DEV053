@@ -1,6 +1,6 @@
 const connection = require('../../../connection.js');
 
-const { getstates, optionmaster, getoptionidwithname } = require('./commonfunction.js');
+const { getstates, optionmaster, getoptionidwithname } = require('../commonfunction.js');
 
 const { insertlanguagedetails, inserttechnologydetails } = require('./insertqueryfunction.js');
 const { getpreviouscompanyname, getpreviouslanguage, getprevioustechnology, getpreviousreferencecontact, getpreviouspreference } = require('./selectqueryfunction.js');
@@ -159,7 +159,7 @@ async function jobapplicationformupdatesubmitpost(req, res) {
                 const updatebasicdetails = `UPDATE basicdetails SET firstname = '${datafrompostrquest.fname}',lastname = '${datafrompostrquest.lname}',designation = '${datafrompostrquest.designation}',email = '${datafrompostrquest.email}',address1 = '${datafrompostrquest.address1}',address2 = '${datafrompostrquest.address2}',phonenumber = '${datafrompostrquest.phonenumber}',city = '${datafrompostrquest.city}',state = ${state_id},gender = '${gender_id}',zipcode = '${datafrompostrquest.zipcode}'
                 WHERE candidate_id=${student_id}`;
 
-                
+
                 connection.query(updatebasicdetails, async (err, result) => {
                     try {
                         if (err) throw err;
@@ -427,7 +427,7 @@ async function jobapplicationformupdatesubmitpost(req, res) {
                         var previouspreferencetemp = getpreviouspreference(student_id).then((data) => {
                             data.forEach((element) => {
                                 previouspreferencearray.push(element);
-                                
+
                             });
                         });
 

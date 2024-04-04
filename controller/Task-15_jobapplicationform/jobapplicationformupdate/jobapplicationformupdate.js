@@ -1,8 +1,8 @@
 const connection = require('../../../connection.js');
 
-const { getstates,optionmaster } = require('./commonfunction.js');
+const { getstates, optionmaster, getoptionidwithname } = require('../commonfunction.js');
 
-const { geteducationdetails,getexperiencedetails,getlanguageknown,gettechnologyknown,getreferencecontact,getpreferencedetails} = require('./selectqueryfunction.js');
+const { geteducationdetails, getexperiencedetails, getlanguageknown, gettechnologyknown, getreferencecontact, getpreferencedetails } = require('./selectqueryfunction.js');
 
 
 async function jobapplicationformupdategetpost(req, res) {

@@ -1,6 +1,7 @@
 const connection = require('../../../connection.js');
 
-const { optionmaster, getstates } = require('./commonfunction.js');
+const { getstates, optionmaster, getoptionidwithname } = require('../commonfunction.js');
+
 
 
 async function jobapplicationformget(req, res) {

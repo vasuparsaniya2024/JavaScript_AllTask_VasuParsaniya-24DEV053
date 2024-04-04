@@ -2,7 +2,7 @@ const connection = require('../../../connection.js');
 
 const { insertEducationDetail, insertExperienceDetail, insertReferenceDetail, inserttechnologyknown, insertlanguageknown } = require('./insertrecordfunction.js');
 
-const { optionmaster, getstates } = require('./commonfunction.js');
+const { getstates, optionmaster, getoptionidwithname } = require('../commonfunction.js');
 
 
 async function jobapplicationsubmit(req, res) {
