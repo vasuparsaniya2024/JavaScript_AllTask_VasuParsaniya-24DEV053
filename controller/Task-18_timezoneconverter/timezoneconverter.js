@@ -5,7 +5,7 @@ function timezone(req,res){
     connection.query(city,(err,result)=>{
         try{
             if(err) throw err
-            res.render('Task-19/timezonebycity/timezonecity',{
+            res.render('Task-18/timezonebycity/timezonecity',{
                 currenttime:"",
                 selectcitytime:"",
                 selectcity:"",

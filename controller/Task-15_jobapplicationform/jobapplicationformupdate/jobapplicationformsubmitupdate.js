@@ -141,7 +141,7 @@ async function jobapplicationformupdatesubmitpost(req, res) {
 
     if (Object.keys(errorobject).length > 0) {
 
-        return res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
+        return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
             errorobject: errorobject,
             statearray: statearray,
             preferedlocationarray: preferedlocationarray,
@@ -468,7 +468,7 @@ async function jobapplicationformupdatesubmitpost(req, res) {
                 });
             });
 
-            return res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
+            return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
                 errorobject: { formupdatemessage: "Thank You For Update.." },
                 statearray: statearray,
                 preferedlocationarray: preferedlocationarray,
@@ -482,7 +482,7 @@ async function jobapplicationformupdatesubmitpost(req, res) {
             console.log("Unhandle Error: " + err);
             errorobject.recordupdateerror = "Record Update Error";
 
-            return res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
+            return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
                 errorobject: errorobject,
                 statearray: statearray,
                 preferedlocationarray: preferedlocationarray,

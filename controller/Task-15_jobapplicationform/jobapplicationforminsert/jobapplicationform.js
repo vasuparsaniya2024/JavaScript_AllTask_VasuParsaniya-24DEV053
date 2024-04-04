@@ -70,7 +70,7 @@ async function jobapplicationformget(req, res) {
 
     datafrompostrquest = {};
 
-    return res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
+    return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
         errorobject: errorobject,
         statearray: statearray,
         preferedlocationarray: preferedlocationarray,

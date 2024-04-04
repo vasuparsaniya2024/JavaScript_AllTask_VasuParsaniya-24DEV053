@@ -154,7 +154,7 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
 
     if (Object.keys(errorobject).length > 0) {
 
-        return res.render('Task-17/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
+        return res.render('Task-16/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
             errorobject: errorobject,
             statearray: statearray,
             preferedlocationarray: preferedlocationarray,

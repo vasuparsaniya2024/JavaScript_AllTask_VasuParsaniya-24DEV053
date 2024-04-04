@@ -187,7 +187,7 @@ router.post('/task14_delimetersearch',authenticateToken.authenticateToken,delime
 //------Task-15 jobapplication form
 
 router.get('/task16_jobform',authenticateToken.authenticateToken,(req, res) => {
-    res.render('Task-16/JobApplicationForm_exercise8_view/jobapplicationformhomepage');
+    res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformhomepage');
 });
 
 //get all student data
@@ -215,7 +215,7 @@ router.post('/jobapplicationformupdatesuccessfully', jobapplicationformdatabacke
 //-----Task-16 Job Application Form With AJAX
 
 router.get('/task17_jobformajax',authenticateToken.authenticateToken,(req,res)=>{
-    return res.render('Task-17/JobApplicationForm_exercise1_view/studentlist');
+    return res.render('Task-16/JobApplicationForm_exercise1_view/studentlist');
 });
 
 //get all student data
@@ -244,15 +244,15 @@ router.post('/jobapplicationformupdatesuccessfullyajax', jobapplicationformdatab
 
 //----Task-17 JSON PLACE HOLDER 
 router.get('/task18_jsonplaceholdertable',authenticateToken.authenticateToken,(req,res)=>{
-    res.render('Task-18/Exercise1/jsonplaceholdertable');
+    res.render('Task-17/Exercise1/jsonplaceholdertable');
 });
 
 router.get('/post',(req,res)=>{
-    res.render('Task-18/Exercise1/post');
+    res.render('Task-17/Exercise1/post');
 });
 
 router.get('/comments',(req,res)=>{
-    res.render('Task-18/Exercise1/post');
+    res.render('Task-17/Exercise1/post');
 });
 
 //----Task-18 Timezone Converter

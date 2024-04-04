@@ -161,7 +161,7 @@ let departmenttemp = optionmaster(2, "departmentid", "department").then((data) =
         // console.log(cityarraytosend);
 
         // errorobject.formupdatemessage = "Update Successfuly..";
-        return res.render('Task-17/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
+        return res.render('Task-16/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
             errorobject: errorobject,
             statearray: statearray,
             cityarraytosend:cityarraytosend,
@@ -173,7 +173,7 @@ let departmenttemp = optionmaster(2, "departmentid", "department").then((data) =
         });
     } catch (err) {
         console.log("Unhandle Error: " + err);
-        return res.render('Task-17/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
+        return res.render('Task-16/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
             errorobject: errorobject,
             statearray: statearray,
             datafrompostrquest: datafrompostrquest,
