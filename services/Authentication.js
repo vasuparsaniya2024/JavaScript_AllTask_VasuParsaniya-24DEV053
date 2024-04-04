@@ -26,7 +26,7 @@ function authenticateToken(req, res, next) {
     const token = req.cookies.accesstoken;
 
     // console.log(authHeader.split(" ")[0]);
-    console.log(token);
+    // console.log(token);
 
     if (!token) {
         console.log("Unauthorized Access");

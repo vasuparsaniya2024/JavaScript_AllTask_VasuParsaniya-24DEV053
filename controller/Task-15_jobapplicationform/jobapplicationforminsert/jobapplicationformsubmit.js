@@ -44,7 +44,7 @@ async function jobapplicationsubmit(req, res) {
             statearray.push(element);
         });
     });
-    
+
     let preferedlocationtemp = optionmaster(3, "preferedlocationid", "preferedlocation").then((data) => {
         data.forEach((element) => {
             preferedlocationarray.push(element);
