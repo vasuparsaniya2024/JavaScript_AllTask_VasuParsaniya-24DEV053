@@ -1,7 +1,7 @@
 
 const connection = require('../../../connection.js');
 
-const { getstates, getcity, optionmaster, getoptionidwithname } = require('./commonfunction.js');
+const { getstates, getcity, optionmaster, getoptionidwithname } = require('../commonfunction.js');
 
 const { insertlanguagedetails, inserttechnologydetails } = require('./insertqueryfunction.js');
 

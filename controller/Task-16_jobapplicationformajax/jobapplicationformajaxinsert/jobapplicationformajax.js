@@ -1,7 +1,7 @@
 
 const connection = require('../../../connection.js');
 
-const { getstates, optionmaster } = require('./commonfunction.js');
+const { getstates, optionmaster } = require('../commonfunction.js');
 
 
 async function jobapplicationformajax(req, res) {

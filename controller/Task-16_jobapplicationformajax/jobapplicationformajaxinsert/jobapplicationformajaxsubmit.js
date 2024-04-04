@@ -1,6 +1,6 @@
 const connection = require('../../../connection.js');
 
-const { getstates, optionmaster } = require('./commonfunction.js');
+const { getstates, optionmaster } = require('../commonfunction.js');
 
 const { insertEducationDetail, insertExperienceDetail, insertReferenceDetail, inserttechnologyknown, insertlanguageknown } = require('./insertrecordfunction.js');
 

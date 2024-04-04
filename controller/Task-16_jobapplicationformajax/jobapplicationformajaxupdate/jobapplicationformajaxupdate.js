@@ -1,39 +1,39 @@
 
 const connection = require('../../../connection.js');
 
-const { getstates,getcity,optionmaster } = require('./commonfunction.js');
+const { getstates, getcity, optionmaster } = require('../commonfunction.js');
 
-const { geteducationdetails,getexperiencedetails,getlanguageknown,gettechnologyknown,getreferencecontact,getpreferencedetails } = require('./selectqueryfunction.js');
-
-
-async function jobapplicationformajaxupdate(req,res){
+const { geteducationdetails, getexperiencedetails, getlanguageknown, gettechnologyknown, getreferencecontact, getpreferencedetails } = require('./selectqueryfunction.js');
 
 
-let jobapplicationformaction = {
-    formsubmit: "",
-    formupdate: ""
-}; 
+async function jobapplicationformajaxupdate(req, res) {
 
-let errorobject = {};  //define for firsttime when form load with get request
-let datafrompostrquest = {};
-//studentid store in global variable  that is used in student details update
-let student_id = 0;
-let statearray = [];
-let cityarray = [];
 
-let preferedlocationarray = [];
-let departmentarray = [];
+    let jobapplicationformaction = {
+        formsubmit: "",
+        formupdate: ""
+    };
 
-//--------update 
-let studentdata = {
-    studentbasicdetails: {},
-    educationdetails: [],
-    experiencedetails: [],
-    languageknown: [],
-    technologyknown: [],
-    referencecontact: [],
-    preferencedetails: {}
-};
+    let errorobject = {};  //define for firsttime when form load with get request
+    let datafrompostrquest = {};
+    //studentid store in global variable  that is used in student details update
+    let student_id = 0;
+    let statearray = [];
+    let cityarray = [];
+
+    let preferedlocationarray = [];
+    let departmentarray = [];
+
+    //--------update 
+    let studentdata = {
+        studentbasicdetails: {},
+        educationdetails: [],
+        experiencedetails: [],
+        languageknown: [],
+        technologyknown: [],
+        referencecontact: [],
+        preferencedetails: {}
+    };
 
     student_id = req.query.student_id;
 
@@ -52,25 +52,25 @@ let studentdata = {
         });
     });
 
-    let citytemp = getcity().then((city)=>{
-        city.forEach((element)=>{
+    let citytemp = getcity().then((city) => {
+        city.forEach((element) => {
             cityarray.push(element);
         })
     });
 
-    
-let preferedlocationtemp = optionmaster(3, "preferedlocationid", "preferedlocation").then((data) => {
-    data.forEach((element) => {
-        preferedlocationarray.push(element);
+
+    let preferedlocationtemp = optionmaster(3, "preferedlocationid", "preferedlocation").then((data) => {
+        data.forEach((element) => {
+            preferedlocationarray.push(element);
+        });
     });
-});
 
 
-let departmenttemp = optionmaster(2, "departmentid", "department").then((data) => {
-    data.forEach((element) => {
-        departmentarray.push(element);
+    let departmenttemp = optionmaster(2, "departmentid", "department").then((data) => {
+        data.forEach((element) => {
+            departmentarray.push(element);
+        });
     });
-});
 
     await statetemp;
 
@@ -153,8 +153,8 @@ let departmenttemp = optionmaster(2, "departmentid", "department").then((data) =
         //here we send city array to ejs according to state_id
         let cityarraytosend = [];
 
-        for(let city of cityarray){
-            if(city.state_id === studentdata.studentbasicdetails.state_id){
+        for (let city of cityarray) {
+            if (city.state_id === studentdata.studentbasicdetails.state_id) {
                 cityarraytosend.push(city);
             }
         }
@@ -164,7 +164,7 @@ let departmenttemp = optionmaster(2, "departmentid", "department").then((data) =
         return res.render('Task-16/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
             errorobject: errorobject,
             statearray: statearray,
-            cityarraytosend:cityarraytosend,
+            cityarraytosend: cityarraytosend,
             preferedlocationarray: preferedlocationarray,
             departmentarray: departmentarray,
             datafrompostrquest: {},
