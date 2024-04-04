@@ -20,7 +20,7 @@ const javascripttask = require('./routes/javascripttask/javascripttask.js');
 // const dynamiccombo = require('./routes/Task-15/DynamicCombo_exercise6/dynamiccombo.js') // remainning
 
 
-const timezoneconverter = require('./routes/Task-19/timezonebycity/timezonecity.js');
+// const timezoneconverter = require('./routes/Task-19/timezonebycity/timezonecity.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -49,7 +49,7 @@ app.use(javascripttask);
 // app.use(dynamiccombo);
 
 
-app.use(timezoneconverter);
+// app.use(timezoneconverter);
 
 // app.use(insertStudentDetails);
 // app.use(user);

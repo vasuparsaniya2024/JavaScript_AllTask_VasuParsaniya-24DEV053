@@ -25,7 +25,7 @@ const jobapplicationformupdatesubmitpost = require('../../controller/Task-15_job
 const jobapplicationformdatabackend = require('../../controller/Task-15_jobapplicationform/joapplicationformbackend/jobapplicationformdatabackend.js');
 
 
-//------ajax jobapplicationform
+//------Task 16 ajax jobapplicationform
 const { jobapplicationformajax,jobapplicationformajaxstate } = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxinsert/jobapplicationformajax.js')
 
 const jobapplicationformajaxsubmit = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxinsert/jobapplicationformajaxsubmit.js');
@@ -33,6 +33,10 @@ const jobapplicationformajaxsubmit = require('../../controller/Task-16_jobapplic
 const jobapplicationformajaxupdate = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxupdate/jobapplicationformajaxupdate.js');
 
 const jobapplicationformajaxsubmitupdate = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxupdate/jobapplicationformajaxsubmitupdate.js');
+
+
+//----Task 18 Timezone Converter
+const { timezone,citytimezone} = require('../../controller/Task-18_timezoneconverter/timezoneconverter.js');
 
 
 //----------Task-1 Javascript Events List
@@ -178,4 +182,9 @@ router.get('/comments',(req,res)=>{
     res.render('Task-18/Exercise1/post');
 });
 
+//----Task-18 Timezone Converter
+
+router.get('/task19_timezone',authenticateToken.authenticateToken,timezone);
+
+router.post('/citytimezone',citytimezone);
 module.exports = router;
