@@ -2,8 +2,7 @@
 const connection = require('../../connection.js');
 // const bcrypt = require('bcrypt');
 const md5 = require('md5');
-const logger = require('pino')();
-
+const logger = require('../../logs.js');
 
 /**this not work when your server is not reload means that page is not reload
  * so we need to implement in API*/

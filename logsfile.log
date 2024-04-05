@@ -1,0 +1,2 @@
+{"level":30,"time":1712323270991,"pid":27526,"hostname":"vasu-parsaniya","msg":"User Registration: Error: ER_DUP_ENTRY: Duplicate entry 'vasuparsaniya21@gmail.com' for key 'usersregistration.email'"}
+{"level":30,"time":1712323285400,"pid":27526,"hostname":"vasu-parsaniya","msg":"User Registration: Error: ER_DUP_ENTRY: Duplicate entry 'vasuparsaniya21@gmail.com' for key 'usersregistration.email'"}
