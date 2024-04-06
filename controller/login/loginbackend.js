@@ -14,7 +14,6 @@ function logindetailsbackend(req,res,next){
     }
 
     if(Object.keys(errorobjectbackend).length>0){
-        console.log(errorobjectbackend);
         return res.status(400).json(errorobjectbackend);
     }else{
         next();

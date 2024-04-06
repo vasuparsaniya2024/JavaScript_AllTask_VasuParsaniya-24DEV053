@@ -26,7 +26,6 @@ function dynamicgridget(req, res) {
     }
 
     let queryInput = req.query.querystring;
-    // console.log(queryInput);
 
     const urlPath = req.path;
     const currentPage = req.query.page || 1;
@@ -44,8 +43,7 @@ function dynamicgridget(req, res) {
     const offset = process.env.RECORS_IN_SINGLEPAGE * (currentPage - 1);
     const limit = " " + "LIMIT" + " " + offset + "," + process.env.RECORS_IN_SINGLEPAGE + ";";
     queryInput = queryInputSplit[0].trim() + limit;
-    // console.log(queryInput);
-    // console.log("get"+queryInput);
+   
     // console.log(urlPath);
     ObjectData.query = queryInput;
     ObjectData.urlPath = urlPath;
@@ -59,7 +57,6 @@ function dynamicgridget(req, res) {
             pageSize: +process.env.RECORS_IN_SINGLEPAGE,
             currentPage: +currentPage
         });
-        // console.log("yes");
     } else {
         connection.query(queryInput, (err, result) => {
             try {

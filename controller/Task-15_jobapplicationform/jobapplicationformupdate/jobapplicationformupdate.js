@@ -1,6 +1,7 @@
 const connection = require('../../../connection.js');
+const logger = require('../../../logs.js');
 
-const { getstates, optionmaster, getoptionidwithname } = require('../commonfunction.js');
+const { getstates, optionmaster } = require('../commonfunction.js');
 
 const { geteducationdetails, getexperiencedetails, getlanguageknown, gettechnologyknown, getreferencecontact, getpreferencedetails } = require('./selectqueryfunction.js');
 
@@ -90,7 +91,7 @@ async function jobapplicationformupdategetpost(req, res) {
                     studentdata.studentbasicdetails = result[0];
                     resolve();
                 } catch (err) {
-                    console.log("Error In Retrive Student Data:", err);
+                    logger.info("Error In Retrive Student Data:" + err);
                     reject(err);
                 }
             });
@@ -148,7 +149,7 @@ async function jobapplicationformupdategetpost(req, res) {
             jobapplicationformaction: jobapplicationformaction
         });
     } catch (err) {
-        console.log("Unhandle Error: " + err);
+        logger.info("Unhandle Error: " + err);
         return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
             errorobject: errorobject,
             statearray: statearray,

@@ -1,4 +1,5 @@
 const connection = require('../../connection.js');
+const logger = require('../../logs.js');
 
 let totalRecords = 0;
 
@@ -8,7 +9,6 @@ function studentdetailswithpaggination(req,res){
      const currentPage = req.query.page || 1;
      const sortingColumn = req.query.orderby;
      const orderbytype = req.query.orderbytype;
-     // console.log(typeof sortingColumn);
      let arrayofHeader = ["Student ID","StudentName","Email","PhoneNumber","Gender","Address1","Address2",
                              "City","State","ZipCode"];
  
@@ -19,7 +19,7 @@ function studentdetailswithpaggination(req,res){
              if(err) throw err
              totalRecords = result;
          }catch(err){
-             console.log("Error In Records Count: "+err);
+             logger.info("Error In Records Count: "+err);
          }
      });
  
@@ -40,7 +40,7 @@ function studentdetailswithpaggination(req,res){
                  orderbytype : orderbytype
               });
          }catch(err){
-             console.log("Error In Sorting: "+err);
+             logger.info("Error In Sorting: "+err);
          }
      });
      }else{
@@ -58,7 +58,7 @@ function studentdetailswithpaggination(req,res){
                                         sortingColumn: sortingColumn
                                      });
          }catch(err){
-             console.log("Error In Get Student Detail: "+err);
+             logger.info("Error In Get Student Detail: "+err);
          }
      });
  

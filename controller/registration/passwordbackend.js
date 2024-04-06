@@ -1,6 +1,5 @@
 function passwordbackendvalidation(req, res, next) {
     const requestData = req.body;
-    // console.log(requestData );
 
     let errorobjectbackend = {};
 
@@ -14,9 +13,6 @@ function passwordbackendvalidation(req, res, next) {
     } else {
         errorobjectbackend = {};
     }
-
-    // console.log(errorobjectbackend);
-
     if (Object.keys(errorobjectbackend).length > 0) {
         return res.status(400).json(errorobjectbackend);
     } else {

@@ -1,5 +1,6 @@
 
 const connection = require('../../../connection.js');
+const logger = require('../../../logs.js');
 
 const { getstates, getcity, optionmaster, getoptionidwithname } = require('../commonfunction.js');
 
@@ -172,7 +173,6 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
                 const updatebasicdetails = `UPDATE basicdetails SET firstname = '${datafrompostrquest.fname}',lastname = '${datafrompostrquest.lname}',designation = '${datafrompostrquest.designation}',email = '${datafrompostrquest.email}',address1 = '${datafrompostrquest.address1}',address2 = '${datafrompostrquest.address2}',phonenumber = '${datafrompostrquest.phonenumber}',city = '${datafrompostrquest.city}',state = ${state_id},gender = '${gender_id}',zipcode = '${datafrompostrquest.zipcode}'
                 WHERE candidate_id=${student_id}`;
 
-                console.log(updatebasicdetails);
                 connection.query(updatebasicdetails, async (err, result) => {
                     try {
                         if (err) throw err;
@@ -298,14 +298,12 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
                                     }
                                     if (statusforlangaugefoundinprevious) {
                                         updatelanguagedetails(student_id, knownlanguageid, lang.read, lang.write, lang.speak, knownlanguageid);
-                                        // console.log("update");
                                         statusforlangaugefoundinprevious = false;
                                     } else {
                                         //if newlanguage is not found in previous language then insert this language
                                         for (let langinoptionmaster of languagearray) {
                                             if (lang.language === langinoptionmaster.language) {
                                                 insertlanguagedetails(student_id, langinoptionmaster.languageid, lang.read, lang.write, lang.speak);
-                                                // console.log("insert");
                                                 break;
                                             }
                                         }
@@ -315,7 +313,6 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
                                     for (let langinoptionmaster of languagearray) {
                                         if (lang.language === langinoptionmaster.language) {
                                             insertlanguagedetails(student_id, langinoptionmaster.languageid, lang.read, lang.write, lang.speak);
-                                            // console.log("inserttttt");
                                         }
                                     }
                                 }
@@ -324,7 +321,6 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
 
                         //-----------------update technology known--------------
 
-                        // console.log("==================");
                         // console.log(req.body.technology);
                         // console.log(req.body.technologyproficiency);
 
@@ -364,14 +360,12 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
 
                         await previoustechnologytemp;
 
-                        // console.log("=================");
                         // console.log(technologyData);
                         // console.log(previoustechnologyknownarray);
                         // console.log(technologyarray);
 
                         let statusfortechnologyfoundinprevious = false;
                         let knowntechnologyid = '';
-                        let newtechnologyproficiency = '';
 
                         if (technologyarray && technologyData && technologyData.length > 0) {
                             for (let tech of technologyData) {      //lang is object key-vale
@@ -385,14 +379,12 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
                                     }
                                     if (statusfortechnologyfoundinprevious) {
                                         updatetechnologydetails(student_id, knowntechnologyid, tech.proficiency);
-                                        // console.log("update");
                                         statusfortechnologyfoundinprevious = false;
                                     } else {
                                         //if newlanguage is not found in previous language then insert this language
                                         for (let techinoptionmaster of technologyarray) {
                                             if (tech.technology === techinoptionmaster.technology) {
                                                 inserttechnologydetails(student_id, techinoptionmaster.technologyid, tech.proficiency);
-                                                // console.log("insert");
                                                 break;
                                             }
                                         }
@@ -402,7 +394,6 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
                                     for (let techinoptionmaster of technologyarray) {
                                         if (tech.technology === techinoptionmaster.technology) {
                                             inserttechnologydetails(student_id, techinoptionmaster.technologyid, tech.proficiency);
-                                            // console.log("inserttttt");
                                         }
                                     }
                                 }
@@ -443,7 +434,6 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
                         var previouspreferencetemp = getpreviouspreference(student_id).then((data) => {
                             data.forEach((element) => {
                                 previouspreferencearray.push(element);
-                                // console.log(element);
                             });
                         });
 
@@ -478,7 +468,7 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
                         resolve();
 
                     } catch (err) {
-                        console.log("Error In Update Details: " + err);
+                        logger.info("Error In Update Details: " + err);
                         reject(err);
                         return res.json({ message: "Someting Went Wrong...." });
                     }
@@ -488,7 +478,7 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
             return res.json({ message: "Thank You For Update...." });
 
         } catch (err) {
-            console.log("Unhandle Error: " + err);
+            logger.info("Unhandle Error: " + err);
             // errorobject.recordupdateerror = "Record Update Error";
         }
     }

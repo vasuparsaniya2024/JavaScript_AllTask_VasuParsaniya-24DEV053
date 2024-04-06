@@ -1,4 +1,5 @@
 const connection = require('../../connection.js');
+const logger = require('../../logs.js');
 
 function studentdetails(req,res){
     let query = "SELECT * FROM StudentMaster LIMIT 50000;";
@@ -10,7 +11,7 @@ function studentdetails(req,res){
             res.render('Task-9/studentdataingrid_exercise1/userlist', { arrayUser : result,
                                        arrayofHeader: arrayofHeader });
         }catch(err){
-            console.log("Error In Get Student Details: "+err);
+            logger.info("Error In Get Student Details: "+err);
         }
     });
 }

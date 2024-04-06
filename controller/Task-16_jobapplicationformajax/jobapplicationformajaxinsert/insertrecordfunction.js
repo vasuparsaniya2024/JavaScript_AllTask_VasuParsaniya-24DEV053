@@ -1,5 +1,5 @@
 const connection = require('../../../connection.js');
-
+const logger = require('../../../logs.js');
 
 // Function to insert education detail
 function insertEducationDetail(educationdetails) {
@@ -10,7 +10,7 @@ function insertEducationDetail(educationdetails) {
 
         connection.query(inserteducationdetails, [educationdetails], (err, result) => {
             if (err) {
-                console.log("Error in education detail insertion:", err);
+                logger.info("Error in education detail insertion: " + err)
                 reject(err);
             } else {
                 resolve(result);
@@ -26,7 +26,7 @@ function insertExperienceDetail(experience) {
         const insertexperiencedetails = "INSERT INTO experience(candidate_id,companyName,designation,dateFrom,dateTo) VALUES ?";
         connection.query(insertexperiencedetails, [experience], (err, result) => {
             if (err) {
-                console.log("Error in experience details insertion:", err);
+                logger.info("Error in experience details insertion:", err);
                 reject(err);
             } else {
                 resolve(result);
@@ -45,7 +45,7 @@ function insertReferenceDetail(reference) {
 
         connection.query(insertreferencedetails, [reference], (err, result) => {
             if (err) {
-                console.log("Error in reference details insertion:", err);
+                logger.info("Error in reference details insertion:", err);
                 reject(err);
             } else {
                 resolve(result);

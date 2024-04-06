@@ -1,4 +1,5 @@
 const connection = require('../../connection.js');
+const logger = require('../../logs.js');
 
 async function studentresultreport(req,res){
     const studentId = req.query.student_id;
@@ -9,8 +10,6 @@ async function studentresultreport(req,res){
 
     //if student id is not available then show the list of of the student with result
     //if student id available then show the particular student id student detail subject wise result
-
-    // console.log(studentId);
     if(studentId === undefined){
 
         var totalRecords = 0;
@@ -43,7 +42,7 @@ async function studentresultreport(req,res){
                 // console.log(StudentMarkObject.Terminal);
                 resolve();
             }catch(err){
-                console.log("Error In Student Result Terminal: "+err);
+                logger.info("Error In Student Result Terminal: "+err);
                 reject();
             }
         });
@@ -66,7 +65,7 @@ async function studentresultreport(req,res){
                 // console.log(StudentMarkObject.Prelim);
                 resolve();
             }catch(err){
-                console.log("Error In Student Result Prelim: "+err);
+                logger.info("Error In Student Result Prelim: "+err);
                 reject();
             }
         });
@@ -88,7 +87,7 @@ async function studentresultreport(req,res){
                     // console.log(StudentMarkObject.Final);
                     resolve();
                 }catch(err){
-                    console.log("Error In Student Result Final: "+err);
+                    logger.info("Error In Student Result Final: "+err);
                     reject();
                 }
             });
@@ -121,7 +120,7 @@ async function studentresultreport(req,res){
                 // console.log(StudentMarkObject.Terminal);
                 resolve();
             }catch(err){
-                console.log("Error In Student Result Terminal: "+err);
+                logger.info("Error In Student Result Terminal: "+err);
                 reject();
             }
         });
@@ -162,7 +161,7 @@ async function studentresultreport(req,res){
                     // console.log(StudentMarkObject.Final);
                     resolve();
                 }catch(err){
-                    console.log("Error In Student Result Final: "+err);
+                    logger.info("Error In Student Result Final: "+err);
                     reject();
                 }
             });

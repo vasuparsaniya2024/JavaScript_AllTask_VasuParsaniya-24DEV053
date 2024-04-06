@@ -1,4 +1,5 @@
 const connection = require('../../../connection.js');
+const logger = require('../../../logs.js');
 
 const { insertEducationDetail, insertExperienceDetail, insertReferenceDetail, inserttechnologyknown, insertlanguageknown } = require('./insertrecordfunction.js');
 
@@ -509,8 +510,8 @@ async function jobapplicationsubmit(req, res) {
                         // await Promise.all(languageknown);
                         resolve();
                     } catch (err) {
-                        console.log("Error in basic details:" + err);  //basically this is not need but only understanding i put this
-                        //because outside of promise try catch handle any error if promise reject called as unhandle error 
+                        // console.log("Error in basic details:" + err);  //basically this is not need but only understanding i put this
+                        // //because outside of promise try catch handle any error if promise reject called as unhandle error 
                         reject(err);
                     }
 
@@ -545,8 +546,7 @@ async function jobapplicationsubmit(req, res) {
             });
         } catch (err) {
             //if promise reject then this handle here
-
-            console.log("Unhandle Error:" + err);
+            logger.info("Unhandle Error:" + err);
             errorobject.recordinserterror = "Something Went Wrong";
 
             return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {

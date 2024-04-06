@@ -1,12 +1,10 @@
 const connection = require('../../connection.js');
-
 const md5 = require('md5');
 const jwt = require('jsonwebtoken');
+const logger = require('../../logs.js');
 
 function userlogin(req, res) {
     const loginData = req.body;
-
-    // console.log(loginData);
 
     /**login process 
      * first check that enter username(email) is exist or not and check that his user_status is 1
@@ -47,7 +45,7 @@ function userlogin(req, res) {
                 return res.status(401).json({ message: "Invalid Credentials" });
             }
         } catch (err) {
-            console.log("somthing error");
+            logger.logError("somthing error"+err);
             return res.status(401).json({ message: "Invalid Credentials" });
         }
     });

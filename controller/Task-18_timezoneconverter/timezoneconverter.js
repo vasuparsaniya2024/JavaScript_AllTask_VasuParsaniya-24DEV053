@@ -1,4 +1,5 @@
 const connection = require('../../connection.js');
+const logger = require('../../logs.js');
 
 function timezone(req, res) {
     const city = `SELECT zone_name as cityname from timezones`;
@@ -12,7 +13,7 @@ function timezone(req, res) {
                 cityarray: result
             });
         } catch (err) {
-            console.log("Error In Get City: " + err);
+            logger.logError("Error In Get City: " + err);
         }
     });
 }

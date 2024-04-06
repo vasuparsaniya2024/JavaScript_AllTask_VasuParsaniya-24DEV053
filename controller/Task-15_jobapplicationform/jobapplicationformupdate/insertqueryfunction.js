@@ -5,7 +5,6 @@
 
 const connection = require('../../../connection.js');
 
-
 function insertlanguagedetails(student_id, languageid, languageread, languagewrite, languagespeak) {
     return new Promise((resolve, reject) => {
         const insertlanguage = `INSERT INTO knownlanguage(candidate_id,knownlanguage_id,language_read,language_write,language_speak) VALUES(${student_id},'${languageid}',${languageread},${languagewrite},${languagespeak})`;

@@ -14,8 +14,6 @@ function forgotpasswordbackendvalidation(req, res, next) {
         errorobjectbackend = {};
     }
 
-    // console.log(errorobjectbackend);
-
     if (Object.keys(errorobjectbackend).length > 0) {
         return res.status(400).json(errorobjectbackend);
     } else {

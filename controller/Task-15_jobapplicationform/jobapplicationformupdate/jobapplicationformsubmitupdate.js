@@ -1,4 +1,5 @@
 const connection = require('../../../connection.js');
+const logger = require('../../../logs.js');
 
 const { getstates, optionmaster, getoptionidwithname } = require('../commonfunction.js');
 
@@ -40,8 +41,6 @@ async function jobapplicationformupdatesubmitpost(req, res) {
     //set form action for ejs
     jobapplicationformaction.formupdate = "/jobapplicationformupdatesuccessfully";
     jobapplicationformaction.formsubmit = "";
-
-    // console.log(student_id);
 
     //wait before then execute
     let statetemp = getstates().then((state) => {
@@ -88,9 +87,6 @@ async function jobapplicationformupdatesubmitpost(req, res) {
     await statetemp;
     await optionidwithnametemp;
 
-    // console.log(optionidwithnamearray);
-
-
     // const path =req.originalUrl;
     // const pathname = path.split('?')[0];
 
@@ -108,7 +104,6 @@ async function jobapplicationformupdatesubmitpost(req, res) {
             state_id = state.state_id;
         }
     }
-    // console.log(state_id);
     for (let option of optionidwithnamearray) {
         if (option.optionname === datafrompostrquest.relationship) {
             relationship_id = option.optionid;
@@ -461,7 +456,7 @@ async function jobapplicationformupdatesubmitpost(req, res) {
                         resolve();
 
                     } catch (err) {
-                        console.log("Error In Update Details: " + err);
+                        logger.info("Error In Update Details: " + err);
                         reject(err);
                     }
                 });
@@ -478,7 +473,7 @@ async function jobapplicationformupdatesubmitpost(req, res) {
             });
 
         } catch (err) {
-            console.log("Unhandle Error: " + err);
+            logger.info("Unhandle Error: " + err);
             errorobject.recordupdateerror = "Record Update Error";
 
             return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {

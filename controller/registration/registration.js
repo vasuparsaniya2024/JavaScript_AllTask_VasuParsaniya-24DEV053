@@ -29,7 +29,6 @@ function generaterandomstring(length) {
 
 async function userregistration(req, res) {
     const userregistrationdata = req.body;
-    // console.log(userregistrationdata);
     let user_id;
     let pwd_salt;
 
@@ -57,7 +56,6 @@ async function userregistration(req, res) {
                 let activationcode;
 
                 await generaterandomstring(12).then((data) => {
-                    // console.log("generate activation code function call");
                     activationcode = data;
                 });
 
@@ -73,14 +71,13 @@ async function userregistration(req, res) {
 
                         return res.status(200).json({ message: "Data Save Please Activate Account", userid: `${user_id}`, activationcode: `${activationcode}` });
                     } catch (error) {
-                        // console.log("User Registration Error: ", error);
-                        logger.info("User Registration: " + error);
+                        logger.logError("User Registration: " + error);
                         return res.status(500).json({ message: "Something Went Wrong" });
                     }
                 });
             }
         } catch (err) {
-            console.log("Error In Get User Email: ", err);
+            logger.logError("Error In Get User Email: " + err)
             return res.status(500).json({ message: "Internal Server Error" });
         }
     });
@@ -118,10 +115,8 @@ function checkactivationlink(req, res) {
             if (result.length > 0) {
                 //user exist with theiractivation code
                 //now check activation code is exipre or not
-                // console.log("user found");
 
                 const activationcodedate = result[0].activationcodedate;
-                // console.log(activationcodedate);
                 const activationdatetime = new Date(activationcodedate).getTime();
                 const currentdate = new Date().getTime();
                 const datedifference = (currentdate - activationdatetime) / 1000; //in second 
@@ -133,13 +128,13 @@ function checkactivationlink(req, res) {
                 }
             } else {
                 // console.log("user not found");
-                //this is neve happen
+                //this is never happen
                 //because user generate then his entry insert
                 //anyone link change then this helpful
                 return res.status(404).json({ message: "User Not Found" });
             }
         } catch (err) {
-            console.log("Error In check activation code: ", err);
+            logger.logError("Error In check activation code: " + err)
             return res.status(500).json({ message: "Internal Server Error" });
         }
     });
@@ -150,24 +145,20 @@ async function regenerateactivationcode(req, res) {
     const user = req.body; //object
     const userid = user.userid;
 
-    // console.log(user);
     //now generate new activationcode
 
     let activationcode;
 
-    /** here we call this promise return function because because problem is that if i am  store this activationcode in global variable in file and use this thenproblem is that when page is not reload then this variable value is not change 
+    /** here we call this promise return function because problem is that if i am  store this activationcode in global variable in file and use this thenproblem is that when page is not reload then this variable value is not change 
      * but in this case when this API call then we want new random generate activationcode
      * so that's why i implement this*/
 
     await generaterandomstring(12).then((data) => {
-        // console.log("generate activation code function call");
         activationcode = data;
     });
 
 
     // await generateactivationcode
-    // console.log(userid);
-    // console.log(activationcode);
 
     const insertnewcode = `UPDATE linkactivationcodes
                            SET activationcode = '${activationcode}'
@@ -177,13 +168,10 @@ async function regenerateactivationcode(req, res) {
     connection.query(insertnewcode, (err, result) => {
         try {
             if (err) throw err
-            // console.log("Regenerate Activation Code");
-
-            // console.log("activate code call");
 
             res.status(200).json({ message: "Please Set Password", userid: `${userid}`, activationcode: `${activationcode}` });
         } catch (err) {
-            console.log("Error In Regenerate Activation Link", err);
+            logger.logError("Error In Regenerate Activation Link"+err);
             return res.status(500).json({ message: "Internal Server Error Please Regenerate Link" });
         }
     });
@@ -193,8 +181,6 @@ async function regenerateactivationcode(req, res) {
 
 function passwordinsert(req, res) {
     const activationData = req.body;
-
-    // console.log(activationData);
 
     //before insert password we need to check below 
     /**first check activationcode is activate or not
@@ -238,8 +224,6 @@ function passwordinsert(req, res) {
                             if (err1) throw err1
                             if (result1.length > 0) {
                                 const pwd_salt = result1[0].pwd_salt;
-                                // console.log(pwd_salt);
-
                                 //now convert that password in MD5
 
                                 const finalpassword = activationData.password + pwd_salt;
@@ -257,7 +241,7 @@ function passwordinsert(req, res) {
                                         console.group("Successfully Set Password");
                                         return res.status(200).json({ message: "Successfully Set Password" });
                                     } catch (err2) {
-                                        console.log("Error In set password", err2);
+                                        logger.logError("Error In set password" + err2)
                                         return res.status(400).json({ message: "Unable to set password" });
                                     }
                                 });
@@ -289,12 +273,10 @@ function passwordinsert(req, res) {
                 return res.status(404).json({ message: "User Not Found" });
             }
         } catch (err) {
-            console.log("Error In check activation code: ", err);
+            logger.logError("Error In check activation code: " + err)
             return res.status(500).json({ message: "Internal Server Error" });
         }
     });
-
 }
-
 
 module.exports = { userregistration, checkactivationlink, regenerateactivationcode, passwordinsert }

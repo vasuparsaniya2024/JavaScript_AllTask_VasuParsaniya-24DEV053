@@ -1,4 +1,5 @@
 const connection = require('../../connection.js');
+const logger = require('../../logs.js');
 
 async function studentattandancereport(req,res){
     const month = Number(req.query.month) || 1;
@@ -96,7 +97,7 @@ async function studentattandancereport(req,res){
             });
             monthdays = 0;
         }catch(err){
-            console.log("Error In student attandace: "+err);
+            logger.info("Error In student attandace: "+err);
         }
     });
 }

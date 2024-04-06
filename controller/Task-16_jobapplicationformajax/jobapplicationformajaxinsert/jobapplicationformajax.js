@@ -1,5 +1,5 @@
-
 const connection = require('../../../connection.js');
+const logger = require('../../../logs.js');
 
 const { getstates, optionmaster } = require('../commonfunction.js');
 
@@ -97,7 +97,7 @@ function jobapplicationformajaxstate(req, res) {
             // console.log(result);
             return res.json(result);
         } catch (err) {
-            console.log("Error In Get City: " + err);
+            logger.info("Error In Get City: " + err);
         }
     });
 }

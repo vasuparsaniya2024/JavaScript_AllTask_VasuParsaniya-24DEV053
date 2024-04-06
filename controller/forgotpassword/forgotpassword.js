@@ -1,4 +1,5 @@
 const connection = require('../../connection.js');
+const logger = require('../../logs.js');
 
 function forgotpassword(req, res) {
     const requestData = req.body;
@@ -37,7 +38,7 @@ function forgotpassword(req, res) {
                         //user exist
                         return res.status(200).json({ message: "click on link and set new password", userid: `${result[0].user_id}`, activationcode: `${activationcode}` });
                     } catch (err) {
-                        console.log("Error In Insert New Activationcode ", err);
+                        logger.logError("Error In Insert New Activationcode " + err)
                         return res.status(500).json({ message: "Something Went Wrong" });
                     }
                 });
@@ -46,7 +47,7 @@ function forgotpassword(req, res) {
                 return res.status(404).json({ message: "Something Went Wrong" });
             }
         } catch (err) {
-            console.log("Error In forgot password ", err);
+            logger.logError("Error In forgot password " + err);
             return res.status(500).json({ message: "Something Wen Wrong" });
         }
     });
@@ -67,7 +68,6 @@ function generaterandomstring(length) {
 
 function updatepassword(req, res) {
     const requestData = req.body;
-    // console.log(requestData);
 
     /**In this update password process (means forgot password) 
      * from the requestData particuler user id exist or not with user_status 1
@@ -90,7 +90,7 @@ function updatepassword(req, res) {
             if (result.length > 0) {
                 //code exist
                 //check this activation is expire or not
-                console.log("user exist");
+                // console.log("user exist");
                 const activationcodedate = result[0].activationcode;
                 const activationcodetime = new Date(activationcodedate).getTime();
                 const currenttime = new Date().getTime();
@@ -98,7 +98,6 @@ function updatepassword(req, res) {
 
                 if (datedifference > codeexpiretime) {
                     //link is expire
-                    console.log("link expire");
                     return res.status(401).json({ message: "Your Link Expire" });
                 } else {
                     // console.log("link not expire");
@@ -112,8 +111,6 @@ function updatepassword(req, res) {
                             if (err1) throw err1
 
                             if (result1.length > 0) {
-                                console.log("allow to update password");
-
                                 const finalpassword = requestData.password + result1[0].pwd_salt;
                                 const finalpasswordmd5 = md5(finalpassword);
                                 // console.log(finalpasswordmd5);
@@ -127,7 +124,7 @@ function updatepassword(req, res) {
 
                                         return res.status(200).json({ message: "Successfully Set Password" });
                                     } catch (err2) {
-                                        console.log("Error in update for got password: ", err2);
+                                        logger.info("Error in update forgot password: " + err2)
                                         return res.json(400).json({ message: "Unable to set password" });
                                     }
                                 });
@@ -135,7 +132,7 @@ function updatepassword(req, res) {
                                 return res.status(409).json({ message: "Something Went Wrong" });
                             }
                         } catch (err1) {
-                            console.log("Forgot Password Password Update error: ", err1);
+                            logger.info("Forgot Password Password Update error: " + err1);
                             return res.status(500).json({ message: "Internal Server Error" });
                         }
                     });
@@ -144,7 +141,7 @@ function updatepassword(req, res) {
                 return res.status(404).json({ message: "User Not Found" });
             }
         } catch (err) {
-            console.log("Error In Forgot Password Set:", err);
+            logger.info("Error In Forgot Password Set:" + err)
             return res.status(500).json({ message: "Something Went Wrong" });
         }
     });

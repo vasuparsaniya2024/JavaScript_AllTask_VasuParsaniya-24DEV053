@@ -1,6 +1,6 @@
 const connection = require('../../../connection.js');
 
-const { getstates, optionmaster, getoptionidwithname } = require('../commonfunction.js');
+const { getstates, optionmaster } = require('../commonfunction.js');
 
 
 
@@ -14,12 +14,9 @@ async function jobapplicationformget(req, res) {
 
     let errorobject = {};  //define for firsttime when form load with get request
     let datafrompostrquest = {};
-    let lastRecordInsertid = 0;
     let statearray = [];
     let preferedlocationarray = [];
     let departmentarray = [];
-    let languagearray = [];
-    let technologyarray = [];
 
     //--------update 
     let studentdata = {
@@ -33,8 +30,8 @@ async function jobapplicationformget(req, res) {
     };
 
 
-    const path = req.originalUrl;
-    const pathname = path.split('?')[0];
+    // const path = req.originalUrl;
+    // const pathname = path.split('?')[0];
     jobapplicationformaction.formsubmit = "/jobapplicationformsubmit";
     jobapplicationformaction.formupdate = "";
 

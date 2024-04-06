@@ -1,5 +1,5 @@
-
 const connection = require('../../../connection.js');
+const logger = require('../../../logs.js');
 
 const { getstates, getcity, optionmaster } = require('../commonfunction.js');
 
@@ -36,11 +36,6 @@ async function jobapplicationformajaxupdate(req, res) {
     };
 
     student_id = req.query.student_id;
-
-    // console.log("route update");
-    // console.log(student_id);
-    // const path = req.originalUrl;
-    // const query = path.split('?')[1];
 
     jobapplicationformaction.formupdate = "/jobapplicationformupdatesuccessfullyajax";
     jobapplicationformaction.formsubmit = "";
@@ -100,7 +95,7 @@ async function jobapplicationformajaxupdate(req, res) {
                     // console.log(result[0]);
                     resolve();
                 } catch (err) {
-                    console.log("Error In Retrive Student Data:", err);
+                    logger.logError("Error In Retrive Student Data:" + err)
                     reject(err);
                 }
             });
@@ -172,7 +167,7 @@ async function jobapplicationformajaxupdate(req, res) {
             jobapplicationformaction: jobapplicationformaction
         });
     } catch (err) {
-        console.log("Unhandle Error: " + err);
+        logger.logError("Unhandle Error: " + err);
         return res.render('Task-16/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
             errorobject: errorobject,
             statearray: statearray,

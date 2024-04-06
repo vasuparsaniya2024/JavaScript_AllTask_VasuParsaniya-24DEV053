@@ -1,4 +1,5 @@
 const connection = require('../../connection.js');
+const logger = require('../../logs.js');
 
 function delimetersearchget(req, res) {
 
@@ -225,7 +226,7 @@ function delimetersearchpost(req, res) {
                 ObjectData: ObjectData
             });
         } catch (err) {
-            console.log("Data Not Found:" + err);
+            logger.info("Data Not Found:" + err);
             ObjectData.erroInDataFound = "Data Not Found..";
             ObjectData.errorInEnterInput = "";
             ObjectData.data = result;
