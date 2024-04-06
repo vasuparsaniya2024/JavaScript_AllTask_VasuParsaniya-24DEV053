@@ -11,7 +11,7 @@ function studentdetails(req,res){
             res.render('Task-9/studentdataingrid_exercise1/userlist', { arrayUser : result,
                                        arrayofHeader: arrayofHeader });
         }catch(err){
-            logger.info("Error In Get Student Details: "+err);
+            logger.logError("Error In Get Student Details: "+err);
         }
     });
 }

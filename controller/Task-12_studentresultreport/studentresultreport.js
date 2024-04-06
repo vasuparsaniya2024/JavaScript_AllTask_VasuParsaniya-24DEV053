@@ -42,7 +42,7 @@ async function studentresultreport(req,res){
                 // console.log(StudentMarkObject.Terminal);
                 resolve();
             }catch(err){
-                logger.info("Error In Student Result Terminal: "+err);
+                logger.logError("Error In Student Result Terminal: "+err);
                 reject();
             }
         });
@@ -65,7 +65,7 @@ async function studentresultreport(req,res){
                 // console.log(StudentMarkObject.Prelim);
                 resolve();
             }catch(err){
-                logger.info("Error In Student Result Prelim: "+err);
+                logger.logError("Error In Student Result Prelim: "+err);
                 reject();
             }
         });
@@ -87,7 +87,7 @@ async function studentresultreport(req,res){
                     // console.log(StudentMarkObject.Final);
                     resolve();
                 }catch(err){
-                    logger.info("Error In Student Result Final: "+err);
+                    logger.logError("Error In Student Result Final: "+err);
                     reject();
                 }
             });
@@ -120,7 +120,7 @@ async function studentresultreport(req,res){
                 // console.log(StudentMarkObject.Terminal);
                 resolve();
             }catch(err){
-                logger.info("Error In Student Result Terminal: "+err);
+                logger.logError("Error In Student Result Terminal: "+err);
                 reject();
             }
         });
@@ -161,7 +161,7 @@ async function studentresultreport(req,res){
                     // console.log(StudentMarkObject.Final);
                     resolve();
                 }catch(err){
-                    logger.info("Error In Student Result Final: "+err);
+                    logger.logError("Error In Student Result Final: "+err);
                     reject();
                 }
             });

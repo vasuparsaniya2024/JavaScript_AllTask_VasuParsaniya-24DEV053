@@ -10,7 +10,7 @@ function insertEducationDetail(educationdetails) {
 
         connection.query(inserteducationdetails, [educationdetails], (err, result) => {
             if (err) {
-                logger.info("Error in education detail insertion: " + err)
+                logger.logError("Error in education detail insertion: " + err)
                 reject(err);
             } else {
                 resolve(result);
@@ -26,7 +26,7 @@ function insertExperienceDetail(experience) {
         const insertexperiencedetails = "INSERT INTO experience(candidate_id,companyName,designation,dateFrom,dateTo) VALUES ?";
         connection.query(insertexperiencedetails, [experience], (err, result) => {
             if (err) {
-                logger.info("Error in experience details insertion:", err);
+                logger.logError("Error in experience details insertion:", err);
                 reject(err);
             } else {
                 resolve(result);
@@ -45,7 +45,7 @@ function insertReferenceDetail(reference) {
 
         connection.query(insertreferencedetails, [reference], (err, result) => {
             if (err) {
-                logger.info("Error in reference details insertion:", err);
+                logger.logError("Error in reference details insertion:", err);
                 reject(err);
             } else {
                 resolve(result);

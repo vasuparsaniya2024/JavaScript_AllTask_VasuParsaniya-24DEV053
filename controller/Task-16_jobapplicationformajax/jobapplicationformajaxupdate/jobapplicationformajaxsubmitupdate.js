@@ -468,7 +468,7 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
                         resolve();
 
                     } catch (err) {
-                        logger.info("Error In Update Details: " + err);
+                        logger.logError("Error In Update Details: " + err);
                         reject(err);
                         return res.json({ message: "Someting Went Wrong...." });
                     }
@@ -478,7 +478,7 @@ async function jobapplicationformajaxsubmitupdate(req, res) {
             return res.json({ message: "Thank You For Update...." });
 
         } catch (err) {
-            logger.info("Unhandle Error: " + err);
+            logger.logError("Unhandle Error: " + err);
             // errorobject.recordupdateerror = "Record Update Error";
         }
     }

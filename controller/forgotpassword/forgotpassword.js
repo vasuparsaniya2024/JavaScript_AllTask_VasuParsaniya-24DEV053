@@ -124,7 +124,7 @@ function updatepassword(req, res) {
 
                                         return res.status(200).json({ message: "Successfully Set Password" });
                                     } catch (err2) {
-                                        logger.info("Error in update forgot password: " + err2)
+                                        logger.logError("Error in update forgot password: " + err2)
                                         return res.json(400).json({ message: "Unable to set password" });
                                     }
                                 });
@@ -132,7 +132,7 @@ function updatepassword(req, res) {
                                 return res.status(409).json({ message: "Something Went Wrong" });
                             }
                         } catch (err1) {
-                            logger.info("Forgot Password Password Update error: " + err1);
+                            logger.logError("Forgot Password Password Update error: " + err1);
                             return res.status(500).json({ message: "Internal Server Error" });
                         }
                     });
@@ -141,7 +141,7 @@ function updatepassword(req, res) {
                 return res.status(404).json({ message: "User Not Found" });
             }
         } catch (err) {
-            logger.info("Error In Forgot Password Set:" + err)
+            logger.logError("Error In Forgot Password Set:" + err)
             return res.status(500).json({ message: "Something Went Wrong" });
         }
     });

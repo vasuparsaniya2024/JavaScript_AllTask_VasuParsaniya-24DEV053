@@ -11,7 +11,7 @@ function delimetersearchget(req, res) {
 
     let queryInput = "SELECT studentname,email,phonenumber,city,state,zipcode FROM StudentDetails;"
     const urlPath = req.path;
-    const currentPage = req.query.page || 1;
+    // const currentPage = req.query.page || 1;
 
     ObjectData.query = queryInput;
     ObjectData.urlPath = urlPath;
@@ -226,7 +226,7 @@ function delimetersearchpost(req, res) {
                 ObjectData: ObjectData
             });
         } catch (err) {
-            logger.info("Data Not Found:" + err);
+            logger.logError("Data Not Found:" + err);
             ObjectData.erroInDataFound = "Data Not Found..";
             ObjectData.errorInEnterInput = "";
             ObjectData.data = result;

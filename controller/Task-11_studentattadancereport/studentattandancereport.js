@@ -97,7 +97,7 @@ async function studentattandancereport(req,res){
             });
             monthdays = 0;
         }catch(err){
-            logger.info("Error In student attandace: "+err);
+            logger.logError("Error In student attandace: "+err);
         }
     });
 }

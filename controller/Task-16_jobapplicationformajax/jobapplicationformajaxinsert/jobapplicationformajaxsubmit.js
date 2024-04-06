@@ -373,7 +373,7 @@ async function jobapplicationformajaxsubmit(req, res) {
                         resolve();
                     } catch (err) {
                         // console.log("Error in basic details:" + err);  //basically this is not need but only understanding i put this
-                        logger.info("Error in basic details:" + err);
+                        logger.logError("Error in basic details:" + err);
                         reject(err);
                         return res.json({ message: "Something Went Wrong...." });
 
@@ -388,7 +388,7 @@ async function jobapplicationformajaxsubmit(req, res) {
             return res.json({ message: "Thank You For Submit...." });
         } catch (err) {
             //if promise reject then this handle here
-            logger.info("Unhandle Error:" + err);
+            logger.logError("Unhandle Error:" + err);
         }
     }
 }

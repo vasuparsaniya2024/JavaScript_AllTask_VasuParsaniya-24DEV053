@@ -456,7 +456,7 @@ async function jobapplicationformupdatesubmitpost(req, res) {
                         resolve();
 
                     } catch (err) {
-                        logger.info("Error In Update Details: " + err);
+                        logger.logError("Error In Update Details: " + err);
                         reject(err);
                     }
                 });
@@ -473,7 +473,7 @@ async function jobapplicationformupdatesubmitpost(req, res) {
             });
 
         } catch (err) {
-            logger.info("Unhandle Error: " + err);
+            logger.logError("Unhandle Error: " + err);
             errorobject.recordupdateerror = "Record Update Error";
 
             return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {

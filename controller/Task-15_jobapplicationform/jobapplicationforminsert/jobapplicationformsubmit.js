@@ -546,7 +546,7 @@ async function jobapplicationsubmit(req, res) {
             });
         } catch (err) {
             //if promise reject then this handle here
-            logger.info("Unhandle Error:" + err);
+            logger.logError("Unhandle Error:" + err);
             errorobject.recordinserterror = "Something Went Wrong";
 
             return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {

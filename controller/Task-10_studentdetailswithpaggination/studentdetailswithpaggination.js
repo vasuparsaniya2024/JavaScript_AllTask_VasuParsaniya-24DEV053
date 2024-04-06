@@ -19,7 +19,7 @@ function studentdetailswithpaggination(req,res){
              if(err) throw err
              totalRecords = result;
          }catch(err){
-             logger.info("Error In Records Count: "+err);
+             logger.logError("Error In Records Count: "+err);
          }
      });
  
@@ -40,7 +40,7 @@ function studentdetailswithpaggination(req,res){
                  orderbytype : orderbytype
               });
          }catch(err){
-             logger.info("Error In Sorting: "+err);
+             logger.logError("Error In Sorting: "+err);
          }
      });
      }else{
@@ -58,7 +58,7 @@ function studentdetailswithpaggination(req,res){
                                         sortingColumn: sortingColumn
                                      });
          }catch(err){
-             logger.info("Error In Get Student Detail: "+err);
+             logger.logError("Error In Get Student Detail: "+err);
          }
      });
  

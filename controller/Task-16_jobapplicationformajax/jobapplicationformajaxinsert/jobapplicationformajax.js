@@ -97,7 +97,7 @@ function jobapplicationformajaxstate(req, res) {
             // console.log(result);
             return res.json(result);
         } catch (err) {
-            logger.info("Error In Get City: " + err);
+            logger.logError("Error In Get City: " + err);
         }
     });
 }

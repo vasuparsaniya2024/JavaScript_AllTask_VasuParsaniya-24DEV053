@@ -91,7 +91,7 @@ async function jobapplicationformupdategetpost(req, res) {
                     studentdata.studentbasicdetails = result[0];
                     resolve();
                 } catch (err) {
-                    logger.info("Error In Retrive Student Data:" + err);
+                    logger.logError("Error In Retrive Student Data:" + err);
                     reject(err);
                 }
             });
@@ -149,7 +149,7 @@ async function jobapplicationformupdategetpost(req, res) {
             jobapplicationformaction: jobapplicationformaction
         });
     } catch (err) {
-        logger.info("Unhandle Error: " + err);
+        logger.logError("Unhandle Error: " + err);
         return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
             errorobject: errorobject,
             statearray: statearray,
