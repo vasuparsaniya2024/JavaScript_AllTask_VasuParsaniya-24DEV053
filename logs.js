@@ -2,13 +2,20 @@ require('dotenv').config();
 const pino = require('pino');
 // const pinoPretty = require('pino-pretty');
 
-const logfile = `${__dirname}/logsfile.log`;
+const fs = require('fs');
 
+const logsFolder = `${__dirname}/logs`;
+const logfile = `${logsFolder}/logfile.log`;
+
+// logs folder exists
+if (!fs.existsSync(logsFolder)) {
+  fs.mkdirSync(logsFolder, { recursive: true });
+}
 const transport = pino.transport({
   targets: [
     {
       target: 'pino-pretty',
-      options: {destination: logfile, colorize: false}
+      options: {destination: logfile, colorize: false, mkdir: true}
     },
     {
       target: 'pino-pretty',
