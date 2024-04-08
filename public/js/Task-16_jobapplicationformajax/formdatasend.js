@@ -1,7 +1,7 @@
 async function formdata() {
     // alert("formdata call");
 
-    const jobapplicationform = document.getElementById("JobApplicationForm");
+    const jobapplicationform = document.forms["JobApplicationForm"];
 
     alert(jobapplicationform);
     //form input value in key-value pair 
@@ -11,7 +11,7 @@ async function formdata() {
 
     const jobapplicationformdata = {};
 
-    // console.log(formData);
+    console.log(formData);
 
     for (let [key, value] of formData.entries()) {
         jobapplicationformdata[key] = value;
