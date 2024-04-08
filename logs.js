@@ -15,24 +15,24 @@ const transport = pino.transport({
   targets: [
     {
       target: 'pino-pretty',
-      options: {destination: logfile, colorize: false, mkdir: true}
+      options: { destination: logfile, colorize: false, mkdir: true }
     },
     {
       target: 'pino-pretty',
-      options: {destination : process.stdout.fd}
+      options: { destination: process.stdout.fd }
     }
   ]
 });
 
 const logger = pino({
   level: process.env.LOG_LEVEL
-},transport);
+}, transport);
 
 module.exports = logger
 
 // Log errors including the file where the error occurs
 //logError is property of logger function
-module.exports.logError = function(err) {
+module.exports.logError = function (err) {
   const error = err instanceof Error ? err : new Error(err);
   const stack = error.stack.split('\n');
   const callerStackLine = stack[2]; // Extract the line of the stack trace where the logging function is called
