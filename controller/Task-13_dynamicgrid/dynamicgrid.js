@@ -11,7 +11,7 @@ function dynamicgridform(req, res) {
     ObjectData.query = "";
     ObjectData.querybeforelimit = "";
     ObjectData.data = [];
-    res.render('Task-13/dynamicGrid', {
+    res.render('Task-13_dynamicgrid/dynamicGrid', {
         ObjectData: ObjectData
     });
 }
@@ -43,7 +43,7 @@ function dynamicgridget(req, res) {
     const offset = process.env.RECORS_IN_SINGLEPAGE * (currentPage - 1);
     const limit = " " + "LIMIT" + " " + offset + "," + process.env.RECORS_IN_SINGLEPAGE + ";";
     queryInput = queryInputSplit[0].trim() + limit;
-   
+
     // console.log(urlPath);
     ObjectData.query = queryInput;
     ObjectData.urlPath = urlPath;
@@ -51,7 +51,7 @@ function dynamicgridget(req, res) {
     if (queryInput.length === 0) {
         ObjectData.errorInEnterInput = "Please Enter Query.."
         ObjectData.erroInDataFound = "";
-        res.render('Task-13/dynamicGrid', {
+        res.render('Task-13_dynamicgrid/dynamicGrid', {
             ObjectData: ObjectData,
             pageCount: totalPage,
             pageSize: +process.env.RECORS_IN_SINGLEPAGE,
@@ -67,7 +67,7 @@ function dynamicgridget(req, res) {
                 if (result.length === 0) {
                     ObjectData.erroInDataFound = "Data Not Found...";
                 }
-                res.render('Task-13/dynamicGrid', {
+                res.render('Task-13_dynamicgrid/dynamicGrid', {
                     ObjectData: ObjectData,
                     pageCount: totalPage,
                     pageSize: +process.env.RECORS_IN_SINGLEPAGE,
@@ -78,7 +78,7 @@ function dynamicgridget(req, res) {
                 ObjectData.erroInDataFound = "Data Not Found..";
                 ObjectData.errorInEnterInput = "";
                 ObjectData.data = result;
-                res.render('Task-13/dynamicGrid', {
+                res.render('Task-13_dynamicgrid/dynamicGrid', {
                     ObjectData: ObjectData
                 });
             }
@@ -122,7 +122,7 @@ function dynamicgridpost(req, res) {
     if (queryInputSplit[0].length === 0) {
         ObjectData.errorInEnterInput = "Please Enter Query.."
         ObjectData.erroInDataFound = "";
-        res.render('Task-13/dynamicGrid', {
+        res.render('Task-13_dynamicgrid/dynamicGrid', {
             ObjectData: ObjectData,
             pageCount: totalPage,
             pageSize: +process.env.RECORS_IN_SINGLEPAGE,
@@ -138,7 +138,7 @@ function dynamicgridpost(req, res) {
                 if (result.length === 0) {
                     ObjectData.erroInDataFound = "Data Not Found...";
                 }
-                res.render('Task-13/dynamicGrid', {
+                res.render('Task-13_dynamicgrid/dynamicGrid', {
                     ObjectData: ObjectData,
                     pageCount: totalPage,
                     pageSize: +process.env.RECORS_IN_SINGLEPAGE,
@@ -149,7 +149,7 @@ function dynamicgridpost(req, res) {
                 ObjectData.erroInDataFound = "Data Not Found..";
                 ObjectData.errorInEnterInput = "";
                 ObjectData.data = result;
-                res.render('Task-13/dynamicGrid', {
+                res.render('Task-13_dynamicgrid/dynamicGrid', {
                     ObjectData: ObjectData
                 });
             }

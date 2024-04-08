@@ -139,7 +139,7 @@ async function jobapplicationformupdategetpost(req, res) {
 
         // console.log(statearray);
         // errorobject.formupdatemessage = "Update Successfuly..";
-        return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
+        return res.render('Task-15_jobapplicationform/jobapplicationformexercise8', {
             errorobject: errorobject,
             statearray: statearray,
             preferedlocationarray: preferedlocationarray,
@@ -150,7 +150,7 @@ async function jobapplicationformupdategetpost(req, res) {
         });
     } catch (err) {
         logger.logError("Unhandle Error: " + err);
-        return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
+        return res.render('Task-15_jobapplicationform/jobapplicationformexercise8', {
             errorobject: errorobject,
             statearray: statearray,
             datafrompostrquest: datafrompostrquest,

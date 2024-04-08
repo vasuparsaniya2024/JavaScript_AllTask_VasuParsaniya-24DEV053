@@ -65,7 +65,7 @@ async function jobapplicationformajax(req, res) {
     await departmenttemp;
 
 
-    return res.render('Task-16/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
+    return res.render('Task-16_jobapplicationformajax/jobapplicationformexercise1', {
         errorobject: errorobject,
         statearray: statearray,
         cityarray: cityarray,

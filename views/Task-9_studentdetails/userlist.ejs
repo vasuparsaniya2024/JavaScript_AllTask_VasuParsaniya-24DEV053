@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/css/Task-9_studentdetails/userlist.css">
+
+</head>
+
+<body>
+    <%- include('../Components/HomeButtonComponent')%>
+
+        <section class="tableSection">
+            <h1>Vasu Parsaniya_24DEV053</h1>
+            <h2>Exercise:Student Details List</h2>
+            <div class="container">
+                <table cellpadding="5">
+                    <thead class="tablehead">
+                        <tr>
+                            <th class="tablehead1">Student ID</th>
+                            <th class="tablehead2">StudentName</th>
+                            <th class="tablehead1">Email</th>
+                            <th class="tablehead2">PhoneNumber</th>
+                            <th class="tablehead1">Gender</th>
+                            <th class="tablehead2">Address1</th>
+                            <th class="tablehead1">Address2</th>
+                            <th class="tablehead2">City</th>
+                            <th class="tablehead1">State</th>
+                            <th class="tablehead2">ZipCode</th>
+                        </tr>
+                    </thead>
+
+                    <% arrayUser.forEach(function(entry){%>
+                        <tr>
+                            <td>
+                                <%=entry.student_id%>
+                            </td>
+                            <td>
+                                <%=entry.studentname%>
+                            </td>
+
+                            <td>
+                                <%=entry.email%>
+
+                            </td>
+                            <td>
+                                <%=entry.phonenumber%>
+
+                            </td>
+                            <td>
+                                <%=entry.gender%>
+                            </td>
+                            <td>
+                                <%=entry.address1%>
+                            </td>
+                            <td>
+                                <%=entry.address2%>
+                            </td>
+                            <td>
+                                <%=entry.city%>
+                            </td>
+                            <td>
+                                <%=entry.state%>
+                            </td>
+                            <td>
+                                <%=entry.zipcode%>
+                            </td>
+                        </tr>
+                        <%});%>
+                </table>
+            </div>
+        </section>
+</body>
+
+</html>

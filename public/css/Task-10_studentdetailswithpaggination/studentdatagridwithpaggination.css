@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tableSection {
+    background-color: antiquewhite;
+    height: auto;
+    padding: 20px;
+}
+
+.container {
+    max-width: 100%;
+    padding: 20px;
+    background-color: aliceblue;
+    overflow-x: auto;
+}
+
+table {
+    font-size: large;
+    width: 100%;
+}
+
+input {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: aquamarine;
+}
+
+td,
+th {
+    /* border: 1px solid black; */
+    /* border-collapse: collapse; */
+    padding: 10px 15px;
+    border-radius: 2px;
+}
+td{
+    text-align: left;
+}
+.tablehead {
+    position: sticky;
+    top: 0;
+}
+.tableth{
+    /* display: flex;
+    gap: 20px; */
+}
+.tablehead1 {
+    background-color: aqua;
+}
+
+.tablehead2 {
+    background-color: rgb(142, 142, 176);
+}
+
+/* .paggination */
+
+.paggination {
+    background-color: antiquewhite;
+}
+
+.pagginationcontainer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    margin: 0 -15px;
+}
+
+.col1,
+.col3 {
+    width: 10%;
+    border: 1px solid black;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.col2 {
+    width: 40%;
+    border: 1px solid blue;
+    padding: 0 15px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.arrow {
+    display: flex;
+    gap: 5px;
+}
+
+.arrow li {
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: aqua;
+    border-radius: 50%;
+}
+
+.pagenumber {
+    display: flex;
+    gap: 10px;
+}
+
+.pagenumber li {
+    background-color: azure;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.disabled{
+    pointer-events: none;
+    cursor: none;
+    opacity: 0.5;
+}

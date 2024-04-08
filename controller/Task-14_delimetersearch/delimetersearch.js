@@ -19,7 +19,7 @@ function delimetersearchget(req, res) {
     if (queryInput.length === 0) {
         ObjectData.errorInEnterInput = "Please Enter Query.."
         ObjectData.erroInDataFound = "";
-        res.render('Task-14/DelimeterSearch_exercise5/delimetersearch', {
+        res.render('Task-14_delimetersearch/delimetersearch', {
             ObjectData: ObjectData
         });
     } else {
@@ -33,7 +33,7 @@ function delimetersearchget(req, res) {
                 if (result.length === 0) {
                     ObjectData.erroInDataFound = "Data Not Found...";
                 }
-                res.render('Task-14/DelimeterSearch_exercise5/delimetersearch', {
+                res.render('Task-14_delimetersearch/delimetersearch', {
                     ObjectData: ObjectData
                 });
             } catch (err) {
@@ -41,7 +41,7 @@ function delimetersearchget(req, res) {
                 ObjectData.erroInDataFound = "Data Not Found..";
                 ObjectData.errorInEnterInput = "";
                 ObjectData.data = result;
-                res.render('Task-14/DelimeterSearch_exercise5/delimetersearch', {
+                res.render('Task-14_delimetersearch/delimetersearch', {
                     ObjectData: ObjectData
                 });
             }
@@ -222,7 +222,7 @@ function delimetersearchpost(req, res) {
             ObjectData.errorInEnterInput = "";
             ObjectData.erroInDataFound = "";
 
-            res.render('Task-14/DelimeterSearch_exercise5/delimetersearch', {
+            res.render('Task-14_delimetersearch/delimetersearch', {
                 ObjectData: ObjectData
             });
         } catch (err) {
@@ -230,7 +230,7 @@ function delimetersearchpost(req, res) {
             ObjectData.erroInDataFound = "Data Not Found..";
             ObjectData.errorInEnterInput = "";
             ObjectData.data = result;
-            res.render('Task-14/DelimeterSearch_exercise5/delimetersearch', {
+            res.render('Task-14_delimetersearch/delimetersearch', {
                 ObjectData: ObjectData
             });
         }

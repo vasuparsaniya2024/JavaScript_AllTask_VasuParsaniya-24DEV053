@@ -23,9 +23,19 @@ const { forgotpassword, updatepassword } = require('../../controller/forgotpassw
 //----listtask
 const listtask = require('../../controller/HomePage/Home.js');
 
+const javascriptevents = require('../../controller/Task-1_javascriptevents/javascriptEvents.js');
+const dynamictable = require('../../controller/Task-2_dynamictable/dynamicTable.js');
+const kukucube = require('../../controller/Task-3_kukucube/kukuCube.js');
+const tictactoe = require('../../controller/Task-4_tictactoe/ticTacToe.js');
+const sortingalgorithm = require('../../controller/Task-5_sortingalgorithm/sortingAlgorithm.js');
+const ehya = require('../../controller/Task-6_ehya/ehya.js');
+const awanhoster = require('../../controller/Task-7_awanhoster/awanHoster.js');
+const hirex = require('../../controller/Task-8_hirex/hirex.js');
+
 
 const studentdetails = require('../../controller/Task-9_studentdetails/studentdetails.js');
 const studentdetailswithpaggination = require('../../controller/Task-10_studentdetailswithpaggination/studentdetailswithpaggination.js');
+
 const studentattandancereport = require('../../controller/Task-11_studentattadancereport/studentattandancereport.js');
 const studentresultreport = require('../../controller/Task-12_studentresultreport/studentresultreport.js');
 
@@ -34,6 +44,8 @@ const { dynamicgridform, dynamicgridget, dynamicgridpost } = require('../../cont
 const { delimetersearchget, delimetersearchpost } = require('../../controller/Task-14_delimetersearch/delimetersearch.js');
 
 
+//----Task-15 jobapplication form
+const { jobapplicationformhomepage, allstudentlist } = require('../../controller/Task-15_jobapplicationform/commonfunction.js');
 const jobapplicationformget = require('../../controller/Task-15_jobapplicationform/jobapplicationforminsert/jobapplicationform.js');
 const jobapplicationsubmit = require('../../controller/Task-15_jobapplicationform/jobapplicationforminsert/jobapplicationformsubmit.js');
 
@@ -48,12 +60,17 @@ const jobapplicationformdatabackend = require('../../controller/Task-15_jobappli
 //------Task 16 ajax jobapplicationform
 const { jobapplicationformajax, jobapplicationformajaxstate } = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxinsert/jobapplicationformajax.js')
 
+const { studentlistajax, allstudentlistajax } = require('../../controller/Task-16_jobapplicationformajax/commonfunction.js');
+
 const jobapplicationformajaxsubmit = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxinsert/jobapplicationformajaxsubmit.js');
 
 const jobapplicationformajaxupdate = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxupdate/jobapplicationformajaxupdate.js');
 
 const jobapplicationformajaxsubmitupdate = require('../../controller/Task-16_jobapplicationformajax/jobapplicationformajaxupdate/jobapplicationformajaxsubmitupdate.js');
 
+
+//----Task-17 Json PlaceHolder
+const { jsonplaceholder, posts } = require('../../controller/Task-17_jsonplaceholder/jsonplaceholder.js');
 
 //----Task 18 Timezone Converter
 const { timezone, citytimezone } = require('../../controller/Task-18_timezoneconverter/timezoneconverter.js');
@@ -113,47 +130,31 @@ router.get('/listtask', authenticateToken.authenticateToken, listtask);
 
 
 //----------Task-1 Javascript Events List
-router.get('/task1_javascriptevents', authenticateToken.authenticateToken, (req, res) => {
-    return res.render('Task-1/JavaScriptEvents');
-});
+router.get('/task1_javascriptevents', authenticateToken.authenticateToken, javascriptevents);
 
 
 //---------Task-2 Dynamic table create
-router.get('/task2_dynamictable', authenticateToken.authenticateToken, (req, res) => {
-    return res.render('Task-2/Query Selector/TableQuerySelector');
-});
+router.get('/task2_dynamictable', authenticateToken.authenticateToken, dynamictable);
 
 
 //--------Task-3 Kuku Cude
-router.get('/task3_kukucube', authenticateToken.authenticateToken, (req, res) => {
-    return res.render('Task-3/Practice_Task-3');
-});
+router.get('/task3_kukucube', authenticateToken.authenticateToken, kukucube);
 
 //---------Task-4 Tic Tac Toe
-router.get('/task4_tictactoe', authenticateToken.authenticateToken, (req, res) => {
-    return res.render('Task-4/Practice_Task-4');
-});
+router.get('/task4_tictactoe', authenticateToken.authenticateToken, tictactoe);
 
 //--------Task-5 Sorting
-router.get('/task5_sorting', authenticateToken.authenticateToken, (req, res) => {
-    return res.render('Task-5/Practice_Task-5');
-});
+router.get('/task5_sorting', authenticateToken.authenticateToken, sortingalgorithm);
 
 
 //--------Task-6 ehya(HTML,CSS,JavaScript)
-router.get('/task6_ehya', authenticateToken.authenticateToken, (req, res) => {
-    return res.render('Task-6/ehya');
-});
+router.get('/task6_ehya', authenticateToken.authenticateToken, ehya);
 
 //-------Task-7 Awan Hoster(HTML,CSS,JavaScript)
-router.get('/task7_awanhoster', authenticateToken.authenticateToken, (req, res) => {
-    return res.render('Task-7/Awan_Hoster');
-});
+router.get('/task7_awanhoster', authenticateToken.authenticateToken, awanhoster);
 
 //-------Task-8 Hire.X (HTML,CSS,JavaScript)
-router.get('/task8_hirex', authenticateToken.authenticateToken, (req, res) => {
-    return res.render('Task-8/HireX');
-});
+router.get('/task8_hirex', authenticateToken.authenticateToken, hirex);
 
 //-------Task-9 student list
 router.get('/task9_studentDetails', authenticateToken.authenticateToken, studentdetails);
@@ -186,19 +187,10 @@ router.post('/task14_delimetersearch', authenticateToken.authenticateToken, deli
 
 //------Task-15 jobapplication form
 
-router.get('/task16_jobform', authenticateToken.authenticateToken, (req, res) => {
-    res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformhomepage');
-});
+router.get('/task16_jobform', authenticateToken.authenticateToken, jobapplicationformhomepage);
 
 //get all student data
-router.get('/allstudentlist', authenticateToken.authenticateToken, (req, res) => {
-    const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
-    FROM basicdetails WHERE candidate_id > 159`;
-    connection.query(studentdataretrive, (err, result) => {
-        // console.log(result);
-        return res.json(result);
-    });
-});
+router.get('/allstudentlist', authenticateToken.authenticateToken, allstudentlist);
 
 
 //----insert
@@ -214,19 +206,10 @@ router.post('/jobapplicationformupdatesuccessfully', jobapplicationformdatabacke
 
 //-----Task-16 Job Application Form With AJAX
 
-router.get('/task17_jobformajax', authenticateToken.authenticateToken, (req, res) => {
-    return res.render('Task-16/JobApplicationForm_exercise1_view/studentlist');
-});
+router.get('/task17_jobformajax', authenticateToken.authenticateToken, studentlistajax);
 
 //get all student data
-router.get('/studentlistajax', authenticateToken.authenticateToken, (req, res) => {
-    const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
-    FROM basicdetails where candidate_id > 159`;
-    connection.query(studentdataretrive, (err, result) => {
-        // console.log(result);
-        return res.json(result);
-    });
-});
+router.get('/studentlistajax', authenticateToken.authenticateToken, allstudentlistajax);
 
 
 //----insert
@@ -243,17 +226,11 @@ router.post('/jobapplicationformupdatesuccessfullyajax', jobapplicationformdatab
 
 
 //----Task-17 JSON PLACE HOLDER 
-router.get('/task18_jsonplaceholdertable', authenticateToken.authenticateToken, (req, res) => {
-    res.render('Task-17/Exercise1/jsonplaceholdertable');
-});
+router.get('/task18_jsonplaceholdertable', authenticateToken.authenticateToken, jsonplaceholder);
 
-router.get('/post', (req, res) => {
-    res.render('Task-17/Exercise1/post');
-});
+router.get('/post', posts);
 
-router.get('/comments', (req, res) => {
-    res.render('Task-17/Exercise1/post');
-});
+router.get('/comments', posts);
 
 //----Task-18 Timezone Converter
 

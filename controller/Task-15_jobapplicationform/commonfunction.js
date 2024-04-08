@@ -52,6 +52,17 @@ function getoptionidwithname() {
   });
 }
 
+function jobapplicationformhomepage(req, res) {
+  res.render('Task-15_jobapplicationform/jobapplicationformhomepage');
+}
 
+function allstudentlist(req, res) {
+  const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
+    FROM basicdetails WHERE candidate_id > 159`;
+  connection.query(studentdataretrive, (err, result) => {
+    // console.log(result);
+    return res.json(result);
+  });
+}
 
-module.exports = { getstates, optionmaster, getoptionidwithname }
+module.exports = { getstates, optionmaster, getoptionidwithname, jobapplicationformhomepage, allstudentlist }

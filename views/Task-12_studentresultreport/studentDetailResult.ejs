@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details View</title>
+    <link rel="stylesheet" href="/css/Task-12_studentresult/studentdetailsresult.css">
+</head>
+
+<body>
+    <section class="tableSection">
+        <div class="container">
+            <table>
+                <% var StudentMark=JSON.parse(StudentMarkObject);%>
+                    <% var studentTerminalMark=StudentMark.Terminal;%>
+                        <% var studentPrelimMark=StudentMark.Prelim;%>
+                            <% var studentFinalMark=StudentMark.Final;%>
+                                <%studentFinalMark[0].student_id%>
+                                    <% var studentSubjectMark=0;%>
+                                        <% var studentMarkTotal=0;%>
+                                            <% var statusPass="PASS" %>
+                                                <% var statusFail="FAIL" %>
+
+                                                    <tr>
+                                                        <th class="tablehead1">Student ID</th>
+                                                        <td>
+                                                            <%= studentTerminalMark[0].student_id%>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th class="tablehead2">StudentName</th>
+                                                        <td>
+                                                            <%= studentTerminalMark[0].studentname%>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="tablehead1">SubjectName</th>
+                                                        <th class="tablehead2" colspan="2">Terminal</th>
+                                                        <th class="tablehead1" colspan="2">Prelim</th>
+                                                        <th class="tablehead2" colspan="2">Final</th>
+                                                        <th class="tablehead1">Sub Total</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="hidden"></td>
+                                                        <td class="title1">Theory(30)</td>
+                                                        <td class="title2">Practical(20)</td>
+                                                        <td class="title1">Theory(40)</td>
+                                                        <td class="title2">Practical(10)</td>
+                                                        <td class="title1">Theory(70)</td>
+                                                        <td class="title2">Practical(30)</td>
+                                                    </tr>
+
+
+                                                    <% for(let i=0;i<studentTerminalMark.length;i++){%>
+                                                        <tr>
+                                                            <td>
+                                                                <%= studentTerminalMark[i].subjectname%>
+                                                            </td>
+                                                            <td>
+                                                                <%= studentTerminalMark[i].theoryObtainMarkTerminal%>
+                                                            </td>
+                                                            <td>
+                                                                <%= studentTerminalMark[i].practicalObtainMarkTerminal%>
+                                                            </td>
+                                                            <td>
+                                                                <%= studentPrelimMark[i].theoryObtainMarkPrelim%>
+                                                            </td>
+                                                            <td>
+                                                                <%= studentPrelimMark[i].practicalObtainMarkPrelim%>
+                                                            </td>
+                                                            <td>
+                                                                <%= studentFinalMark[i].theoryObtainMarkFinal%>
+                                                            </td>
+                                                            <td>
+                                                                <%= studentFinalMark[i].practicalObtainMarkFinal%>
+                                                            </td>
+
+                                                            <% studentSubjectMark=studentTerminalMark[i].theoryObtainMarkTerminal+
+                                                                studentTerminalMark[i].practicalObtainMarkTerminal+
+                                                                studentPrelimMark[i].theoryObtainMarkPrelim+
+                                                                studentPrelimMark[i].practicalObtainMarkPrelim+
+                                                                studentFinalMark[i].theoryObtainMarkFinal+
+                                                                studentFinalMark[i].practicalObtainMarkFinal%>
+
+                                                                <td>
+                                                                    <%= studentSubjectMark%>
+                                                                </td>
+                                                        </tr>
+                                                        <% studentMarkTotal=studentMarkTotal + studentSubjectMark%>
+                                                            <%}%>
+
+                                                                <tr>
+                                                                    <th class="tablehead2">Total(1200)</th>
+                                                                    <td>
+                                                                        <%= studentMarkTotal%>
+                                                                    </td>
+                                                                </tr>
+                                                                <% var percentage=((studentMarkTotal *
+                                                                    100)/1200).toFixed(2)%>
+                                                                    <tr>
+                                                                        <th class="tablehead1">Percentage</th>
+                                                                        <td>
+                                                                            <%= ((studentMarkTotal *
+                                                                                100)/1200).toFixed(2)%>%
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="tablehead2">Status</th>
+                                                                        <td>
+                                                                            <% if(percentage>33){%>
+                                                                                <%= statusPass%>
+                                                                                    <%}else{%>
+                                                                                        <%= statusFail%>
+                                                                                            <%}%>
+                                                                        </td>
+                                                                    </tr>
+            </table>
+        </div>
+    </section>
+    <%- include('../Components/HomeButtonComponent')%>
+</body>
+
+</html>

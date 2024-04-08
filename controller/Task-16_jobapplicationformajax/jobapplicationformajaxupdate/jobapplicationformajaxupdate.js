@@ -156,7 +156,7 @@ async function jobapplicationformajaxupdate(req, res) {
         // console.log(cityarraytosend);
 
         // errorobject.formupdatemessage = "Update Successfuly..";
-        return res.render('Task-16/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
+        return res.render('Task-16_jobapplicationformajax/jobapplicationformexercise1', {
             errorobject: errorobject,
             statearray: statearray,
             cityarraytosend: cityarraytosend,
@@ -168,7 +168,7 @@ async function jobapplicationformajaxupdate(req, res) {
         });
     } catch (err) {
         logger.logError("Unhandle Error: " + err);
-        return res.render('Task-16/JobApplicationForm_exercise1_view/jobapplicationformexercise1', {
+        return res.render('Task-16_jobapplicationformajax/jobapplicationformexercise1', {
             errorobject: errorobject,
             statearray: statearray,
             datafrompostrquest: datafrompostrquest,

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TableQuerySelector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+
+    <Script src="/js/Task-2_dynamictable/TableQuerySelector.js"></Script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        td {
+            width: 20px;
+            height: 20px;
+        }
+
+        tr:nth-child(odd)>td:nth-child(odd),
+        tr:nth-child(even)>td:nth-child(even) {
+            background-color: aqua;
+        }
+
+        /* tr:nth-child(even)> td:nth-child(even) {
+            background-color: aqua;
+        } */
+
+        tr:nth-child(odd)>td:nth-child(even),
+        tr:nth-child(even)>td:nth-child(odd) {
+            background-color: antiquewhite;
+        }
+
+        .icon1 {
+            top: 14%;
+            position: absolute;
+            right: 350px;
+        }
+
+        .icon2 {
+            margin: 20px 0 0 335px;
+        }
+    </style>
+</head>
+
+<body onload="Default()">
+    <h1>24DEV053_Vasu Parsaniya</h1>
+    <h1>Date: 01-02-2024</h1>
+
+    <div class="icon1">
+        <a href="#" class="column" id="addnewcolumn" onclick="addNewColumn()"><i class="fa fa-plus-circle"
+                aria-hidden="true"></i></a>
+        <a href="#" class="column" id="removenewcolumn" onclick="removeNewColumn()"><i class="fa fa-minus-circle"
+                aria-hidden="true"></i></a>
+    </div>
+
+    <table id="AddRowColumn" cellpadding="10" border="1">
+
+        <!-- <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr> -->
+    </table>
+
+    <div class="icon2">
+        <a href="#" class="row" id="addnewrow" onclick="addNewRow()"><i class="fa fa-plus-circle"
+                aria-hidden="true"></i></a>
+        <a href="#" class="row" id="removenewrow" onclick="removeRow()"><i class="fa fa-minus-circle"
+                aria-hidden="true"></i></a>
+    </div>
+
+</body>
+
+</html>

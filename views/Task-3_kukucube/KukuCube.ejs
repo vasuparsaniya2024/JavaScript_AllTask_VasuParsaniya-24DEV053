@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Task-3 JavaScript</title>
+    <script src="/js/Task-3_kukucube/kukuCube.js"></script>
+    <style>
+        body {
+            background-color: #f5f5dc;
+        }
+
+        table {
+            width: 50%;
+            margin: 0 auto;
+            cursor: pointer;
+            /* height: 10vh; */
+        }
+
+        td {
+            width: 2px;
+            height: 2px;
+        }
+
+        p,
+        #score,
+        #timer {
+            font-size: 20px;
+        }
+
+        /* .splitleft{
+            height: 100%;
+            width: 20%;
+            position: fixed;
+            top:0;
+            left:0;
+        }
+
+        .splitright{
+            height: 50%;
+            width: 80%;
+            position: fixed;
+            top: 0;
+            right: 0;
+        }  */
+    </style>
+</head>
+
+<body onload="DefaultTable(1)">
+    <div class="splitleft">
+        <div>
+            <h1>24DEV053_Vasu Parsaniya</h1>
+            <h1>Date: 02-02-2024</h1>
+        </div>
+        <div>
+            <p>Score:</p><span id="score"></span>
+            <p>Timer:</p><span id="timer"></span>
+        </div>
+    </div>
+
+    <table class="splitright" id="mytable" cellpadding="15" border="1">
+
+    </table>
+</body>
+
+</html>

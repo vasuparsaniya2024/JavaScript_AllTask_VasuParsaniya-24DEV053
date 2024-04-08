@@ -3,7 +3,7 @@ const logger = require('../../../logs.js');
 
 const { insertEducationDetail, insertExperienceDetail, insertReferenceDetail, inserttechnologyknown, insertlanguageknown } = require('./insertrecordfunction.js');
 
-const { getstates, optionmaster, getoptionidwithname } = require('../commonfunction.js');
+const { getstates, optionmaster } = require('../commonfunction.js');
 
 
 async function jobapplicationsubmit(req, res) {
@@ -94,7 +94,7 @@ async function jobapplicationsubmit(req, res) {
     if (Object.keys(errorobject).length > 0) {
         //it is return because if error exist then render ejs with error
         //if i am not put return then out side of if block is execute
-        return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
+        return res.render('Task-15_jobapplicationform/jobapplicationformexercise8', {
             errorobject: errorobject,
             statearray: statearray,
             preferedlocationarray: preferedlocationarray,
@@ -538,7 +538,7 @@ async function jobapplicationsubmit(req, res) {
             //Here We Render because after resolve promise 
             //If We render in the connection.commit then it give error like cannot sent header after they are send to the client
             // Render the response after successful insertion and promise resolve 
-            return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
+            return res.render('Task-15_jobapplicationform/jobapplicationformexercise8', {
                 errorobject: { formsubmitmessage: "Thank You For Submitting.." },
                 datafrompostrquest: {},
                 statearray: statearray, preferedlocationarray: preferedlocationarray, departmentarray: departmentarray, studentdata: studentdata,
@@ -549,7 +549,7 @@ async function jobapplicationsubmit(req, res) {
             logger.logError("Unhandle Error:" + err);
             errorobject.recordinserterror = "Something Went Wrong";
 
-            return res.render('Task-15/JobApplicationForm_exercise8_view/jobapplicationformexercise8', {
+            return res.render('Task-15_jobapplicationform/jobapplicationformexercise8', {
                 errorobject: errorobject,
                 datafrompostrquest: datafrompostrquest,
                 statearray: statearray, preferedlocationarray: preferedlocationarray, departmentarray: departmentarray,

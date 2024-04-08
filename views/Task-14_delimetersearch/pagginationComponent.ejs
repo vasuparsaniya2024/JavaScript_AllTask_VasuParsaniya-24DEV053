@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paggination Component</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/Task-14_delimetersearch/PagginationComponent/pagginationComponent.css">
+</head>
+
+<body>
+    <section class="paggination">
+        <div class="pagginationcontainer">
+            <div class="row">
+                <% var currPage=currentPage%>
+
+                    <!-- <form id="pagginationForm"> -->
+                    <div class="col1">
+                        <% if(currentPage <=1){%>
+                            <ul class="arrow">
+                                <li><a href="<%= ObjectData.urlPath%>?page=1&querystring=<%= ObjectData.query%>"
+                                        id="doubleleft" class="disabled"><i class="fa-solid fa-angles-left"></i></a>
+                                </li>
+                                <li><a href="<%= ObjectData.urlPath%>?page=<%= currentPage%>&querystring=<%= ObjectData.query%>"
+                                        id="singleleft" class="disabled"><i class="fa-solid fa-angle-left"></i></a></li>
+                            </ul>
+                            <% }else{%>
+                                <ul class="arrow">
+                                    <li><a href="<%= ObjectData.urlPath%>?page=1&querystring=<%= ObjectData.query%>"
+                                            id="doubleleft"><i class="fa-solid fa-angles-left"></i></a></li>
+                                    <li><a href="<%= ObjectData.urlPath%>?page=<%= currentPage-1%>&querystring=<%= ObjectData.query%>"
+                                            id="singleleft"><i class="fa-solid fa-angle-left"></i></a></li>
+                                </ul>
+                                <%}%>
+                    </div>
+                    <div class="col2">
+                        <ul class="pagenumber">
+                            <!-- <% for(let i=1;i<=pageCount;i++){%>
+                                    <li><a href="/pagginationcomponent/?page=<%= i%>">
+                                            <%= i %>
+                                        </a>
+                                    </li>
+                                    <%}%> -->
+                            <li>Page: <%= currentPage%>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col3">
+                        <% if(currentPage==pageCount){%>
+                            <ul class="arrow">
+                                <li><a href="<%= ObjectData.urlPath%>?page=<%= currentPage+1%>&querystring=<%= ObjectData.query%>"
+                                        id="singleright" class="disabled"><i class="fa-solid fa-angle-right"></i></a>
+                                </li>
+                                <li><a href="<%= ObjectData.urlPath%>?page=<%= pageCount%>&querystring=<%= ObjectData.query%>"
+                                        id="doubleright" class="disabled"><i class="fa-solid fa-angles-right"></i></a>
+                                </li>
+                            </ul>
+                            <%}else{%>
+                                <ul class="arrow">
+                                    <li><a href="<%= ObjectData.urlPath%>?page=<%= currentPage+1%>&querystring=<%= ObjectData.query%>"
+                                            id="singleright"><i class="fa-solid fa-angle-right"></i></a></li>
+                                    <li><a href="<%= ObjectData.urlPath%>?page=<%= pageCount%>&querystring=<%= ObjectData.query%>"
+                                            id="doubleright"><i class="fa-solid fa-angles-right"></i></a></li>
+                                </ul>
+                                <%}%>
+                    </div>
+                    <!-- </form> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- <script>
+        function onSubmit(){
+            document.getElementById('pagginationForm').submit();
+        }
+    </script> -->
+</body>
+
+</html>

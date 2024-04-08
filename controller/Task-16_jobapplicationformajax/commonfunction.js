@@ -64,4 +64,16 @@ function getoptionidwithname() {
   });
 }
 
-module.exports = { getstates, getcity, optionmaster, getoptionidwithname }
+function studentlistajax(req, res) {
+  return res.render('Task-16_jobapplicationformajax/studentlist');
+}
+
+function allstudentlistajax(req, res) {
+  const studentdataretrive = `SELECT candidate_id as StudentId,firstname as FirstName,lastname as LastName,email as Email
+    FROM basicdetails where candidate_id > 159`;
+  connection.query(studentdataretrive, (err, result) => {
+    // console.log(result);
+    return res.json(result);
+  });
+}
+module.exports = { getstates, getcity, optionmaster, getoptionidwithname, studentlistajax, allstudentlistajax }
