@@ -3,7 +3,6 @@ async function formdata() {
 
     const jobapplicationform = document.forms["JobApplicationForm"];
 
-    alert(jobapplicationform);
     //form input value in key-value pair 
     const formData = new FormData(jobapplicationform);
 
